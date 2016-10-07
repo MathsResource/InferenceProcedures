@@ -15,3 +15,11 @@ p = Bar(myData, title="Simple Bar Chart Example",width=400, height=400)
 
 # show the results
 show(p)
+
+###############################################################
+# Displaying Output
+#
+# To display Bokeh plots inline in an Jupyter notebook, use the output_notebook() function from bokeh.io 
+# instead of, or in addition to) the output_file() function . 
+# No other modifications are required. 
+# When show() is called, the plot will be displayed inline in the next notebook output cell.
