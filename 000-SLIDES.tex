@@ -1,0 +1,354 @@
+Auxiliary tutorial 2: Introduction to Bokeh
+(c) 2016 Justin Bois. With the exception of the Drosophila oocyte image, this work is licensed under a Creative Commons Attribution License CC-BY 4.0. The oocyte image was acquired by Alex Webster and may not be distributed. All code contained herein is licensed under an MIT license.
+This tutorial was generated from an Jupyter notebook. You can download the notebook here.
+import numpy as np
+import pandas as pd
+
+import skimage
+import skimage.io
+
+# Use IPython widgets for interacting
+import ipywidgets
+
+# Import Bokeh modules for interactive plotting
+import bokeh.charts
+import bokeh.charts.utils
+import bokeh.io
+import bokeh.models
+import bokeh.palettes
+import bokeh.plotting
+
+# Display graphics in this notebook
+bokeh.io.output_notebook()
+ BokehJS successfully loaded.
+In this tutorial, we will explore browser-based interactive plotting using Bokeh. It is important that you are using the latest version of Bokeh, v. 0.12.2. After importing, verify that this is the case.
+bokeh.__version__
+'0.12.2'
+If we do not have the most recent version, you can update it:
+conda update bokeh
+
+
+Why is it so important to use the most recent version? Bokeh is currently in very active development. It is certainly not feature-full yet, and there are lots and lots of features slated to be added.
+For browser-based interactive data visualization, D3.js is the most widely used and feature-full. However, it is a lower level package, and requires writing JavaScript. Bokeh, like Shiny(http://shiny.rstudio.com) for R, and others, is an attempt to bring the type of functionality D3 offers, using high level languages like Python. In other words, the goal is that you can achieve browser-based interactive data visualizations with few lines of code.
+Datashader is a great add-on on top of Bokeh that enables visualization of very large data sets.
+Why browser-based interactive data visualization?
+I think the interactive part is easy to answer. The more you can interact with your data, particularly during the exploratory phase of data analysis, the more you can learn. When doing exploratory data analysis, we typically make lots and lots of plots to see patterns. If we can expedite this process, we can be more efficient and effective in our analysis.
+Why browser-based? There are two simple answers to this. First, everyone has one, and they are relatively standardized. This makes your graphics very portable. Second, there are lots of tools for efficiently rendering graphics in browsers. Bokeh uses HTML5 canvas elements to accomplish this. These tools are mature and stable, thereby making backend rendering of the graphics easy.
+Data for this tutorial
+We will use the tidy DataFrames from the first couple weeks of class as we explore Bokeh's features and do some interactive visualizations. So, let's load in the DataFrames now.
+# The frog data from tutorial 1a
+df_frog = pd.read_csv('../data/frog_tongue_adhesion.csv', comment='#')
+
+# The MT catastrophe data
+df_mt = pd.read_csv(
+    '../data/gardner_et_al_2011_time_to_catastrophe_dic.csv',
+    comment='#')
+
+# These were generated in tutorial 2a
+df_fish = pd.read_csv('../data/130315_10_minute_intervals.csv')
+Before moving on, we'll go ahead and tidy the MT catastrophe DataFrame.
+# Tidy MT_catastrophe DataFrame
+df_mt.columns = ['labeled', 'unlabeled']
+df_mt = pd.melt(df_mt, var_name='fluor', value_name='tau').dropna()
+High-level charts
+Perhaps the easiest way to get started with Bokeh is to use its high-level charts. These allow for rapid plotting of data coming from Pandas DataFrames, much like the plotting utilities in Pandas itself.
+Line plot
+We'll start with a simple line plot of zebrafish sleep data.
+# Pull out fish record
+df_fish2 = df_fish[df_fish['fish']==2]
+
+# Use Bokeh chart to make plot
+p = bokeh.charts.Line(df_fish2, x='zeit', y='activity', height=300, 
+                      color='dodgerblue')
+
+# Display it
+bokeh.io.show(p)
+There are many things to note here. First, and most obviously, you can play with the various tools. You can select the tools in the upper right corner of the plot. Hovering over an icon will reveal what the tool does.
+When we instantiate the  bokeh.charts.Line object, we plot is returned, which we assigned to variable p. We can further modify/add attributes to this object. Importantly, the bokher.io.show() function displays the object. We have specified that the graphics will be shown in the current notebook with our import statements. We can also export the plot as its own standalone HTML document. We won't do it here, but simply put
+bokeh.plotting.output_file('filename.html')
+
+before the bokeh.io.show(p) function call.
+Note also that we chose a color of "dodgerblue." We can choose any of the named CSS colors, or specify a hexadecimal color. Further, we specified the height of the plot in pixels using the height kwarg. We could also specify the width using the width kwarg, but let it as the default here. Notice also that the axes were automatically labeled with the column headings of the DataFrame. We can specify the axis labels with keyword arguments as well.
+# Use Bokeh chart to make plot
+p = bokeh.charts.Line(df_fish2, x='zeit', y='activity', height=300,
+                      color='dodgerblue', xlabel='time (h)', 
+                      ylabel='sec of activity / 10 min')
+
+# Display it
+bokeh.io.show(p)
+We can also put multiple lines on the same plot.
+# Select three fish to plot
+df_fish_multi = df_fish[df_fish['fish'].isin([1, 12, 23])]
+
+# Use Bokeh chart to make plot
+p = bokeh.charts.Line(df_fish_multi, x='zeit', y='activity', height=300,
+                      color='fish', xlabel='time (h)', 
+                      ylabel='sec of activity / 10 min', legend="top_left")
+
+# Display it
+bokeh.io.show(p)
+Box plots
+Bokeh's high-level charts interface also allows for easy construction of box plots. As an example, we'll make box plots of the striking force of the frog tongues.
+# Use Bokeh chart to make plot
+p = bokeh.charts.BoxPlot(df_frog, values='impact force (mN)', label='ID',
+                        color='ID', height=400, xlabel='frog', 
+                        ylabel='impact force (mN)', legend=None)
+
+# Display it
+bokeh.io.show(p)
+Pretty slick, just like Seaborn. There is currently no support for beeswarm plots in Bokeh, but we can make jitter plots, as I demonstrate below.
+Scatter plots
+We can also make scatter plots. As a useful feature, we can color the points in the scatter plot according to values in the DataFrame.
+# Use Bokeh chart to make plot
+p = bokeh.charts.Scatter(df_frog, x='impact force (mN)', y='adhesive force (mN)',
+                         color='ID', height=400, width=500,
+                         ylabel='adhesive force (mN)', xlabel='impact force (mN)',
+                         legend='top_right')
+
+# Display it
+bokeh.io.show(p)
+Histograms
+And, of course, we can do histograms. We'll use the microtubule catastrophe data to do that.
+# Use Bokeh chart to make plot
+p = bokeh.charts.Histogram(df_mt, values='tau', color='fluor',
+                           bins=20, height=400, width=500, 
+                           xlabel='τ (seconds)', ylabel='count',
+                           legend='top_right')
+
+# Display it
+bokeh.io.show(p)
+More control with the plotting interface
+Bokeh's charts interface is useful for quickly making plots from DataFrames, but the lower level bokeh.plotting interface allows more control over the plots. For example, let's plot a couple ECDFs, specifying color. We'll use the microtubule catastrophe data we have seen before.
+def ecdf(data):
+    return np.sort(data), np.arange(1, len(data)+1) / len(data)
+
+# Compute ECDFs
+x_lab, y_lab = ecdf(df_mt.loc[df_mt.fluor=='labeled','tau'])
+x_unlab, y_unlab = ecdf(df_mt.loc[df_mt.fluor=='unlabeled','tau'])
+
+# Set up our figure to paint the data on
+p = bokeh.plotting.figure(width=650, height=350, x_axis_label='τ (s)',
+                          y_axis_label='ECDF')
+
+# Specify the glyphs
+p.circle(x_lab, y_lab, size=7, alpha=0.75, legend='labeled',
+         color='dodgerblue')
+p.circle(x_unlab, y_unlab, size=7, alpha=0.75, legend='unlabeled',
+         color='tomato')
+p.legend.location = 'bottom_right'
+
+bokeh.io.show(p)
+Specifying tools
+Using the bokeh.plotting interface, we can also specify which tools we want available. For example, we can add a HoverTool that will give information about each data point if we hover the mouse over it. Let's add it to the ECDF so we can look up the exact values of $\tau$ and $\hat{F}(\tau)$.
+# Add the hover tool with annotation of value of data points
+# This syntax is different than docs, see 
+# https://github.com/bokeh/bokeh/issues/4861
+tooltips = [('τ (s)', '@x'), ('F(τ)', '@y')]
+p.add_tools(bokeh.models.HoverTool(tooltips=tooltips))
+bokeh.io.show(p)
+Enhancing the fish activity traces
+We can also exercise this increased control with the fish activity data. We will construct beautiful, useful, interactive ways of looking at the fish activity data. First, we'll write a small function to get the starting and ending points of nights so we can shade our plots.
+def nights(df):
+    """
+    Takes light series from a single fish and gives the start and end of nights.
+    """
+    lefts = df.zeit[np.where(np.diff(df.light.astype(int)) == -1)[0]].values
+    rights = df.zeit[np.where(np.diff(df.light.astype(int)) == 1)[0]].values
+    return lefts, rights
+Now that we have this function, we can proceed to write a function to set up a "canvas" that has the night and day bars on which to paint our plot. We will add a HoverTool with no tooltips. We do this looking ahead: we will plot lines with the hover_color kwarg that will enable us to highlight activity curves for specific fish.
+def fish_canvas(df, height=350, width=650):
+    """
+    Set up night/day plot for fish.
+    """  
+    # Create figure
+    p = bokeh.plotting.figure(width=width, height=height, 
+                              x_axis_label='time (hours)',
+                              y_axis_label='sec. of activity / 10 min.',
+                              tools='pan,box_zoom,wheel_zoom,reset,resize,save')
+
+    # Determine when nights start and end
+    lefts, rights = nights(df[df.fish==1])
+
+    # Make shaded boxes for nights
+    night_boxes = []
+    for left, right in zip(lefts, rights):
+        night_boxes.append(
+                bokeh.models.BoxAnnotation(plot=p, left=left, right=right, 
+                                           fill_alpha=0.3, fill_color='gray'))
+    p.renderers.extend(night_boxes)
+    
+    # Add a HoverTool to highlight individual fish
+    p.add_tools(bokeh.models.HoverTool(tooltips=None))
+    
+    return p
+Now we can write a function to generate a plot of the fish activity. We will choose a genotype, then paint the canvas with thin, light blue lines for each fish of that genotype. We'll then paint a thick line representing the mean activity. The p.multi_line() function takes a list of x arrays and a list of y arrays (xs and ys, respectively) and plots many lines from them. Note that we use the hover_color kwarg to make a trace we are hovering of purple.
+def fish_plot(p, df, genotype, colors):
+    """
+    Populate traces of fish activity.
+    """
+    # Extract list of fish for genotype
+    fishes = list(
+            df[df.genotype==genotype].groupby('fish').groups.keys())
+    
+    # Extract values from tidy DataFrame as list of data sets
+    xs = [df.loc[df.fish==1, 'zeit'].values] * len(fishes)
+    ys = [df.loc[df.fish==fish, 'activity'].values for fish in fishes]
+    
+    # Populate glyphs
+    ml = p.multi_line(xs=xs, ys=ys, line_width=0.5, alpha=0.75,
+                      color=colors[genotype][0], line_join='bevel',
+                      hover_color='#5c04f4')
+
+    # Plot average trace
+    mean_line = p.line(xs[0], np.mean(np.array(ys), axis=0), line_width=3, 
+                       color=colors[genotype][1], line_join='bevel')
+    
+    # Label title
+    p.title.text = genotype
+
+    return p, ml, mean_line
+Notice how we used the kwarg line_join='bevel'. By default, making a line plot with bokeh.charts.Line() joins line segments that are mitered, giving the sharp points, some of which dip below zero, that you saw before. I prefer line_join='bevel', which does not have this problem.
+Finally, we need to set up colors for the plotting. We will use a paired color scheme from the excellent ColorBrewer2, which are available in the bokeh.palettes module.
+c = bokeh.palettes.brewer['Paired'][6]
+colors = {'wt': (c[0], c[1]), 'het': (c[2], c[3]), 'mut': (c[4], c[5])}
+Now let's make out plot using these nifty functions!
+p = fish_canvas(df_fish)
+p, ml, mean_line = fish_plot(p, df_fish, 'wt', colors)
+bokeh.io.show(p)
+Note that when you hover, sometimes many lines are selected. This can be annoying, and is something the developers of Bokeh are working on making configurable.
+Labeling which fish is which
+This is all very nice, but it would be nice to configure the hover to tell us which fish is which. To do this, we cannot use the convenient multi_line() function, unless we want to make custom hover tools using JavaScript. Bokeh is still very much in active development, and more features are coming soon, and getting hover information will be easier going forward. For example, when we did the course last year, lines generated from multi_line() would not work at all with hover tools.
+Widgets
+We can also build widgets to select data we want plotted. We can't really do this in the Jupyter notebook, though. Instead, we have to write a .py file, run it, and serve it up using Bokeh. Instead, we will show here how to use widgets that can be used with Jupyter notebooks from the ipywidgets module.
+Interacting in a Jupyter notebook
+We can interact with Bokeh plots in a Jupyter notebook using the ipywidgets.interact() function. We will make a
+Say we want to plot only fish of a given genotype and watch to switch from genotype to genotype. We can set up a CheckboxButtonGroup to select genotypes and update the data that is present in the plots.
+Note: These widgets work only in a running Jupyter notebook; the HTML version of this document will not have working widgets.
+def button_handler(genotype):
+    """
+    Updates plots
+    """
+    # Extract list of fish for genotype
+    fishes = list(
+            df_fish[df_fish.genotype==genotype].groupby('fish').groups.keys())
+    
+    # Extract values from tidy DataFrame as list of data sets
+    xs = [df_fish.loc[df_fish.fish==1, 'zeit'].values] * len(fishes)
+    ys = [df_fish.loc[df_fish.fish==fish, 'activity'].values for fish in fishes]
+
+    # Update data sources
+    ml.data_source.data['xs'] = xs
+    ml.data_source.data['ys'] = ys
+    mean_line.data_source.data['y'] = np.mean(np.array(ys), axis=0)
+    
+    # Update colors
+    ml.glyph.line_color = colors[genotype][0]
+    mean_line.glyph.line_color = colors[genotype][1]
+    
+    # Update title
+    p.title.text = genotype
+
+    # Push changes back to notebook
+    bokeh.io.push_notebook()
+
+# Make radio button widget
+radio_buttons = ipywidgets.RadioButtons(
+    description='Genotype', options=['wt', 'het', 'mut'])
+    
+# Build plot
+p = fish_canvas(df_fish)
+p, ml, mean_line = fish_plot(p, df_fish, 'wt', colors)
+p.title.text = 'wt'
+bokeh.io.show(p, notebook_handle=True);
+ipywidgets.interact(button_handler, genotype=radio_buttons);
+Linking subplots
+Bokeh also has the wonderful capability of linking subplots. The key here is to specify that the plots have the same ranges of the $x$ and $y$ variables. To do this, we just have to specify the x_range and y_range properties of plots to be the same.
+# Determine when nights start and end
+lefts, rights = nights(df_fish[df_fish.fish==1])
+
+# Create figures
+ps = [fish_canvas(df_fish, height=200) for i in range(3)] 
+
+# Link ranges (enable linked panning/zooming)
+for i in (1, 2):
+    ps[1].x_range = ps[0].x_range
+    ps[2].x_range = ps[0].x_range
+    ps[1].y_range = ps[0].y_range
+    ps[2].y_range = ps[0].y_range
+        
+# Populate glyphs
+for p, genotype in zip(ps, ['wt', 'het', 'mut']):
+    _ = fish_plot(p, df_fish, genotype, colors)
+    
+grid = bokeh.layouts.gridplot([[ps[0]], [ps[1]], [ps[2]]])
+
+bokeh.io.show(grid)
+Images
+Bokeh can also display images in the browser and enables zooming, etc.
+Grayscale images
+To start with, I'll display a grayscale image of a bacterial colony. First, we'll load the image in using scikit-image.
+im = skimage.io.imread('../data/ecoli_colony.tif')
+No, let's look at the image using Bokeh. We need to specify the image size and the range of the image.
+# Get shape
+n, m = im.shape
+
+# Set up figure with appropriate dimensions
+plot_height = 400
+plot_width = int(m/n * plot_height)
+p = bokeh.plotting.figure(plot_height=plot_height, plot_width=plot_width, 
+                          x_range=[0, m], y_range=[0, n],
+                          tools='pan,box_zoom,wheel_zoom,reset,resize')
+
+# Set color mapper; we'll do grayscale with 256 levels
+color = bokeh.models.LinearColorMapper(bokeh.palettes.gray(256))
+
+# Display the image
+im_bokeh = p.image(image=[im], x=0, y=0, dw=m, dh=n, color_mapper=color)
+bokeh.io.show(p)
+We can also look at the image with coloring by changing the colormapper. We will use my favorite colormap, viridis.
+im_bokeh.glyph.color_mapper = bokeh.models.LinearColorMapper(
+                                            bokeh.palettes.viridis(256))
+
+bokeh.io.show(p)
+RGB images
+Here, I'll show an RGB image of Drosophila oocytes from Alexei Aravin's lab. First, we'll read in the image using scikit-image.
+im = skimage.io.imread('../data/dros_oocytes.tif')
+
+# Check out its dimensions
+im.shape
+(1040, 1388, 3)
+This is an RGB image, as we can see from its shape. To display RGB images, we need to encode them as a 32-bit RGBA image for viewing using Bokeh. Here is a little function to do that.
+def rgb_to_rgba32(im):
+    """
+    Convert an RGB image to a 32 bit-encoded RGBA image.
+    """
+    # Ensure it has three channels
+    if len(im.shape) != 3 or im.shape[2] !=3:
+        raise RuntimeError('Input image is not RGB.')
+    
+    # Get image shape
+    n, m, _ = im.shape
+
+    # Convert to 8-bit, which is expected for viewing
+    im_8 = skimage.img_as_ubyte(im)
+
+    # Add the alpha channel, which is expected by Bokeh
+    im_rgba = np.dstack((im_8, 255*np.ones_like(im_8[:,:,0])))
+    
+    # Reshape into 32 bit. Must flip up/down for proper orientation
+    return np.flipud(im_rgba.view(dtype=np.int32).reshape(n, m))
+Now that we have this utility function in place we can view the image with Bokeh.
+# Make image to display and get shape
+im_disp = rgb_to_rgba32(im)
+n, m = im_disp.shape
+
+# Set up figure with appropriate dimensions
+plot_height = 400
+plot_width = int(m/n * plot_height)
+p = bokeh.plotting.figure(plot_height=plot_height, plot_width=plot_width, 
+                          x_range=[0, m], y_range=[0, n],
+                          tools='pan,box_zoom,wheel_zoom,reset,resize')
+
+# Display the image, setting the origin and heights/widths properly
+p.image_rgba(image=[im_disp], x=0, y=0, dw=m, dh=n)
+bokeh.io.show(p)
