@@ -26,4 +26,4 @@ show(p)
 #- The levels of cyl are 4,6 and 8.
 #- The levels of origin are 1,2 and 3.
 
-# You Need: from bokeh.sampledata.iautompg import autompg
+# You Need: from bokeh.sampledata.autompg import autompg
