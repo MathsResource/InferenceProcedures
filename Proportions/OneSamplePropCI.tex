@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Confidence Interval} %\input{tcilatex}
+
+\begin{document}
+
+\section*{Confidence Interval - Worked Example}
+
+In a study of 400 households in the suburbs of a large city, 240 responded
+that they have digital television.
+\\
+\bigskip
+\textbf{Question:} Compute the 95\% confidence interval for the proportion of all suburban residents that have digital television.
+
+
+\begin{framed}
+General Structure of Confidence Intervals
+
+\[
+\mbox{Point Estimate} \; \pm \; \left( \mbox{Quantile} \times \mbox{Standard Error} \right)
+\]
+\end{framed}
+
+
+
+The \textbf{point estimate} is the sample proportion.
+\begin{itemize}
+	\item $n$ is the sample size. \\
+	For our example $n = 400$.
+	\vspace{0.1cm}
+	\item $\hat{P}$ is the sample proportion
+	\[ \hat{P} = \frac{240}{400} = 0.60 \]
+	( 60 \% expressed as percentage)
+	\vspace{0.1cm}
+	\item $1 - \hat{P}$ is the complement of the sample proportion.\\ For our example $1- \hat{P} = 1 - 0.60  =  0.40.$
+	
+\end{itemize}
+
+
+\textbf{Quantile}
+\begin{itemize}
+	\item Large sample ($n >30$).
+	\item We use the standard normal ($Z$) distribution.
+	\item The quantile depends on the required confidence level
+\end{itemize}
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline \phantom{sp} Confidence Level \phantom{sp}  &  \phantom{sp} Quantile \phantom{sp} \\ 
+		\hline  95\% & 1.96  \\ 
+		\hline  99\% & 2.576 \\ 
+		\hline  99.9\%& 3.29  \\ 
+		\hline 
+	\end{tabular} 
+\end{center}
+
+%%- \frametitle{Confidence Intervals for Proportions}
+
+\noindent The standard error, used to compute confidence interval for proportions, is computed according to the following formula.
+
+
+
+\[
+S.E. (\hat{p}) = \sqrt{ { \hat{p} \times ( 1 - \hat{p}) \over n}}
+\]
+
+\noindent In terms of percentages, we would use this variant.
+\[
+S.E. (\hat{p}) = \sqrt{ { \hat{p} \times ( 100 - \hat{p}) \over n}}
+\]
+
+
+\begin{itemize}
+	\item This standard error formula is different from the one from hypothesis testing.
+	\item The relevant formulae for standard errors are generally included at the back of exam papers.
+\end{itemize}
+
+
+
+
+\noindent Using these values, we can calculate the standard error with this expression.
+
+
+\[
+S.E. (\hat{P}) = \sqrt{ { 0.60 \times 0.40 \over 400}}
+\]
+
+
+
+%%- \frametitle{Confidence Intervals for Proportions}
+
+However, it is often easier to perform such calculations when working in terms of percentages.
+\vspace{0.1cm}
+\[
+S.E. (\hat{P}) = \sqrt{ { \hat{P} \times ( 100 - \hat{P}) \over n}}
+\;[\%] \]
+
+\[
+S.E. (\hat{P}) = \sqrt{ { 60 \times 40 \over 400}}  \;[\%]
+\]
+
+\[
+S.E. (\hat{P}) = \sqrt{ 6 } = 2.45  \;[\%]
+\]
+
+
+
+%%- \frametitle{Confidence Intervals for Proportions}
+
+\noindent	\textbf{Putting It Together}
+\begin{itemize}
+	\item Point Estimate:  $\hat{p} = 60\% $
+	\vspace{0.2cm}
+	\item Quantile: $Z = 1.96 $
+	\vspace{0.2cm}
+	\item Standard Error:
+	$S.E. (\hat{P}) = 2.45 \% $
+\end{itemize}
+\vspace{0.5cm}
+
+\noindent Confidence Interval (in terms of percentages)
+\[  (55.2\%, 64.8 \%)\]
+
+\noindent Confidence Interval (in terms of proportions)
+\[  (0.552, 0.648)\]
+
+
+
+
+\end{document}
