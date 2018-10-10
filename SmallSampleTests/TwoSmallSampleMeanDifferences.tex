@@ -1,0 +1,97 @@
+	\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Hypothesis Testing} %\input{tcilatex}
+
+\begin{document}
+
+\section*{Worked Example CI for Difference in Two Means}
+A research company is comparing computers from two different companies, X-Cel and Yellow, on the basis of energy consumption per hour. Given the following data, compute a $95\%$ confidence interval for the difference in energy consumption.
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Type & sample size & mean & variance \\ \hline
+		X-cel & 17 & 5.353 & 2.743 \\ \hline
+		Yellow & 17 & 3.882 & 2.985 \\ \hline
+	\end{tabular}
+\end{center}
+Remark: It is reasonable to believe that the variances of both groups is the same. Be mindful of this.
+
+\subsection*{Solution}
+\begin{itemize}
+	\item Point estimate : $\bar{x} - \bar{y}$ = 1.469
+	\item Standard Error: 0.5805
+	\[ S.E.(\bar{x}-\bar{y}) = \sqrt{\frac{2.743}{17} + \frac{2.985}{17}} = \sqrt{0.3369} = 0.5805 \]
+	\item Quantile : 1.96 (Large sample, with confidence level of $95\%$.)
+\end{itemize}
+
+\[ 1.469  \pm (1.96 \times 0.5805) = (0.3321,2.607) \]
+
+
+\noindent This analysis provides evidence that the mean consumption level per hour for X-cel is higher than the mean consumption level per hour for Yellow, and that the difference between means in the population is likely to be between 0.332 and 2.607 units.
+\newpage
+\subsection*{Small Aggregate Sample Size}
+From the previous example (comparing X-cel and Yellow) lets compute a 95\% confidence interval when the sample sizes are $n_x=10$ and $n_y=12$ respectively. (Lets assume the other values remain as they are.)
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Type & sample size & mean & variance \\ \hline
+		X-cel & 10 & 5.353 & 2.743 \\ \hline
+		Yellow & 12 & 3.882 & 2.985 \\ \hline
+	\end{tabular}
+\end{center}
+The point estimate $\bar{x} - \bar{y}$ remains as 1.469. Also we require that both samples have equal variance. As both $X$ and $Y$ have variances at a similar level, we will assume equal variance.
+\begin{framed}
+%---------------------------------------------------------%
+\noindent \textbf{Computing the Confidence Interval}
+Standard Error for difference of two means (small aggregate sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  s^2_p \left({1\over n_x}+{1\over n_y} \right)} \]
+
+Pooled Variance $s^2_p$ is computed as:
+
+\[ s^2_p = \frac{(n_x-1)s^2_x + (n_y-1)s^2_y}{(n_x-1) + (n_y-1)} \]
+\end{framed}
+%---------------------------------------------------------%
+
+
+
+% \subsection{Computing the Confidence Interval}
+\begin{itemize} \item Pooled variance $s^2_p$ is computed as:
+	
+	\[ s^2_p = \frac{(10-1)2.743 + (12-1)2.985}{(10-1) + (12-1)}  = \frac{57.52}{20} = 2.87\]
+	
+	\item Standard error for difference of two means is therefore
+	
+	\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  2.87 \left({1\over 10}+{1\over 12} \right)} = 0.726 \]
+	
+	\item The aggregate sample size is small i.e. 22. The degrees of freedom is $n_x+n_y-2 = 20$.
+	From Murdoch Barnes tables 7, the quantile for a $95\%$ confidence interval is 2.086.
+	
+	\item The confidence interval is therefore
+	\[ 1.469  \pm (2.086 \times 0.726) = 1.4699 \pm 1.514 =  (-0.044, 2.984 )  \]
+\end{itemize}
+
+
+%--------------------------------------------------------%
+\end{document}
+
