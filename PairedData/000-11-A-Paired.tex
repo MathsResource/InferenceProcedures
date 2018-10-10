@@ -1,0 +1,548 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+%\textwidtow = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+
+\chapter{14. The Paired $t-$Test}
+
+
+
+
+\section{Two Sample Inference Procedures}
+\begin{itemize}
+\item Previously we looked at inference procedures (Confidence Intervals and Hypothesis Testing) for single samples.
+\item Yesterday we looked at \textit{\textbf{paired}} samples, with two sets of paired measurements. With paired measurements, we are specifically interested in the \textbf{\textit{case-wise}} differences.
+\item Although there are two sets of data, we consider the single data set of case-wise differences.
+\item Now we look at the case of two independent sample procedures.
+\item Independent samples are distinct from paired samples, in that data in one set are not paired with data in another set.
+\end{itemize}
+
+
+
+
+\subsection{Mean Difference Between Matched Data Pairs}
+
+
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item The data set is a simple random sample of observations from the population of interest.
+\item Each element of the population includes measurements on two paired variables (e.g., x and y) such that the paired difference between x and y is: d = x - y.
+\item The sampling distribution of the mean difference between data pairs (d) is approximately normally distributed.
+\end{itemize}
+
+
+
+The observed data are from the same subject or from a matched subject and are drawn from a population with a normal distribution
+does not assume that the variance of both populations are equal.
+
+%---------------------------------------------------------%
+
+
+
+
+\section{Paired T test}
+A paired t-test is used to compare two population means where you have two samples in
+which observations in one sample can be paired with observations in the other sample.
+Examples of where this might occur are:
+\begin{itemize}
+\item[(i)]  Before-and-after observations on the same subjects (e.g. students’ diagnostic test
+results before and after a particular module or course).
+\item[(ii)] A comparison of two different methods of measurement or two different treatments
+where the measurements/treatments are applied to the \textbf{same} subjects (e.g. simultaneous blood
+pressure measurements using a stethoscope and a dynamap on each patient in a study).
+\end{itemize}
+The difference between two paired measurements is known as a \textbf{\emph{case-wise}} difference.
+
+
+
+%======================================================================%
+
+
+\section{Paired T test}
+The mean and standard deviation of the sample d values are
+obtained by use of the basic formulas in Chapters 3 and 4, except
+that d is substituted for X.
+
+The mean difference for a set of differences between paired
+observations is $\bar{d} = \frac{\sum d_{i}}{n}$.
+
+The deviations formula and the computational formula for the
+standard deviation of the differences between paired observations
+are, respectively,
+
+\begin{eqnarray}
+S_{d} = \sqrt{\frac{\sum (d_{i}-\bar{d})^2}{n-1}} \mbox{        }= \sqrt{\frac{ \sum (d^2)- n(\bar{d}^2)}{n-1}}\\
+\end{eqnarray}
+
+The standard error of the mean difference between paired
+observations is obtained for the standard error of the mean.
+\subsubsection{Hypotheses}
+\begin{eqnarray*}
+H_{0}: \mu_{d} = 0\\
+H_{1}: \mu_{d} \neq 0\\
+\end{eqnarray*}
+
+
+
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+
+\subsection{How a paired t test works}
+\begin{itemize}
+\item The paired t test compares two paired groups.
+\item It calculates the difference between each set of pairs, and analyzes that list of differences based on the assumption that the differences in the entire population follow a Gaussian distribution.
+\item First we calculate the difference between each set of pairs, keeping track of sign.
+\item If the value in column B is larger, then the difference is positive.
+If the value in column A is larger, then the difference is negative.
+\item The t ratio for a paired t test is the mean of these differences divided by the standard error of the differences. If the t ratio is large (or is a large negative number), the P value will be small. The number of degrees of freedom equals the number of pairs minus 1.
+\end{itemize}
+
+\begin{framed}
+\section{Important}
+\begin{itemize}
+\item Firstly we have to compute each of the case-wise differences.
+\item Then we have to compute the mean value of these differences.
+\item Lastly we also have to compute the standard deviation of the differences.
+\end{itemize}
+\end{framed}
+
+
+\section{Procedure}
+To test the null hypothesis that the true mean difference is zero, the procedure is as
+follows:
+\begin{enumerate}
+\item Calculate the difference $(di = y_i − x_i)$ between the two observations on each pair,
+making sure you distinguish between positive and negative differences.
+\item Calculate the mean difference, $\bar{d}$.
+
+\item Calculate the standard deviation of the differences, $s_d$, and use this to calculate the
+standard error of the mean difference, $SE(\bar{d}) = {s_d \over \sqrt{n}}$
+
+\item Calculate the t-statistic, which is given by $ T ={ \bar{d} \over SE(\bar{d})}$.
+
+\item Under the null hypothesis, this statistic follows a t-distribution with $n − 1$ degrees of freedom.
+\end{enumerate}
+
+
+
+\section{The Paired t-test}
+Using the sample to make inferences about the general population of case-wise differences.
+\begin{itemize}
+\item Often we are making conclusions for the population of differences. (Is a training regime effective? - based on a paired data sample.)
+\item Let $\mu_d$ be mean value for the population of case-wise differences.
+\item The null hypothesis is that that $\mu_d = 0$ (i.e. no difference)
+\item Given $\bar{d}$ mean value for the sample of differences, and $s_d$ standard deviation of the differences for the paired sample data, we can perform inference procedures as we have done previously.
+\end{itemize}
+
+
+\section{Calculations for Case-wise Differences}
+\begin{itemize}
+\item We are usually required to compute the case-wise difference for each data pairing.
+
+\item We will often be required to compute the case-wise differences, the average of those differences and the standard deviation of those difference.
+
+
+
+\item The mean difference for a set of differences between paired observations is
+\[ \bar{d} = \sum d_i \over n \]
+
+\item The computational formula for the standard deviation of the differences
+between paired observations is
+\[s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}\]
+\item It is nearly always a small sample test.
+
+
+
+\item Importantly, although we start out with two samples of data, we can look at the data as a single sample of \textit{\textbf{case-wise differences}}.
+\[d_i = x_i-y_i\]
+\item We can use the same methodologies that we have encountered previously for making decisions based on paired data.
+\item (Remark: For most paired data studies, the sample sizes are very small.)
+
+\end{itemize}
+
+\noindent Remark: Make sure to keep your case-wise diffference calculated consistently, i.e. always ``\textbf{\textit{After-Before}}". \\
+\textbf{\textit{Before-After}} would also fine, as long as each calculation is done the same way.
+
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\section{The Paired $t-$Test}
+
+
+
+\begin{framed}
+The standard error of the mean difference between paired
+observations is obtained for the standard error of the mean.
+\section{Hypotheses}
+\begin{eqnarray*}
+H_{0}: \mu_{d} = 0\\
+H_{1}: \mu_{d} \neq 0\\
+\end{eqnarray*}
+\end{framed}
+
+
+
+\section{Paired T test}
+\begin{itemize} \item A paired sample t-test is used to determine whether there is a significant difference between the average values of the same measurement made under two different conditions. \item Both measurements are made on each unit in a sample, and the test is based on the paired differences between these two values. \item The usual null hypothesis is that the difference in the mean values is zero. For example, the yield of two strains of barley is measured in successive years in twenty different plots of agricultural land (the units) to investigate whether one crop gives a significantly greater yield than the other, on average.
+\end{itemize}
+
+\textbf{Confidence Interval}:
+\begin{itemize}
+\item Recall our sample mean $\bar{x}$, the standard error $S.E(\bar{x})$ and the quantile from the $t-$ distribution.
+\item We can use these values to compute a 95\% confidence interval.
+\item The 95\% confidence interval can be computed as $0.17 \pm (2.262 \times 0.17 = (-0.21,0.55)$
+\item Notice that 0 is within that range of values. This supports our conclusion to reject the Null Hypothesis.
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------------------%
+
+\textbf{Paired t test}
+The paired t test was devloped by Guinness Brewery employee, Gossett, in1908.
+\begin{itemize}
+\item First we have to compute the case-wise differences.
+\item Then we compute the variance of those differences.
+\end{itemize}
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+
+%---------------------------------------------------------%
+\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\section{Paired t test}
+
+{
+\subsection{Inference : Paired values}
+
+\begin{itemize}
+
+\item Know how to compute case-wise differences.
+\item Know how to compute the mean of the case-wise differences (see formulae). 
+\item Know how to compute the standard deviation of the casewise differences (see formulae).
+\end{itemize} 
+}
+
+
+
+\begin{itemize}
+\item Consider two populations X and Y that are indepedently distributed from
+each other.
+\item That is to say, the true value of correlation is zero.
+\[\rho_{XY} = 0 \]
+\item In the context of a linear regression model, in the form $Y=\beta_0  +  \beta_1X$, a true correlation value of zero is equivalent to a true slope value of Zero.
+\[``\rho_{XY} = 0" \leftarrow\rightarrow ``\beta_1=0"\]
+\end{itemize}
+
+%----------------------------------------%
+
+
+
+\subsection{Paired t-test}
+
+%-----------------------------------------------------------%
+
+
+
+
+
+
+
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+
+
+\end{itemize}
+
+
+
+
+
+%---------------------------------------------------------%
+
+
+
+\section{Confidence interval for the true mean difference}
+The in above example the estimated average improvement is just over 2 points. Note that
+although this is statistically significant, it is actually quite a small increase. It would be
+useful to calculate a confidence interval for the mean difference to tell us within what limits
+the true difference is likely to lie. 
+
+
+
+Using our example:
+We have a mean difference of 2.05. The 2.5\% point of the t-distribution with 19 degrees
+of freedom is 2.093. The 95\% confidence interval for the true mean difference is therefore:
+$2.05 \pm (2.093 \times 0.634) = 2.05 \pm 1.33 = (0.72, 3.38)$.
+
+This confirms that, although the difference in scores is statistically significant, it is actually
+relatively small. We can be 95\% sure that the true mean increase lies somewhere between
+just under one point and just over 3 points.
+
+
+
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+\section{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+
+
+
+
+%%--------------------------------------------------------------------------------------%
+%
+%\textbf{Computing the Test Statistic}
+%
+%The general structure of a test statistic is as follows:
+%\[ TS = {\mbox{observed value} - \mbox{null value} \over \mbox{Std. Error}}   \]
+%where ``null value" is shorthand for the expected value under the null hypothesis.
+%
+%Refer to the formulae for the appropriate standard error.
+%
+
+
+
+
+%----------------------------------------------------------------------------------%
+
+\section{Worked Examples} 
+
+Two procedures for sintering copper are compared by testing each procedure on six different types of powder. The measurement of interest is the porosity of each test specimen.
+The results of the test are as follows:  
+
+\[
+\begin{array}{|c|c|c|}
+Powder&Procedure 1& Procedure 2\\\hline
+1&21&23\\\hline
+2&27&26\\\hline
+3&18&21\\\hline
+4&22&24\\\hline
+5&26&25\\\hline
+6&19&16\\\hline
+\end{array} 
+\]
+
+
+
+
+ls there a difference between the true average porosity measurements for the two procedures, at a significance level of 5\%.
+
+
+%-------------------------------------------------------------------------------------------%
+
+
+
+\section{Worked Examples : Paired T test}
+%Question 4 part a - 
+\begin{itemize}
+\item The weight of 6 individuals (in kgs) was observed before and after a diet regime (diet given below)
+\item Compute the mean difference and standard deviation of the differences.
+
+\item Remark : Sample size n= 6
+\end{itemize}
+
+\[
+\begin{array}{cccc}
+Person&Weight Before&Weight After&Difference\\ \hline
+A&89&87&2\\ \hline
+B&79&76&3\\ \hline
+C&106&105&1\\ \hline
+D&92&92&0\\ \hline
+E&88&84&4\\ \hline
+F&98&96&2\\ \hline
+\end{array} 
+\]
+
+Before we start, we need to compute the average difference and the standard deviations of the differences. 
+
+
+
+%Sample Mean:           x=xin      
+
+
+What is the mean difference d
+
+
+\[\bar{d}=\sum \frac{d_i}{n}= \frac{2+3+1+0+4+2}{6}= 2\]
+
+
+
+Standard Deviation:           Sx=(xi-x)2n-1      
+
+\[
+\begin{array}{|c|c|c|c|} \hline
+Person&di&di-d&(di-d)2\\ \hline
+A&2&0&0\\ \hline
+B&3&1&1\\ \hline
+C&1&-1&1\\ \hline
+D&0&-2&4\\ \hline
+E&4&2&4\\ \hline
+F&2&0&0\\ \hline
+\end{array} 
+\]
+
+Sx=(di-d)26-1=( 0 + 1 +1 +4 +4 +0)6-1
+
+Sd=105=2 
+
+Now we are ready to perform our hypothesis test.
+
+
+\section{Step1 : Formally state the null and alternative hypotheses}
+
+\begin{itemize}
+\item d : true difference in weight before and after the diet regime 
+
+\item Null Hypothesis               Ho:d = 0        True difference is zero
+
+\item Alternative Hypothesis      Ha:d 0       True difference is not zero 
+
+\item Remark: This is a two tailed test
+\end{itemize}
+
+
+
+\section{Step 2 : Compute the test statistic.}
+
+
+Remember the general structure of a test statistic
+
+TS =Observed Value-Null ValueStd. Error 
+
+
+
+From the formulae
+
+We have to compute the standard error for a sample mean. 
+
+( From formulae at back of exam paper)
+
+S.E.(d) =Sdn=26= 0.5773 
+
+
+
+
+
+\section{Step 3 :  Determine the Critical Value}
+
+\begin{itemize}
+\item Small sample (group is less than 30).
+(Population variance is unknown.)
+
+\item Use t distribution with n-1 degrees of Freedom.
+
+\item We use Murdoch Barnes Table 7 (Student T distribution)
+
+\item Significance levels is 1\%.  This is a two tailed test.
+
+\end{itemize}
+
+[Blackboard]
+
+
+Critical Value is 2.571
+
+
+Step 4 : Decision
+
+
+[Blackboard]
+
+Is the test statistic in the acceptance region or the rejection region?
+
+It is in the rejection region. We reject the null hypothesis. The diet does work.
+
+%==============================================================%
+\subsubsection{Worked Example paired T test}
+
+
+
+
+
+
+\end{document}

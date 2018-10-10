@@ -1,0 +1,765 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+
+%--------------------------------------------------------------------------%
+\section{Two Sample Inference Procedures}
+\begin{itemize}
+\item Previously we looked at inference procedures (Confidence Intervals and Hypothesis Testing) for single samples.
+\item Yesterday we looked at \textit{\textbf{paired}} samples, with two sets of paired measurements. With paired measurements, we are specifically interested in the \textbf{\textit{case-wise}} differences.
+\item Although there are two sets of data, we consider the single data set of case-wise differences.
+\item Now we look at the case of two independent sample procedures.
+\item Independent samples are distinct from paired samples, in that data in one set are not paired with data in another set.
+
+\item Firstly, we will look at the difference in the means of two independent populations.
+\item Let us assume that the both populations are normally distributed $N(\mu_X,\sigma^2_X)$ and $N(\mu_Y,\sigma^2_Y)$
+\item The difference in means for two independent populations X and Y is denoted $\mu_X - \mu_Y$.
+\item Almost always, this value is unknown, and is instead estimated by the difference in sample means: $\bar{X} - \bar{Y}.$
+\item The sample sizes do not need to be equal necessarily. We denote the respective sample sizes $n_X$ and $n_Y$.
+\item For the moment, we will assume that both $n_X$ and $n_Y$ are large samples ($ \geq 30$).
+\end{itemize}
+
+
+
+\subsection{Independent samples}
+\begin{itemize}
+\item These samples are taken quite independently from two populations. There is no link
+between observations in one sample and the other. \item The samples may be of different
+sizes. \item The simplest assumption to make is that both populations have normal distributions,
+though their means and variances may be different. We may denote the two
+population distributions by $N(\mu_x, \sigma^2_x )$ and $N(\mu_y, \sigma^2_y )$. \item The corresponding samples
+(of size m and n) give rise to sample means $\bar{x}$ and $\bar{y}$ and sample variances $s^2_x$
+and $s^2_y$.
+
+\end{itemize}
+
+
+
+\subsection{Hypothesis Testing : Two Populations}
+
+Two samples drawn from two populations are independent samples if
+the selection of the sample from population 1 does not affect the
+selection of the sample from population 2. The following notation
+will be used for the sample and population measurements:
+
+\begin{itemize}
+\item $p_1$ and $p_2$ = means of populations 1 and 2,
+
+\item $\sigma_1$ and $\sigma_2$ = standard deviations of
+populations 1 and 2,
+
+\item $n_l$ and $n_2$ = sizes of the samples drawn from
+populations 1 and 2 ($n_1 >30 $, $n_2 >30 $),
+
+\item $x_1$ and $x_2$, = means of the samples selected from
+populations 1 and 2,
+
+\item $s_{1}$ and $s_{2}$ = standard deviations of the samples
+selected from populations 1 and 2.
+
+\end{itemize}
+
+
+
+
+%--------------------------------------------------------------------------%
+
+\subsection{Sampling}
+\begin{itemize}
+\item The sampling distribution of the difference in means is normally distributed, when both samples sizes are greater than 30.
+\item The expected value of this distribution is $\mu_X - \mu_Y$.
+\item Importantly, the standard error of this distribution is
+\[ S.E(\bar{X} - \bar{Y}) = \sqrt{\frac{\sigma^2_X}{n_X} + \frac{\sigma^2_Y}{n_Y}} \]
+\item The standard deviations for populations X and Y are $\sigma_X$ and $\sigma_Y$ respectively.
+\item Usually these population standard deviations are estimated by the sample standard deviations $s_X$ and $s_Y$ respectively.
+\end{itemize}
+
+\section{Two Sample Procedures}
+\begin{itemize}
+\item So far we have looked at single sample procedures.
+\item We can generalise our methodologies for comparing two samples.
+\item Our point estimates are typically differences in sample statistics. i.e.
+\[ \bar{X}_1 - \bar{X}_2\]
+\[\hat{p}_1 - \hat{p}_2 \]
+\item We can use these point estimates to make inference on differences for populations.
+\[ \mu_1 - \mu_2\]
+\[ \pi_1 - \pi_2 \]
+\end{itemize}
+
+
+\subsection*{Two Sample Procedures - Confidence Intervals}
+\begin{itemize}
+\item When computing confidence intervals, all that is required is the calculation of the appropriate standard error value.
+\item The two-sample standard error calculations contain statistical information from both samples.
+\item See the formula sheet. (Practice with these calculaions will take place in next week's tutorials.)
+\item There are some minor issues that will arise with each type of procedure. These will be explained in relevant examples.
+\end{itemize}
+
+
+
+\section{Hypothesis test for the means of Two independent samples}
+The procedure associated with testing a hypothesis concerning the difference between two population means is similar to that for testing a hypothesis concerning the value of one population mean. The procedure differs only in that the standard error of the difference between the means is used to determine the test statistic associated with the sample result. For two tailed tests, the null hypothesis states that the population means are the same, with the alternative stating that the population means are not equal.
+
+
+\begin{itemize}
+\item Two samples are referred to as independent if the observations in one sample are not in any way related to the observations in the other. \item This is also used in cases where one randomly assign subjects to two groups, i.e. in give first group treatment A and the second group treatment B and compare the two groups.
+\item Often we are interested in the difference between the mean value of some parameter for both groups.
+\end{itemize}
+
+
+%--------------------------------------------------------%
+
+
+
+The approach for computing a confidence interval for the difference of the means of two independent samples,  described shortly, is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each population is at least 10 times larger than its respective sample. (Otherwise a different approach is required).
+\item The sampling distribution of the difference between means is approximately normally distributed
+\end{itemize}
+
+\section{Confidence Intervals for Difference Of Two Means}
+%-http://onlinestatbook.com/chapter8/difference_means.html
+In order to construct a confidence interval, we are going to make three assumptions:
+
+\begin{itemize}
+\item The two populations have the same variance. This assumption is called the assumption of homogeneity of variance.
+\item For the time being, we will use this assumption. Later on in the course, we will discuss the validity of this assumption for two given samples.
+\item The populations are normally distributed.
+\item Each value is sampled independently from each other value.
+\end{itemize}
+
+
+
+
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+%---------------------------------------------------------%
+
+
+%--------------------------------------------------------%
+
+\section{Computing the Confidence Interval}
+
+\begin{itemize}
+\item As always the first step is to compute the point estimate. For the difference of means for groups $X$ and $Y$, the point estimate is simply the difference between the two means i.e. $\bar{x} - \bar{y}$.
+
+\item As we have seen previously, sample size has a bearing in computing both the quantile and the standard error.
+For two groups, we will use the aggregate sample size ($n_x+n_y)$ to compute the quantile. (For the time being we will assume, the aggregate sample size is large ($n_x+n_y)> 30$.)
+
+\item Lastly we must compute the standard error $S.E.(\bar{x}-\bar{y})$. The formula for computing standard error for the difference of two means, depends on whether or not the aggregate sample size is large or not. For the case that the sample size is large, we use the following formula (next slide).
+\end{itemize}
+
+
+
+
+
+\textbf{Confidence Intervals}
+\begin{itemize}
+\item We have studied two types of confidence interval, a confidence interval for a sample mean and for a sample proportion (Later we will call these \textbf{\textit{One Sample}} confidence Intervals.
+\item There are more types of confidence intervals that we will cover later in this course. (We shall refer to these confidence intervals as the \textbf{\textit{Two Sample}}confidence Intervals.
+\end{itemize}
+
+\section{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+
+
+
+%---------------------------------------------------------%
+\begin{framed}
+\noindent \textbf{Computing the Confidence Interval}\\ 
+Standard Error for difference of two means (large sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of samples $X$ and $Y$ respectively.
+\item $n_x$ and $n_y$ is the sample size of both samples.\bigskip
+
+\item For small samples, the degrees of freedom is $df = n_x + n_y - 2$. If the sample size $n \leq 32$, we can find appropriate $t-$quantile, rather than assuming it is a $z-$quantile.
+\end{itemize}
+\end{framed}
+
+
+%---------------------------------------------------------%
+\subsection{Computing the Confidence Interval (Small Samples)}
+Standard Error for difference of two means (small aggregate sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  s^2_p \left({1\over n_x}+{1\over n_y} \right)} \]
+
+Pooled Variance $s^2_p$ is computed as:
+
+\[ s^2_p = \frac{(n_x-1)s^2_x + (n_y-1)s^2_y}{(n_x-1) + (n_y-1)} \]
+
+
+
+
+
+%---------------------------------------------------------%
+
+
+\section{Two sample test}
+Suppose one has two independent samples, x1, ..., xm and y1, ...,
+yn, and wishes to test the hypothesis that the mean of the x
+population is equal to the mean of the y population:
+
+$H0 : \mu_{x} = \mu_{y}.$
+
+Alternatively this can be formulated as $H0 : \mu_{x} - \mu_{y} =
+0$.
+
+Let $\bar{X}$ and $\bar{Y}$ denote the sample means of the xs and
+ys and let $S_{x}$ and $S_{y}$ denote the respective standard
+deviations. The standard test of this hypothesis $H_{0}$ is based
+on the t statistic
+\begin{equation}T = \frac{\bar{X} - \bar{Y} }{S_{p} \sqrt{1/n_1 + 1/n_2} }
+\end{equation}
+
+where $S_{p}$ is the pooled standard deviation.
+
+\begin{equation}
+S_{p} = \sqrt{ \frac{(n_1-1)S^{2}_{1} +  (n_2-1)S^{2}_{2}}{n_1 + n_2 - 2}}
+\end{equation}
+
+Under the hypothesis $H_{0}$, the test statistic T has a t
+distribution with $m + n - 2$ degrees of freedom when
+\begin{itemize} \item both the xs and ys are independent random samples
+from normal distributions \item the standard deviations of the x
+and y populations, $\sigma_{x}$ and $\sigma_{y}$, are equal
+\end{itemize}.
+
+Suppose the level of significance of the test is set at $\alpha$.
+Then one will reject H when $|T| < tn+m.2,\alpha/2$, where
+$tdf,\alpha$ is the $(1 - \alpha)$ quantile of a t random variable
+with df degrees of freedom.
+
+If the underlying assumptions of
+
+
+
+
+
+
+
+
+
+\subsection*{Point Estimate}
+\begin{itemize}
+\item Difference in samples means $\bar{x}_1$ - $\bar{x}_2$
+\item Suppose the sample mean for group 1 is 74, while the sample mean for
+group 2 is 69.
+\item The point estimate is $\bar{x}_1$ - $\bar{x}_2$ = $29 - 25 = 4$.
+\end{itemize}
+
+\textbf{Standard Error}
+\[ S.E.(\bar{X}_1 - \bar{X}_2) = \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}} \]
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline  & \phantom{spa}Mean\phantom{spa} & Sample Size & Std Deviation \\ 
+\hline \phantom{spa}Group 1\phantom{spa} & 74  & 50 & 10 \\ 
+\hline Group 2 & 69  & 48 & 12 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\[ S.E.(\bar{X}_1 - \bar{X}_2)  = \sqrt{2 + 3} =\sqrt{5} \]
+
+
+
+
+%--------------------------------------------------------------------------%
+
+\subsection*{$95\%$ Confidence Intervals}
+The 95\% confidence interval $\mu_X - \mu_Y$ is computed as
+
+\[ (\bar{X} - \bar{Y}) \pm 1.96 \sqrt{\frac{s^2_X}{n_X} + \frac{s^2_Y}{n_Y}}\]
+We will use this in an example shortly.
+
+%--------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+\section{Part II: Two-Sample t-Test for Equal Means}
+
+
+
+\subsection{Standard Error}
+
+
+
+
+\begin{equation}
+S.E(\bar{X}_{1}-\bar{X}_{2}) =
+\sqrt(\frac{s^2_{1}}{n_{1}}+\frac{s^2_{2}}{n_{2}})
+\end{equation}
+
+
+
+%---------------------------------------------------------%
+\subsection{The Test Statistic}
+The $t-$statistic to test whether the means are different can be calculated as follows:
+\[
+t = \frac{\bar {X}_1 - \bar{X}_2}{S_{X_1X_2} \cdot \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+\]
+
+where
+
+\[
+S_{X_1X_2} = \sqrt{\frac{(n_1-1)S_{X_1}^2+(n_2-1)S_{X_2}^2}{n_1+n_2-2}}
+\] 
+
+\begin{itemize}
+\item A random variable, usually written $X$, is a variable whose possible values are numerical outcomes of a random event.
+\vspace{0.4cm}
+\item There are two types of random variables, \textit{\textbf{discrete}} and \textit{\textbf{continuous}}.
+\end{itemize}
+
+
+
+
+
+
+
+\section{Hypothesis Tests for Two Means}
+
+If the population standard deviations $\sigma_1$ and $\sigma_2$
+are known, the test statistic is of the form:
+
+\begin{equation}
+Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2 ) }{\sqrt{
+\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}} }
+\end{equation}
+The critical value and p-value are looked up in the normal tables.
+
+
+
+
+
+
+
+
+
+\subsection{2 sided test}
+A two-sided test is used when we are concerned about a possible
+deviation in either direction from the hypothesized value of the
+mean. The formula used to establish the critical values of the
+sample mean is similar to the formula for determining confidence
+limits for estimating the population mean, except that the
+hypothesized value of the population mean m0 is the reference
+point rather than the sample mean.
+
+
+
+
+%---------------------------------------------------------%
+
+
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+
+
+%---------------------------------------------------------%
+\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Working with Two Samples}
+
+
+%---------------------------------------------------------%
+
+
+\textbf{Computing the Confidence Interval}
+Standard Error for difference of two means (small aggregate sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  s^2_p \left({1\over n_x}+{1\over n_y} \right)} \]
+
+Pooled Variance $s^2_p$ is computed as:
+
+\[ s^2_p = \frac{(n_1-1)s^2_1 + (n_2-1)s^2_y}{(n_2-1) + (n_2-1)} \]
+
+%---------------------------------------------------------%
+
+
+
+%---------------------------------------------------------%
+\begin{itemize}
+\item  Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+
+
+
+
+
+%------------------------------------------------------------------------------%
+
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+
+%------------------------------------------------------------------------------%
+
+A confidence interval for the
+mean is an estimate interval constructed with respect to the sample mean by which the likelihood that the interval
+includes the value of the population mean can be specified.
+
+The \emph{level of confidence} associated with a confidence interval indicates the long-run percentage
+of such intervals which would include the parameter being estimated.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item  Confidence intervals for the mean typically are constructed with the unbiased estimator $\bar{x}$ at the midpoint
+of the interval.
+
+\item  The $\pm Z \sigma_x$ or $\pm Z s_x$ frequently is called the \textbf{\emph{margin of error}} for the confidence interval.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item  Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item  The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+
+%---------------------------------------------------------%
+\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+
+
+
+
+
+
+%---------------------------------------------------------%
+
+\subsubsection{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+
+
+
+
+\subsection*{Two Sample Procedures - small samples and degrees of freedom}
+\begin{itemize}
+\item Let $n_1$ and $n_2$ be the sample sizes of two samples.
+\item When deciding whether to use the large sample approach or the small sample appproach, we will use the following rule of thumb: \\
+Small sample : $n_1+n_2 \leq 30$\\
+Large sample : otherwise\\
+\item For small samples the appropriate degrees of freedom is $(n_1-1) + (n_2-1)$ i.e. $n_1 + n_2-2$ 
+\end{itemize}
+
+
+\begin{itemize}
+\item When performing hypothesis tests, we are usually interested in determining whether or not the population parameters can be considered equal for both populations.
+\item Another way of expressing this is that the difference in population parameters is 0. 
+\item The following two hypotheses are directly equivalent.
+\[ H_o :  \mu_1 = \mu_2\]
+\[ H_o :  \mu_1 - \mu_2 =0\]
+\item Equivalently, for proportions:
+\[ H_o :  \pi_1 = \pi_2\]
+\[ H_o :  \pi_1 - \pi_2 =0\]
+\end{itemize}
+
+%--------------------------------------------------------%
+
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = $\sqrt{0.0013} = 0.036$
+\end{itemize}
+
+%--------------------------------------------------------%
+
+\subsection{Example using R}
+Finding confidence intervals for the mean for the nitrate ion
+concentrations in Example 2.7.1.
+\begin{verbatim}
+#Typing data in
+x=c(102,97,99,98,101,106)
+mean(x)
+sd(x)
+n=length(x)
+#setting the confidence level
+CL=0.95
+#computing confidence interval
+pm=sd(x)*c(qt(0.025,n-1),qt(0.975,n-1))/sqrt(n)
+CI=mean(x)+pm
+\end{verbatim}
+
+
+
+
+
+\section{Part II: Two-Sample t-Test for Equal Means}
+
+
+{
+%%-
+
+
+\section{Hypothesis Tests for Two Means}
+
+If the population standard deviations $\sigma_1$ and $\sigma_2$
+are known, the test statistic is of the form:
+
+\begin{equation}
+Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2 ) }{\sqrt{
+\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}} }
+\end{equation}
+The critical value and p-value are looked up in the normal tables.
+
+
+
+
+\subsection{Standard Error}
+
+\begin{equation}
+S.E(\bar{X}_{1}-\bar{X}_{2}) =
+\sqrt(\frac{s^2_{1}}{n_{1}}+\frac{s^2_{2}}{n_{2}})
+\end{equation}
+
+\subsection{Two Sample t-test : Example}
+The mean height of adult males is 69 inches and the standard
+deviation is 2.5 inches. The mean height of adult females is 65
+inches and the standard deviation is 2.5 inches. Let population 1
+be the population of male heights, and population 2 the population
+of female heights. Suppose samples of 50 each are selected from
+both populations.
+
+
+
+
+
+
+
+
+
+\subsection{Example} A sample of 50 households in one community
+shows that 10 of them are watching a TV special on the national
+economy. In a second community, 15 of a random sample of 50
+households are watching the TV special. We test the hypothesis
+that the overall proportion of viewers in the two communities does
+not differ, using the 1 percent level of significance, as follows:
+
+\section{Hypothesis Tests for Two Means}
+
+If the population standard deviations $\sigma_1$ and $\sigma_2$
+are known, the test statistic is of the form:
+
+\begin{equation}
+Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2 ) }{\sqrt{
+\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}} }
+\end{equation}
+The critical value and p-value are looked up in the normal tables.
+
+
+
+
+
+
+
+
+
+
+\subsection{Difference of Two Means}
+
+
+\begin{itemize}
+\item \textbf{Point Estimate}
+\item Difference in samples means $\bar{x}_1$ - $\bar{x}_2$
+\item Suppose the sample mean for group 1 is 74, while the sample mean for
+group 2 is 69.
+\item The point estimate is $\bar{x}_1$ - $\bar{x}_2$ = $29 - 25 = 4$
+\end{itemize}
+
+
+
+
+
+\textbf{Standard Error}
+\[ S.E.(\bar{X}_1 - \bar{X}_2) = \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}} \]
+
+%----------------------------------------%
+
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline  & \phantom{spa}Mean\phantom{spa} & Sample Size & Std Deviation \\ 
+\hline \phantom{spa}Group 1\phantom{spa} & 74  & 50 & 10 \\ 
+\hline Group 2 & 69  & 48 & 12 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\vspace{0.3cm}
+\[ S.E.(\bar{X}_1 - \bar{X}_2) = \sqrt{\frac{10^2}{50} + \frac{12^2}{48}} =\sqrt{\frac{100}{50}+\frac{144}{48}}\]
+\vspace{0.3cm}
+\[ S.E.(\bar{X}_1 - \bar{X}_2)  = \sqrt{2 + 3} =\sqrt{5} \]
+
+
+
+
+
+
+\subsection{Difference of Two Means}
+
+
+\begin{itemize}
+\item \textbf{Point Estimate}
+\item Difference in samples means $\bar{x}_1$ - $\bar{x}_2$
+\item Suppose the sample mean for group 1 is 74, while the sample mean for
+group 2 is 69.
+\item The point estimate is $\bar{x}_1$ - $\bar{x}_2$ = $29 - 25 = 4$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\section{$95\%$ Confidence Intervals}
+The 95\% confidence interval $\mu_X - \mu_Y$ is computed as
+
+\[ (\bar{X} - \bar{Y}) \pm 1.96 \sqrt{\frac{s^2_X}{n_X} + \frac{s^2_Y}{n_Y}}\]
+We will use this in an example shortly.
+
+%--------------------------------------------------------------------------%
+
+\section{Hypothesis Testing}
+\begin{itemize}
+\item Hypothesis testing works in much the same way as material we have covered already, in that we will use a four step process.
+\item The final two steps (critical value step and decision rule step) are precisely the same as previously.
+\item We will now discuss the first two steps.
+\end{itemize}
+
+
+
+\subsubsection{Hypothesis Testing: Null and Alternative Hypothesis}
+We are often interested in whether or not two populations have equal mean values. Accordingly, we would construct the hypotheses accordingly.
+\begin{itemize}
+\item[$H_0$] $\mu_X = \mu_Y$
+\item[$H_1$] $\mu_X \neq \mu_Y$
+\end{itemize}
+
+Equivalently we may view in the context of the difference in the populations means, where a difference of zero indicates equality of means.
+\begin{itemize}
+\item[$H_0$] $\mu_X - \mu_Y = 0$
+\item[$H_1$] $\mu_X - \mu_Y \neq 0$
+\end{itemize}
+This second approach is more intuitive in the context of constructing the test statistic.
+
+%--------------------------------------------------------------------------%
+
+
+\subsubsection{Hypothesis Testing: Test Statistic}
+
+\begin{itemize}
+\item The standard error for difference in means has been introduced previously
+\[ S.E(\bar{X} - \bar{Y}) = \sqrt{\frac{\sigma^2_X}{n_X} + \frac{\sigma^2_Y}{n_Y}} \]
+\item \textbf{Null value}: The expected value of the difference under the null hypothesis $\mu_X - \mu_Y$ is always 0, when the equality of population means is in question.
+\item \textbf{Observed Value}: The observed difference between sample means is $\bar{X} - \bar{Y}$.
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document}

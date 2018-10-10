@@ -1,0 +1,33 @@
+%--------------------------------------------------------------------------%
+
+
+\subsubsection{Two Small Samples Case}
+\begin{itemize}
+\item Previously we have looked at large samples, now we will consider small samples.
+\item (For the sake of clarity, I will not use small samples that have a combined sample size of greater than 30.
+\item Additionally we require the assumption that both samples have equal variance. This assumption \textbf{must} be tested with another formal hypothesis test. We will revisit this later, and in the mean time, assume that the assumption of equal variance holds.
+\end{itemize}
+
+
+\begin{itemize}
+\item The key differences between the large sample case and the small sample cases arise in the following steps.
+\begin{itemize}
+\item The standard error is computed in a different way (see next slide).
+\item The degrees of freedom used to compute the critical value is $(n_X-1) + (n_Y - 1)$) or equivalently ($n_X + n_Y - 2$).
+\item Also - a formal test of equality of variances is required beforehand (End of Year Exam)
+\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Two Small Samples Case: Standard Error}
+Computing the standard error requires a two step calculation. From the formulae, we have the two equations below. The first term $s_p^2$ is called the \textbf{\textit{pooled variance}} of the combined samples.
+\begin{eqnarray*}
+s_p^2&=&\frac{s_X^2(n_X-1)+s_Y^2(n_Y-1)}{n_X+n_Y-2}.\\
+S.E.(\bar{X}-\bar{Y})&=&\sqrt{s_p^2\left(\frac{1}{n_X}+\frac{1}{n_Y}\right)}.\\
+\end{eqnarray*}
+
+
+
+
+
+\end{document}

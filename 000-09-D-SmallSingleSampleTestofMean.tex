@@ -1,0 +1,148 @@
+s\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+
+\section{Hypothesis test for the mean of a single sample}
+
+This procedure is used to assess whether the population mean  has a specified value, based on the sample mean. The hypotheses are conventionally written in a form similar to below (here the hypothesized population mean is zero).
+
+
+
+There are two hypothesis test for the mean of a single sample.
+
+\begin{enumerate}
+\item The sample is of a normally-distributed variable for which the population standard deviation ($\sigma$) is known. 
+\item The sample is of a normally-distributed variable where σ is estimated by the sample standard deviation (s).
+\end{enumerate} 
+In practice, the population standard deviation is rarely known. For this reason, we will consider the second case only in this course.
+
+In most statistical packages, this analysis is performed in the summary statistics functions.
+
+
+
+
+\subsection*{The null and alternative hypotheses}
+\[ H_0: \mu = 40 kg\]
+\[ H_1: \mu \neq 40 kg\]
+
+
+\section{Independent one-sample $t$-test}
+In testing the null hypothesis that the population mean is equal to a specified value $\mu_{0}$, one uses the statistic
+
+\begin{equation}t = \frac{\overline{x} - \mu_0}{s / \sqrt{n}}\end{equation}
+
+where $s$ is the sample standard deviation and $n$ is the sample size. The degrees of freedom used in this test is $n - 1$.
+
+
+
+
+\section{Inference Procedure: Worked Examples}
+
+
+
+The mean and variance of height in a sample of 25 Irish students are 174cm and 100cm2, respectively.
+
+Test the hypothesis that the mean height of all Irish students is 170cm at a significance level of 5<%. 
+
+\section{Hypothesis Test for the Mean of a Single Sample}
+
+This procedure is used to assess whether the population mean  has a specified value, based on the sample mean. The hypotheses are conventionally written in a form similar to below (here the hypothesized population mean is zero).
+
+
+
+There are two hypothesis test for the mean of a single sample.
+
+\begin{enumerate}
+\item The sample is of a normally-distributed variable for which the population standard deviation ($\sigma$) is known. 
+\item The sample is of a normally-distributed variable where σ is estimated by the sample standard deviation (s).
+\end{enumerate} 
+In practice, the population standard deviation is rarely known. For this reason, we will consider the second case only in this course.
+
+In most statistical packages, this analysis is performed in the summary statistics functions.
+
+\section{Independent one-sample $t$-test}
+In testing the null hypothesis that the population mean is equal to a specified value $\mu_{0}$, one uses the statistic
+
+\begin{equation}t = \frac{\overline{x} - \mu_0}{s / \sqrt{n}}\end{equation}
+
+where $s$ is the sample standard deviation and $n$ is the sample size. The degrees of freedom used in this test is $n - 1$.
+
+
+
+\section*{Part 1: One Sample t-test}
+Question here
+
+\subsection*{The null and alternative hypotheses}
+\[ H_0: \mu = 40 kg\]
+\[ H_1: \mu \neq 40 kg\]
+
+
+
+
+\subsection{2 sided test}
+A two-sided test is used when we are concerned about a possible
+deviation in either direction from the hypothesized value of the
+mean. The formula used to establish the critical values of the
+sample mean is similar to the formula for determining confidence
+limits for estimating the population mean, except that the
+hypothesized value of the population mean $\mu_0$ is the reference
+point rather than the sample mean.
+
+
+
+
+
+
+
+\section{Hypothesis Tests for single samples}
+
+\begin{itemize}
+\item We could have inference procedures for single sample studies. We would base an argument on the either the sample mean or sample proportion as appropriate.
+\item A hypothesis test can be used to determine how ``confident" we can be with our data in making that statements.
+\item The lower the significance level (The margin for Type I error) the stronger our data must be.
+\item Large samples lead to more confident conclusion.
+
+\medskip
+
+\item We could have either hypothesis test for the sample mean or the sample proportion, to test a statement about the population as a whole (i.e something about the population mean)
+\item We make our argument in the form of the null and alternative hypotheses. 
+\item The Hypothesis testing procedure determines the strength of evidence in making our arguments. 
+
+\medskip
+
+\item We simply follow the four step procedure. 
+\item All of the components are the same used in confidence intervals.
+\item The critical value is simply a quantile from the $Z$ or $t-$distribution.
+\item The standard errors are also as before. Although when performing a hypothesis test for proportions, we use the expected value under the null hypothesis, rather than point estimate. (reason beyond scope of course.)
+\end{itemize}
+
+
+%--------------------------------------------------------------------------------------%
+
+
+
+
+
+
+\end{document}
+
+
+

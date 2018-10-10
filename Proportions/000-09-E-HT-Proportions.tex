@@ -1,0 +1,395 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+%-------------------------------------------------%
+
+
+\section{Part 2: One Sample proportion test}
+\[ H_0: \pi = 60\%\]
+\[ H_1: \pi \neq 60\%\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------%
+{
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+
+}
+
+%------------------------------------------------------------------------------%
+{
+
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat(p) \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+\[
+\hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72%
+\]
+
+$100\% - \hat{p} = 100\% - 72\% = 28\% $
+
+
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+
+}
+
+
+%-----------------------------------------------------------%
+
+
+\subsubsection{CI for Proportion}
+
+\begin{itemize}
+\item $\hat{p}  = 0.62$
+\item Sample Size $n=250$
+\item Confidence level $1-\alpha$ is $95\%$
+\end{itemize}
+
+
+
+
+%-----------------------------------------------------------%
+
+\textbf{CI for Proportion: Example (2)}
+
+\begin{itemize}
+\item First, lets determine the quantile.
+\item The sample size is large, so we will use the Z distribution.
+\item (Alternatively we can uses the $t-$ distribution with $\infty$ degrees of freedom.
+\end{itemize}
+
+%-----------------------------------------------------------%
+
+\subsubsection{CI for Proportion}
+
+\begin{itemize}
+\item First, lets determine the quantile.
+\item The sample size is large, so we will use the Z distribution.
+\item (Alternatively we can uses the $t-$ distribution with $\infty$ degrees of freedom.
+\end{itemize}
+
+
+
+
+
+\section{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat(p) \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+
+\[
+\hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72%
+\]
+
+$100\% - \hat{p} = 100\% - 72\% = 28\% $
+
+
+
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+\newpage
+
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+{
+
+\textbf{ Standard Error for Proportions}
+
+The standard error for proportions is computed using this formula.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (1-\hat{p} )\over n}}
+\]
+
+\smallskip
+When expressing the proportion as a percentage, we adjust the standard error accordingly.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (100 -\hat{p} )\over n}}
+\]
+}
+
+\textbf{ Sample Proportion : Example}
+
+
+\begin{description}
+\item [Point Estimate] The sample proportion is computed as follows
+\[ \hat{p} = \frac{x}{n} = \frac{56}{160} = 0.35\]
+\item [Quantile] We are asked for a 95\% confidence interval. The quantile is therefore
+\[ z_{\alpha/2} =1.96\]
+\item [Standard Error] The standard error, with sample size n=120 is computed as follows
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{\frac{\hat{p} \times (1-\hat{p})}{n}} =  \sqrt{\frac{0.35 \times 0.65}{160}}\]
+
+\end{description}
+\noindent\textit{(Full solution to follow)}
+\newpage
+
+
+%-----------------------------------------------------------%
+
+
+\subsection{CI for Proportion: Example (1)}
+
+\begin{itemize}
+\item $\hat{p}  = 0.62$
+\item Sample Size $n=250$
+\item Confidence level $1-\alpha$ is $95\%$
+\end{itemize}
+
+
+%-----------------------------------------------------------%
+
+
+\begin{itemize}
+\item First, lets determine the quantile.
+\item The sample size is large, so we will use the Z distribution.
+\item (Alternatively we can uses the $t-$ distribution with $\infty$ degrees of freedom.
+\end{itemize}
+
+
+
+
+%------------------------------------------------------------------------------%
+
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+
+%------------------------------------------------------------------------------%
+
+A confidence interval for the
+mean is an estimate interval constructed with respect to the sample mean by which the likelihood that the interval
+includes the value of the population mean can be specified.
+
+The \emph{level of confidence} associated with a confidence interval indicates the long-run percentage
+of such intervals which would include the parameter being estimated.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Confidence intervals for the mean typically are constructed with the unbiased estimator $\bar{x}$ at the midpoint
+of the interval.
+
+\item The $\pm Z \sigma_x$ or $\pm Z s_x$ frequently is called the \textbf{\emph{margin of error}} for the confidence interval.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+
+
+%------------------------------------------------------------------------------%
+{
+
+\subsection{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat(p) \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+}
+
+%
+------------------------------------------------------------------------------%
+
+{
+\[
+\hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72%
+\]
+
+$100\% - \hat{p} = 100\% - 72\% = 28\% $
+
+}
+
+
+%------------------------------------------------------------------------------%
+{
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+
+}
+%------------------------------------------------------------------------------%
+
+\newpage
+
+\bigskip
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {35 \times 65 \over 160 }} =  3.77\%
+\] \bigskip
+
+\textbf{Confidence Interval for proportion}
+
+\[
+35 \pm (1.96 \times 3.77) \%  = (35 \pm7.4) \% = (27.6\%,42.4\%)
+\]
+
+\newpage
+
+%-----------------------------------------------------------%
+
+% Confidence Interval for a Proportion
+% One Sample
+%------------------------------------------------------------------------------%
+{
+\textbf{Computing the point estimate}
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+
+
+
+%-------------------------------------------------------------------------------%
+
+\begin{framed}
+\begin{itemize}
+\item \textbf{Standard Error for Hypothesis Testing}
+
+\[\sqrt{\frac{\pi (1- \pi)}{n}}\]
+
+\item \textbf{Standard Error for Confidence Intervals}
+
+
+\[\sqrt{\frac{\bar{p} (1- \bar{p})}{n}}\]
+\end{itemize}
+\end{framed}
+
+\newpage
+
+
+
+\section{Summary of Inference Procedures}
+%------------------------------------%
+\textbf{Point Estimates:}
+\[\hat{p}_1 = \frac{x_1}{n_1}  \]
+\[\hat{p}_2 = \frac{x_2}{n_2}  \]
+
+%------------------------------------%
+\texttt{Hypotheses:}
+\[H_0 : \qquad \pi_1 \leq \pi_2   \]
+\[H_1 : \qquad \pi_1 > \pi_2   \]
+
+\begin{itemize}
+\item The population proportion for group 1 does not exceed the corresponding value for group 2. 
+\item The population proportion for group 1 does exceed (is greater than) the corresponding value for group 2.
+\end{itemize}
+
+\[H_0 : \qquad \pi_1 - \pi_2  \leq 0  \]
+\[H_1 : \qquad \pi_1 - \pi_2 > 0   \]
+%-------------------------------------%
+\textbf{Standard Error}
+First we computed the aggregate sample proportion $\bar{p}$.
+
+\[\bar{p} = \frac{x_1 + x_2}{n_1 + n_2}\]
+%------------------------------------%
+
+The Standard Error is 
+\[ S.E.(\pi_1 - \pi_2) = \sqrt{\bar{p} \times (100-\bar{p}) \times \left(\frac{1}{n_1}+ \frac{1}{n_2} \right)}\]
+(\textit{Given in formula sheet})
+%------------------------------------%
+\textbf{Standard Error}
+
+The Test Statistic is therefore 
+
+\[ TS = \frac{(\hat{p}_1-\hat{p}_2)-(\pi_1 - \pi_2)}{S.E.(\pi_1 - \pi_2)}\]
+
+%------------------------------------%
+
+\textbf{Critical Vale}
+\begin{itemize}
+\item $\alpha = 0.05$
+\item One-tailed Procedure (refer back to $H_1$) k=1
+\item Large sample ($x_1+x_2 > 30$)
+\end{itemize}
+
+\textbf{Descision}
+is $|TS| > CV$?
+
+Comclusion: We can reject the null hypothesis, We can reasonably conclude that....
+
+
+
+\end{document}
+
+%-----------------------------------------------------------%
+
+
+
