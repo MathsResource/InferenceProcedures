@@ -1,0 +1,205 @@
+	\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Confidence Intervals} %\input{tcilatex}
+
+\begin{document}
+
+%--------------------------------------------------%
+\section*{Types of Confidence Intervalfor Sample Means}
+\begin{framed}
+\noindent \textbf{Confidence Intervals for Sample Means}\\
+Broadly speaking, there are three different types of confidence interval. \\
+\textit{(Type 2 and Type 3 are more important for us)}
+\begin{description}
+\item[Type 1] Sample with \textbf{known} population variance
+\begin{itemize}
+\item The size of the sample doesn't matter.
+\end{itemize}
+\item[Type 2] Large sample with \textbf{known} population variance
+\begin{itemize}
+\item The size of the sample is more than 30 ($n > 30$)
+\end{itemize}
+\item[Type 3] Small sample with \textbf{known} population variance
+\begin{itemize}
+\item The size of the sample is 30 or less ($n\leq 30$)
+\end{itemize}
+\end{description}
+\end{framed}
+
+
+
+\subsection*{Type 1 : Known Population Variance}
+
+\begin{itemize}
+\item This type of confidence interval is very rare in practice, but it is very simple to implement and used as introductory 
+teaching material with those studying confidence intervals for the first time.
+\item This type of confidence interval is computed using this formula:
+\[ \bar{x} \pm z_{(\alpha/2)}{\sigma \over \sqrt{n}} \]
+%\item A description of each item is on the next slide.
+
+
+\item The point estimate is the sample mean : $\bar{x}$
+
+\item We use a \textbf{\textit{quantile}} from the standard normal (Z) distribution to ``scale"
+the confidence interval to the specified confidence level (usually 95\%).
+
+\begin{itemize}
+    \item[$\ast$] Let the confidence level be denoted in the for $(1-\alpha)\times 100\%$, and hence determine $\alpha$.
+For example, if the confidence level is 95\%, then $\alpha$ is 0.05 (or 5\%).
+
+\item[$\ast$] The Quantile ($z_{(\alpha/2)}$) is the value for the Standard Normal Tables (for example Murdoch Barnes Table 3) such that
+\[ P(Z \geq z_{(\alpha/2)}) = {\alpha \over 2}\]
+
+\item[$\ast$] For a 95\% confidence interval, the quantile is 1.96. For a 99\% confidence interval, the quantile is approximately 2.58. 
+\end{itemize}
+
+
+\item The population standard deviation is $\sigma$. The sample size is $n$.
+\item The standard error to be used in this confidence interval is
+\[ \mbox{S.E}(\bar{x}) = \frac{\sigma}{\sqrt{n}}\]
+\end{itemize}
+
+
+
+
+
+%--------------------------------------------------%
+
+\subsection*{Type 2 : Large Sample, Unknown Population Variance}
+\begin{itemize}
+
+\item The point estimate is the sample mean : $\bar{x}$
+
+\item For a type 2 confidence interval, we can determine a \textbf{\textit{quantile}} for the confidence interval in the same way that for the Type 1 confidence interval.
+
+\item Recall: For a 95\% confidence interval, the quantile is 1.96. For a 99\% confidence interval, the quantile is approximately 2.58.
+
+
+\item The population standard deviation which we denote $\sigma^2$ is unknown.
+Instead we are given the sample variance $s^2$. We use the sample standard deviation (the square root of the variance) as an estimate for the population standard deviation $\sigma$.
+\[ s \mbox{ is an estimate for } \sigma \]
+
+\item The sample size is $n$.
+\item The standard error to be used in a Type 2 confidence interval is
+\[ \mbox{S.E}(\bar{x}) = \frac{s}{\sqrt{n}}\]
+
+\end{itemize}
+
+
+
+
+
+%--------------------------------------------------%
+
+\subsection*{Type 3 : Small Sample, Unknown Population Variance}
+\begin{itemize}
+\item Firstly, we will clarify the similarities of the Type 2 and Type 3 confidence interval.
+\item The point estimate is the sample mean $\bar{x}$.
+\item The sample standard deviation $s$ is used to estimate the population $\sigma$.
+\item The standard error is
+\[ \mbox{S.E}(\bar{x}) = \frac{s}{\sqrt{n}}\]
+
+
+\item The key difference is in determining the quantile. Rather than use the standard normal distribution, we must use the student $t-$ distribution. 
+\item Quantiles for this distribution are also tabulated in statistical tables (for Example, Murdoch Barnes Table 7).
+\item Recall that we must determine a value for $\alpha$ ( and hence $\alpha/2$). For a 95\% confidence interval, $\alpha= 0.05$  and $\alpha/2 = 0.025$.
+\item Computing a quantile from the $t-$ distribution additionally requires the specification of the \textit{\textbf{degrees of freedom}}. Degrees of Freedom are often denote as $df$ or by the greek letter $\nu$ (``nu").
+\item For small sample confidence intervals (i.e. $n \leq 30$), the degrees of freedom are
+\[ df = n-1 \]
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection*{Small samples}
+\begin{itemize} \item We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$). \item For a small sample ($n \leq 30$) only if the population is normally distributed
+\textbf{and} $\sigma$ is known, the standard normal distribution can be used compute quantiles. In practice,
+this case is unusual.
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\end{itemize}
+
+
+
+
+%--------------------------------------------------%
+
+\subsection*{Using the $t-$distribution for large samples}
+
+\begin{itemize}
+\item The $t-$distribution is used for computing quantiles in the case of small samples (i.e. when sample size $n \leq 30$).
+\item A key value in the $t-$distribution is the degrees of freedom, denoted $df$ (or sometimes $\nu$). For small samples \[ df= n-1\].
+\item The $t-$distribution is used for computing quantiles in the case of large samples too, as an alternative to using the $Z$ distribution.
+\item In this case , use the value $\infty$ as the degrees of freedom (see bottom row of tables).
+\[ df= \infty\]
+\item This means that we can use the $t-$ distribution for finding the quantiles of all types of confidence intervals.
+
+\end{itemize}
+
+
+\subsection*{Confidence Intervals for Sample Proportion}
+
+\begin{itemize}
+\item The Structure of a confidence interval for sample proportion is
+\[ \hat{p} \pm z_{(\alpha/2)} \times \mbox{S.E.}(\hat{p})\]
+
+\item The standard error, in the case of sample proportions, is
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{\frac{\hat{p}\times (1-\hat{p})}{n}}\]
+
+\end{itemize}
+
+\noindent Unlike confidence intervals for sample means, there is only one type of confidence interval when dealing with sample proportions.
+
+\newpage
+\noindent \textbf{Optional}
+\begin{itemize}
+
+\item It is often easier to work in terms of percentages, rather than proportions.
+If you are working in terms of percentages, remember to use the appropriate \textbf{\textit{complement value}} in the standard error formula (i.e. $100 - \hat{p}$). 
+
+\item The standard error, in the case of sample proportions, is
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{\frac{\hat{p}\times (100-\hat{p})}{n}} \;\;\;\; [\%]\]
+\item For the sake of clarity, the percentage symbol can be included in bracket beside the formula.
+\item \textbf{Complement Values:}
+\begin{itemize} \item[$\ast$] When working in terms of proportions, for the the value $\hat{p} =0.40$, the complement value is $1-\hat{p} =0.60$.
+\item[$\ast$] When working in terms of percentages, for the value $\hat{p} = 40\%$, the complement value is $100-\hat{p} = 60\%$.
+\end{itemize}
+\end{itemize}
+
+
+\end{document}
+
+%-----------------------------------------------------------%
+
+
