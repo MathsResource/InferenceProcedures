@@ -1,0 +1,154 @@
+	\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{framed}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Paired Data} %\input{tcilatex}
+
+\begin{document}
+
+
+\section*{Paired Data}
+\begin{itemize}
+\item Two measurements are paired when they come from the same case (person, item, observational unit). It is not ncessary for the measurements to be denominated in the same units, but very helpful.
+\item Pairing is determined by a study's design and the way the data values are obtained, and with the actual data values themselves not being particularly relevant. 
+\item Observations are paired rather than independent when there is a natural link between an observation in one set of measurements and a particular observation in the other set of measurements.
+\item Examples of paired data: \textit{\textbf{before and after}} measurements,\textit{ \textbf{with and without}} measurements, and two simultaneous measurements on the same item.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Mean Difference Between Matched Data Pairs}
+The approach described in this lesson is valid whenever the following
+conditions are met:
+\begin{itemize}
+\item The data set is a simple random sample of observations from the
+population of interest.
+\item Each element of the population includes measurements on two paired
+variables (e.g., x and y) such that the paired difference between x and y
+is:
+\[d = x-y.\]
+\item The sampling distribution of the mean difference between data pairs (d)
+is approximately normally distributed.
+\end{itemize}
+The observed data are from the same subject or from a matched subject and
+are drawn from a population with a normal distribution does not assume that
+the variance of both populations are equal.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Notation}
+\begin{itemize}
+\item $\mu_d$ mean value for the population of differences.
+\item $\bar{d}$ mean value for the sample of differences,
+\item $s_d$ standard deviation of the differences for the paired sample data.
+\item $n$ number of pairs
+\end{itemize}
+\noindent \textbf{Remark:} 
+\begin{itemize}
+    \item Difference is consistently ``\textbf{\textit{After-Before}}``.
+\textbf{\textit{Before-After}} is also fine, but be consistent and just use one or the other.
+\item Given $\bar{d}$ mean value for the sample of differences, and $s_d$ standard deviation of the differences for the paired sample data, we can proceed as a one-sample procedure.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Computing the Case Wise Differences}
+
+\begin{itemize}
+\item The mean and standard deviation of the sample $d$ values (i.e. the population of case-wise differences) are
+obtained by use of the basic formulas as seen previously, except
+that $d$, is substituted for X.
+
+\item The mean difference for a set of differences between paired
+observations is $\bar{d} = \frac{\sum d_{i}}{n}$.
+
+\item Compute the variance of the differences.
+
+
+\[s_d^2 = \frac{\sum (d_i-\bar{d})^2}{n-1}\]
+\item The deviations formula and the computational formula for the
+standard deviation of the differences between paired observations
+are, respectively,
+\end{itemize}
+\[s_{d} = \sqrt{\frac{\sum (d_{i}-\bar{d})^2}{n-1}}\]
+\noindent \textbf{Computational Formula}
+\[s_{d} = \sqrt{\frac{ \sum (d^2)- n(\bar{d}^2)}{n-1}}\]
+
+
+\begin{framed}
+\begin{itemize}
+\item Compute the case-wise differences $d_i$
+\item Compute the mean of the case-wise differences $\bar{d}$
+\item Compute the standard deviation of the case-wise differences
+\end{itemize}
+\end{framed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Example}
+
+\[
+\begin{array}{|c|c|c|c|c|} \hline 
+\mbox{Student} & \mbox{Before} & \mbox{After} & \mbox{Difference }(d_i) & (d_i - \bar{d})^2 \\ \hline \hline 
+1 & 90 & 95 & 5 & (5-2)^2 = 9 \\ \hline 
+2 & 85 & 89 & 4 & (4-2)^2 = 4 \\ \hline 
+3 & 76 & 73 & -3 & (-3-2)^2 = 25 \\ \hline 
+4 & 90 & 92 & 2 & (2-2)^2 =  0 \\ \hline 
+5 & 91 & 92 & 1 & (1-2)^2 =  1 \\ \hline 
+6 & 53 & 53 & 0 & (0-2)^2 = 4 \\ \hline 
+7 & 67 & 68 & 1 & (1-2)^2 =  1 \\ \hline 
+8 & 88 & 91 & 3 & (3-2)^2 = 1 \\ \hline 
+9 & 75 & 78 & 3 & (3-2)^2 = 1 \\ \hline 
+10 & 85 & 89 & 4 & (4-2)^2 = 4 \\ \hline 
+\end{array} 
+\]
+\newpage
+
+\noindent \textbf{Mean of Case-wise Differences}
+\[\bar{d} = \frac{\sum d_i}{n} = \frac{5+4+(-3)+2+1+0+1+2+3+4}{10} = \frac{2}{10} = 2\]
+\smallskip
+\noindent \textbf{Standard Deviation of Case-wise Differences}
+\[s_d^2  = \frac{\sum (d_i-\bar{d})^2}{n-1} = \frac{9+4+25+0+1+4+1+1+1+4}{9} = \frac{50}{9} = 5.555\] \smallskip
+
+\[s_d = \sqrt{5.555} =   2.357 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Confidence Interval for Mean Case-wise Difference}
+% Recall: General Structure of Confidence Intervals:
+
+A 95\% confidence interval for the true mean difference is:
+\[\bar{d} \pm t_{\alpha/2} \frac{s_d}{\sqrt{n}}\]
+
+% \noindent or, equivalently 
+% \[\bar{d} \pm (t_{\alpha/2} \times SE(\bar{d}))\]
+
+\noindent where $t_{\alpha/2}$ is the 2.5\% point of the t-distribution on $n-1$ degrees of freedom.
+
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the
+individual sample sizes are less than 30, then we consider it to be a large
+sample.
+\item 
+We would never do a large sample by pen-and-paper calculations.
+\item The quantile is calculated according to the procedure we met in the previous class. (Murdoch Barnes Table 7: recall $df=n-1$)
+\end{itemize}
+\[\bar{d} \pm t_{\alpha/2} \frac{s_d}{\sqrt{n}} = \left(2 \pm 2.262 \times \left[ \frac{2.357}{\sqrt{10}}\right] \right) = (0.3138,3.6862)\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,119 @@
+	\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{framed}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Hypothesis Testing} %\input{tcilatex}
+
+\begin{document}
+\section*{Worked Example: Comparing Recovery Times}
+\begin{itemize}
+\item Two sets of patients are given courses of treatment under two different drugs. \item 
+The benefits
+derived from each drug can be stated numerically in terms of the recovery times measured in days
+\item We wish to see if there is a statistically significant difference betwee the two groups.
+\item The sample size, mean and standard deviations for both groups, denominated in recovery days, are given below.
+\end{itemize}
+\begin{center}
+ \begin{tabular}{|c|c|c|c|}
+\hline Group & Sample Size & Mean & Std. Dev.  \\ 
+\hline 1 & $n_1$ = 40 & $\bar{x}_1$ = 3.3 days  &  $s_1 = 1.524$ \\ 
+\hline 2 & $n_2$ = 45 & $\bar{x}_2$ = 4.3 days & $s_2 = 1.951 $ \\ 
+\hline 
+\end{tabular} 
+
+   
+\end{center}
+
+
+\noindent \textbf{Hypothesis Testing Procedure}
+\begin{itemize}
+\item
+The first step in hypothesis testing is to specify the null hypothesis and an alternative hypothesis.
+\item When testing differences between mean recovery times, the null hypothesis is that the two population means are equal.
+\item That is, the null hypothesis is:\\
+$H_0: \mu_1 = \mu_2$ (The population means are equal)\\
+$H_1: \mu_1 \neq \mu_2$ (The population means are different)\\
+\end{itemize}
+
+
+\noindent \textbf{Computing the Test Statistic}
+\begin{itemize}
+\item \textbf{Point Estimate}: The observed difference in means is $\bar{x}_1-\bar{x}_2 \;= \;4.3-3.3 \;$= 1 day.
+\vspace{0.2cm}
+\item The relevant formula for the standard error is
+\[ S.E(\bar{x}_1 - \bar{x}_2) = \sqrt{{s^2_1\over n_1}+{s^2_2 \over n_2}} \]
+\[ S.E(\bar{x}_1 - \bar{x}_2) = \sqrt{{(1.524)^2 \over 40}+{(1.951)^2 \over 45}}   \]\vspace{0.2cm}
+\[ S.E(\bar{x}_1 - \bar{x}_2) = 0.377\mbox{ days}\]
+\end{itemize}
+
+
+
+
+\begin{itemize}
+\item The Test statistic is therefore
+\[ TS = {\mbox{Point Estimate} - \mbox{Expected Difference under } H_0 \over \mbox{Std. Error}} \]
+
+\[TS = {1 - 0 \over 0.377 } = 2.65 \]
+
+
+\end{itemize}
+
+
+\noindent \textbf{The Critical Value}
+\begin{itemize}
+
+\item This is a Two-Tailed Test, therefore $k = 2$.
+\item The significance level $\alpha = 0.05$. 
+\item Also we have two large samples ($n_1 + n_2 > 30$). 
+\item The Critical Value is therefore 1.96.
+\end{itemize}
+
+\noindent \textbf{Decision Rule}
+\[ |TS| > CV ?  \]
+\begin{itemize}
+\item If Yes: Reject the null Hypothesis
+\item If No : Fail to reject the Null Hypothesis
+\end{itemize}
+$|2.65|$ is greater than 1.96. We reject the null hypothesis.  There is enough evidence to suggest that there is a difference in drug treatments.There is a significant difference in the effectiveness of the two drug treatments.
+
+
+\section*{Using a $p-$value approach with \texttt{R}}
+\begin{itemize}
+% \item The Test statistic is therefore
+% \[ TS = {\mbox{observed} - \mbox{null} \over \mbox{Std. Error}}  = {1 - 0 \over 0.377 } = 2.65 \]
+\item Lets compute the p-value of the Test Statistic : \\
+p-value = $P(z \geq 2.65) = 0.0040$
+\begin{verbatim}
+> 1-pnorm(2.65)
+[1] 0.004024589
+\end{verbatim}
+\item (Remark: Two Tailed Test, therefore $k = 2$, and $\alpha = 0.05$)
+\item What is this value smaller than threshold $\alpha / k$? \\
+\item $\alpha / k$ = $0.05/2$ = 0.0250? Yes the p-value is smaller than this.
+\item \textbf{Conclusion:} we reject the null hypothesis. There is a significant different between both drugs, in terms of recovery times.
+
+\end{itemize}
+
+
+
+
+
+\end{document}

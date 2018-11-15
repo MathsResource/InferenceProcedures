@@ -1,0 +1,216 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{framed}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Dixon Q-Test for Outliers} %\input{tcilatex}
+
+\begin{document}
+\begin{framed}
+\noindent \textbf{Hypothesis Testing : Steps when using Critical Value approach}
+
+\begin{itemize}
+	\item[1] Formally State the Null and Alternative Hypothesis \smallskip
+	{
+		\begin{itemize}
+			\item[$\ast$] \textbf{ALWAYS} include a short written description of both hypotheses.
+			\item[$\ast$] State hypotheses in mathematical notation where possible.
+			
+		\end{itemize}
+	}
+	\item[2] Calculate Test Statistic (TS) using relevant formulas.\smallskip
+	\item[3] Determine the Critical Value (CV) from tables. \smallskip
+	\item[4] By comparing the values of the Test Statistic and Critical Value, decide whether to reject the Null Hypothesis.
+\end{itemize}
+\end{framed}
+
+\noindent \textbf{Remarks}
+\begin{itemize} 
+	\item Consider TS as a measure of the strength of evidence, and CV as a threshold that we have to cross for our evidence to be considered sufficiently strong.
+	\item We usually use absolute value of Test Statistic $|TS|$.
+	\item Key comparison
+	\[ \mbox{ is } |TS| > CV \mbox{?} \]
+\end{itemize}	
+
+
+\noindent \textbf{What are the conclusions}
+\begin{itemize} 
+	
+	\item[Yes:] We \textbf{reject the Null} Hypothesis. \\ \textit{We have sufficient evidence against Null Hypothesis.}
+	
+	\item[No:] We \textbf{fail to reject} Null hypothesis. \\ \textit{We do not have sufficient evident against Null Hypothesis.}
+\end{itemize}	
+{	\normalsize
+	N.B. Note the terminology that we are using. Also note exactly what our conclusion is: We are talking about strength of evidence, rather than what is true or false.}
+
+\newpage
+\section*{Outliers}
+
+
+\begin{itemize}
+	\item In science, it is quite often the case that an outlier measurement is the result of faulty or unclean equipment, or a data entry error etc. 
+	\item \textbf{Important:} Care must be take to assess that the measurement is an outlier, rather than an unusual result that is in fact genuine.
+	\item It is good practice not to remove outliers from an overall analysis (\textit{not permanently anyway}). 
+	\item However you may omit suspected outliers and run the analysis a second time, then present all of the obtained results, with and without the outliers.
+	\item There may be an outlier, or multiple outliers, present in the data.
+\end{itemize}
+
+\noindent There are several formal hypothesis tests to determine presence of an outlier. The main one we will use is the Dixon Q-test.
+
+% \begin{itemize}
+%	\item The Dixon Test
+%	\item The Grubbs' Test
+% \end{itemize}
+
+\subsection*{Dixon Q Test for Outliers}
+\begin{itemize}
+	\item The Dixon's Q test, or simply the Q test, is used for identification and rejection of outliers. 
+	\item \textbf{(Important)} - This test is based upon the assumption of normality. 
+	\item This test should be used sparingly and never more than once in a data set. 
+	\item To apply a Q test for suspicious data, arrange the data in order of increasing values and calculate Q as defined:
+	
+	\[ Q = \frac{\text{gap}}{\text{range}} \]
+	Where gap is the absolute difference between the outlier in question and the closest number to it. 
+		
+		\item 	If $Q_{Test} > Q_{CV}$ , where $Q_{CV}$ is a critical value corresponding to the sample size and confidence level, then reject the questionable data point. 
+		\item Again, note that only one point may be rejected from a data set using a Q test.
+	
+\end{itemize}
+
+	
+	
+\newpage
+	
+	
+	
+
+\subsection*{Example}
+Consider the data set:
+\begin{framed}
+	\[0.189,\ 0.167,\ 0.187,\ 0.183,\ 0.186,\]\[ 0.182,\ 0.181,\ 0.184,\ 0.181,\ 0.177 \,\]
+\end{framed}
+
+
+%==================================================================%
+
+\noindent \textbf{Step 1:} Hypotheses for the Dixon Test.
+
+\begin{framed}
+\begin{itemize}
+	\item[$H_0$] No Outlier Present in Data
+	\item[$H_1$] There is an Outlier present in Data (You may identify it
+\end{itemize}
+\end{framed}
+
+
+
+\noindent \textbf{Step 2:} Dixon Q Test Statistic\\ \smallskip
+To apply a Q test for suspicious data, arrange the data in order of increasing values and calculate Q as defined:
+\begin{framed}
+	\[ Q = \frac{\text{gap}}{\text{range}} \]
+\end{framed}
+\noindent Where gap is the absolute difference between the outlier in question and the closest number to it. 
+
+%==================================================================%
+
+\noindent Consider the data set:
+\begin{framed}
+	\[0.189,\ 0.167,\ 0.187,\ 0.183,\ 0.186,\]\[ 0.182,\ 0.181,\ 0.184,\ 0.181,\ 0.177 \,\]
+\end{framed}
+\noindent Now rearrange in increasing order:
+\begin{framed}
+	\[0.167,\ 0.177,\ 0.181,\ 0.181,\ 0.182,\]\[ 0.183,\ 0.184,\ 0.186,\ 0.187,\ 0.189 \, \]
+\end{framed}
+
+%==================================================================%
+
+\noindent We hypothesize 0.167 is an outlier (based on it's large gap to next number, i.e. 0.010). 
+\begin{framed}
+\noindent Calculate The Test Statistic $Q_{Ts}$:
+{
+
+	\[ Q_{TS}=\frac{\text{gap}}{\text{range}} = \frac{0.177-0.167}{0.189-0.167}=0.455.\]
+}
+\end{framed}
+
+	
+
+	
+
+
+%==================================================================%
+
+
+\textbf{Step 3:} Dixon Q Test Critical Value\\ \smallskip
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.40\linewidth]{images/QtestCVs}
+\end{figure}
+
+\textit{Here: N is the sample size (\textit{it is usually denoted as $n$}).}
+
+%==================================================================%
+
+
+
+\begin{itemize}
+	\item Choose the Critical Value based on sample size and significance level $\alpha$. \smallskip
+	\item In this table we work on the basis of confidence level. \smallskip \item Let's use 95\% as our confidence level. \\ (i.e. 5\% significance, i.e. $\alpha=0.05)$ 
+	
+	%\item 	If $Q_{TS} > Q_{CV}$ , where $Q_{CV}$ is a critical value corresponding to the sample size and confidence level, then reject the null hypothesis. 
+	%\item  If $Q_{TS} \leq Q_{CV}$ , we fail to reject. null hypothesis. i.e. Not enough evidence.
+\end{itemize}
+
+
+\textbf{Step 4} : Dixon Q Test Decison Rule
+\begin{itemize}
+	\item 	If $Q_{TS} > Q_{CV}$ , where $Q_{CV}$ is a critical value corresponding to the sample size and confidence level, then reject the null hypothesis. 
+	\item  If $Q_{TS} \leq Q_{CV}$ , we fail to reject. null hypothesis. i.e. Not enough evidence. \smallskip
+	%\item	With 10 observations and at 90\% confidence, $Q_{Test} = 0.455 > 0.412 =Q_{CV}$ , so we conclude 0.167 is an outlier.
+	\item At 95\% confidence, $Q_{TS} \leq Q_{CV}$ i.e $ 0.455 \leq 0.466$ 
+	\item Therefore we dont have enough evidence to classify the lowest value 0.167 as an outlier. 
+	
+	%\item This means that for this example we can be 90\% sure that 0.167 is an outlier, but we cannot be 95\% sure.
+	%\bigskip
+	%\item (Remark 95\% confidence is equivalent to 5\% signifificance)
+\end{itemize}	
+
+\newpage
+
+
+
+
+\subsection*{Varying the Significance Level}
+\begin{itemize}
+\item	With 10 observations and at 90\% confidence, $Q_{Test} = 0.455 > 0.412 =Q_{CV}$ , so we conclude 0.167 is an outlier.
+\item  However, at 95\% confidence, $Q_{Test} = 0.455 < 0.466$ = $Q_{CV}$ 0.167 is not considered an outlier. 
+
+\item This means that for this example we can be 90\% sure that 0.167 is an outlier, but we cannot be 95\% sure.
+\bigskip
+\item (Remark 95\% confidence is equivalent to 5\% signifificance)
+\end{itemize}	
+
+
+%=======================================================%
+
+
+\end{document}	
+

@@ -1,0 +1,86 @@
+	\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MS4222} \rhead{Kevin O'Brien} \chead{Hypothesis Testing} %\input{tcilatex}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{The Critical Value}
+
+\begin{itemize}
+	\item The critical value(s) for a hypothesis test is a threshold to which the value of the test statistic in sample is compared to determine whether or not the null hypothesis is rejected.
+		\item We will use the initials CV for the sake of brevity.
+	\item The critical value for any hypothesis test depends on the significance level at which the test is carried out, and whether the test is one-sided or two-sided.
+
+	\item The critical value is determined the exact same way as quantiles for confidence intervals; using Murdoch Barnes table 7.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Determining the Critical value}
+\begin{itemize}
+	\item A pre-determined level of significance $\alpha$ must be specified. Usually it is set at 5\% (0.05).
+	\item The number of tails must be specified, either one tailed or two tailed, i.e. $k$ is either 1 or 2.
+	\item Sample size is an issue. We must decide whether to use $n-1$ degrees of freedom or $\infty$ degrees of freedom, depending on the sample size in question.
+	\item The manner by which we compute critical value is identical to the way we compute quantiles. 
+	% We will consider this in more detail during tutorials.
+	% \item For the time being we will use 1.96 as a critical value.
+\end{itemize}
+
+%=============================================================%
+
+%	\subsection*{Critical value}
+%	A critical value is any value that separates the critical region ( where we reject the null hypothesis) for that tha values of the test statistic that do not lead to a rejection of the null hypothesis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Critical Region }
+	
+	Remark: The absolute value function of some value x is denoted $|x|$. It is the magnitude of the value without consideration of whether the value is positive or negative.
+	
+	
+	\begin{itemize}
+		\item Let TS denote Test Statistic and CV denoted Critical Value.
+		\item $|TS| > CV$ Then we reject null hypothesis.
+		\item $|TS| \leq CV$ Then we \textbf{fail to reject} null hypothesis.
+		\item Suppose TS = 2.99, CV = 1.96
+%		\item For our die-throw example; TS = 2.99, CV = 1.96.
+		\item Here $|2.99| > 1.96$ we reject the null hypothesis that the die is fair.
+%		\item Consider this in the context of ``proof". 
+		%(More on this in next class)
+	\end{itemize}
+
+% \subsection*{Critical Value}
+%
+%
+% The critical region ( or rejection region ) is the set of all values of % the test statistic that causes us to reject the null hypothesis.
+
+%===================================================================%
+
+
+
+
+
+\end{document}
