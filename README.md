@@ -1,2 +1,5 @@
-# 07-Bokeh
-Bokeh Workshop
+# Inference Procedures
+
+Hypothesis Testing
+Confidence Intervals
+Sample Size Estimation
