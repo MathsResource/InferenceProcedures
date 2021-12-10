@@ -1,0 +1,155 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{framed}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Frankfurt} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4603]{Science Maths 3 \\ {\normalsize MA4603 Lecture 11A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2017}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Mean Difference Between Matched Data Pairs}
+
+
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item The data set is a simple random sample of observations from the population of interest.
+\item Each element of the population includes measurements on two paired variables (e.g., x and y) such that the paired difference between x and y is: d = x - y.
+\item The sampling distribution of the mean difference between data pairs (d) is approximately normally distributed.
+\end{itemize}
+
+
+
+The observed data are from the same subject or from a matched subject and are drawn from a population with a normal distribution
+does not assume that the variance of both populations are equal
+
+
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+\begin{center}
+\small
+\begin{tabular}{|c||c|c|c|c|} \hline
+Student & Before & After & Difference $(d_i)$ & $ (d_i -\bar{d})^2$ \\\hline
+1 &90& 95& 5& 16 \\\hline
+2 &85& 89& 4& 9 \\\hline
+3 &76 &73 &-3 &4 \\\hline
+4 &90& 92& 2& 1 \\\hline
+5 &91 &92 &1 &0 \\\hline
+6 &53 &53& 0& 1 \\\hline
+7 &67 &68 &1 &4 \\\hline
+8 &88 &90 &2 &9 \\\hline
+9 &75 &78 &3 &16\\\hline
+10 &85& 89 &4& 25 \\\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+Compute the mean difference
+
+\[ \bar{d}  = {\sum{d_i} \over n } = { 3+6 \over 8} \]
+
+Compute the variance of the differences.
+
+\[ s^2_{d}  ={\sum(d_i -\bar{d})^2 \over n-1 } =  { 3+6 \over 9} \]
+
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Difference of Two Means}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+
+\begin{frame}
+\frametitle{How a paired t test works}
+\begin{itemize}
+\item The paired t test compares two paired groups.
+\item It calculates the difference between each set of pairs, and analyzes that list of differences based on the assumption that the differences in the entire population follow a Gaussian distribution.
+\item First we calculate the difference between each set of pairs, keeping track of sign.
+\item If the value in column B is larger, then the difference is positive.
+If the value in column A is larger, then the difference is negative.
+\item The t ratio for a paired t test is the mean of these differences divided by the standard error of the differences. If the t ratio is large (or is a large negative number), the P value will be small. The number of degrees of freedom equals the number of pairs minus 1. Prism calculates the P value from the t ratio and the number of degrees of freedom.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+\end{frame}
+
+
+
+\end{document}

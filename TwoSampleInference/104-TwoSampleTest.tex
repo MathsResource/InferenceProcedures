@@ -1,0 +1,472 @@
+ \documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{framed}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 2011 13:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+%\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+%\lhead{MA4413 2013} \rhead{Mr. Kevin O'Brien}
+%\chead{Midterm Assessment 1 }
+%\input{tcilatex}
+
+\begin{document}
+\section{One Way ANOVA}
+
+A One-Way Analysis of Variance is a way to test the equality of three or more means at one time by using variances.
+
+\subsection{Assumptions}
+\begin{itemize}\item The populations from which the samples were obtained must be normally or approximately normally distributed.
+\item The samples must be independent.
+\item The variances of the populations must be equal.
+\end{itemize}
+\subsection{Hypotheses}
+The null hypothesis will be that all population means are equal, the alternative hypothesis is that at least one mean is different.
+
+ Commonly lower case letters apply to the individual samples and capital letters apply to the entire set collectively. That is, n is one of many sample sizes, but N is the total sample size.
+
+\subsection{Decision Rule}
+The decision will be to reject the null hypothesis if the test statistic from the table is greater than the F critical value with $k-1$ numerator and $N-k$ denominator degrees of freedom.
+
+If the decision is to reject the null, then at least one of the means is different. However, the ANOVA does not tell you where the difference lies.
+
+
+\newpage
+
+
+
+%--------------------------------------%
+\newpage
+
+{Today's Class}
+
+\begin{itemize}
+	\item Inference tests .
+	\begin{itemize}
+		\item Kolmogorov Smirnov (K-S) test.
+		\item Grubbs Test
+		\item Anderson Darling Test
+		\item Shapiro Wilk Test
+		\item Chi Square test.
+	\end{itemize}
+	\item I will do the most important test, the ``t - test", in the next class.
+\end{itemize}
+
+
+
+
+%------------------------------------------
+{K-S test: one sample test}
+
+\begin{itemize}
+	\item One sample test - tests whether or not a data set comes from a specified distribution.
+	\item The distribution is specified in the argument, by passing as an argument the name of a function associated with that distribution, but not the quantile function.
+	\item To specify the normal distribution use either ``prnorm",``dnorm" or ``rnorm", but not ``qnorm".
+	\item The null hypothesis is that the data set is normally distributed (or other specified distribution).
+	\item The alternative is that it is not normally distributed.
+	\item The mean and standard deviation must be specified, to distinguish from the standard normal distribution.
+	
+\end{itemize}
+
+%------------------------------------------
+{K-S test: one sample test}
+Generate two random sets of data values: x and y.
+\begin{verbatim}
+> ks.test(x,"rnorm", mean(x),sd(x))
+
+One-sample Kolmogorov-Smirnov test
+
+data:  x
+D = 0.143, p-value = 0.938
+alternative hypothesis: two-sided
+
+\end{verbatim}
+
+The p-value is very high, greater than 1\%. We fail to reject the null. The data is indeed normally distributed.
+
+
+%------------------------------------------
+{K-S test: two sample test}
+
+\begin{itemize}
+	\item Two sample test - tests whether or not two data sets come from the same distribution.
+	\item The null is that they do come from the same distribution. The alternative is that they don't.
+\end{itemize}
+
+\begin{verbatim}
+> ks.test(x,y)
+
+Two-sample Kolmogorov-Smirnov test
+
+data:  x and y
+D = 0.25, p-value = 0.869
+alternative hypothesis: two-sided
+\end{verbatim}
+Again a high p-value. We can conclude that they do come from the same distribution.
+
+
+%------------------------------------------
+
+{Other Inference tests}
+
+The nortest package includes common tests for normality of distribution. Similarly the outliers package contains well known inference tests for outliers.
+
+\begin{itemize}
+	\item Grubbs test for outliers [outliers].
+	\item Dixon Test for outliers [outliers].
+	\item Anderson Darling test for normality [nortest].
+\end{itemize}
+A boxplot is useful in conjunction with such tests.
+
+
+
+%------------------------------------------
+
+{Grubbs test}
+\begin{verbatim}
+
+> library(outliers)
+> grubbs.test(x)
+Grubbs test for one outlier
+data:  x
+G = 2.4180, U = 0.4202, p-value = 0.02405
+alternative hypothesis:
+lowest value 3.51 is an outlier
+\end{verbatim}
+
+%------------------------------------------
+
+{Grubbs test: conclusion}
+\begin{itemize}
+	\item The null hypothesis is that lowest value (highest in other cases) is not an outlier.
+	\item The alternative hypothesis that it is an outlier.
+	\item The p-value (0.02405) is less than 5\% (usual value for $\alpha$).
+	\item Therefore we reject the null hypothesis.
+	\item Lowest value is an outlier.
+\end{itemize}
+
+%------------------------------------------
+{Anderson-Darling normality test}
+\begin{verbatim}
+> ad.test(x)
+
+Anderson-Darling normality test
+
+data:  x
+A = 0.3859, p-value = 0.3325
+\end{verbatim}
+
+
+%------------------------------------------
+{The Shapiro Wilk normality test}
+The Shapiro Wilk is another commonly used procedure used to test normality.
+Again, the null hypothesis is that the data set is normally distributed.
+\begin{verbatim}
+> x=rnorm(40)
+> shapiro.test(x)
+
+Shapiro-Wilk normality test
+
+data:  x
+W = 0.9601, p-value = 0.1689
+\end{verbatim}
+Here, the P-value is greater than 1\%. We fail to reject the null hypothesis.
+
+%------------------------------------------
+
+{A-D test: conclusion}
+\begin{itemize}
+	\item The null hypothesis is that data set is normally distributed.
+	\item The alternative hypothesis is that it is not normally distributed.
+	\item The p-value (0.3325) is greater than than 1\%.
+	\item Therefore we fail to reject the null hypothesis.
+\end{itemize}
+
+
+%---------------------------------------------------------------------
+{Chi Square test}
+
+Chi Square test are used when one wants to check whether a sample comes from some type of population,
+or when one wants to check that two samples are from the same population.
+
+\begin{itemize}
+	\item Goodness of fit tests.
+	\item Testing for association in contingency tables.
+\end{itemize}
+
+The $R$ command for chi squared tests is chisq.test().
+
+
+
+%---------------------------------------------------------------------
+{Chi-Square test}
+\begin{itemize}
+	\item Goodness of fit test is used to test whether a sample comes from a specified distribution.
+	\item The sample is univariate.
+	\item $R$ assumes a null hypothesis that each outcome is equally likely ( uniformly distributed).
+	\item chisq.test(x)
+	\item Can specify the distribution of expected values under the null hypothesis for other cases using the `p' parameter.
+	\item chisq.test(x,p)
+\end{itemize}
+
+%---------------------------------------------------------------------
+{Chi Square}
+\begin{itemize}
+	\item Example: In an experiment of 100 trials, the number of times that each of the four possible outcomes
+	occured was recorded.\\
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Event & A & B & C & D \\\hline
+		Outcomes & 59 & 20 & 11 & 10 \\
+		\hline
+	\end{tabular}
+	
+	\item It was presupposed that each outcome was equally likely \\(i.e. The null hypothesis is $H_{0} : P_{A} = P_{B} = P_{C} = P_{D}$.)\\
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Event & A & B & C & D \\\hline
+		Expected & 25 & 25 & 25 & 25 \\
+		\hline
+	\end{tabular}
+	\item Under the null hypothesis, any deviations from the expected values are attributable to random error.
+	
+\end{itemize}
+
+%---------------------------------------------------------------------
+{Chi Square tests}
+
+
+\begin{verbatim}
+> chisq.test(c(59,20,11,10))
+
+Chi-squared test for given probabilities
+
+data:  c(59, 20, 11, 10)
+X-squared = 64.08, df = 3,
+p-value = 7.891e-14
+\end{verbatim}
+
+The p-value indicates that we should reject the hypothesis that there is an equal likely outcomes.
+
+
+%---------------------------------------------------------------------
+{Chi Square test}
+\begin{itemize}
+	\item If you do not want equal proportions, you need to give a set of
+	proportions for each cell (using the `p' parameter).
+	\item Genetic theory predicts that certain fruit flies
+	will fall into four categories in proportions 9:3:3:1.
+	\item Data showed counts of 59, 20, 11 and 10.
+\end{itemize}
+\begin{verbatim}
+> chisq.test(c(59,20,11,10),
+p=c(9/16,3/16,3/16,1/16))
+
+Chi-squared test for given probabilities
+
+data:  c(59, 20, 11, 10)
+X-squared = 5.6711, df = 3, p-value = 0.1288
+\end{verbatim}
+
+{Chi Square test}
+\begin{itemize}
+	\item We would not reject the theoretical hypothesis with these data.
+	\item Deviations from expected values are attributed to random error.
+\end{itemize}
+
+
+%--------------------------------------------------------------------
+{Contingency Tables}
+
+\begin{itemize}
+	\item We also use the Chi square test for testing association in two way
+	contingency tables.
+	\item Contingency tables: Outcomes are categorized into rows and columns.
+	\item This can be used to test the differences between several groups.
+	\item The null hypothesis is that there is not differences between the groups.
+	\item The alternative is that there is difference between the groups.
+	\item Independence or association?
+\end{itemize}
+
+
+
+
+%--------------------------------------------------------------------
+
+{Chi Square: Contingency table}
+
+Example: Test the association between smoking and exercise.
+
+\begin{verbatim}
+> library(MASS)     # load the MASS package
+> tbl = table(survey$Smoke, survey$Exer)
+> tbl               # the contingency table
+
+Freq None Some
+Heavy    7    1    3
+Never   87   18   84
+Occas   12    3    4
+Regul    9    1    7
+
+
+\end{verbatim}
+
+
+{Chi Square: Contingency table}
+Test the hypothesis whether the students smoking habit is independent of their exercise level at .05 significance level.
+\begin{verbatim}
+> chisq.test(tbl)
+
+Pearson's Chi-squared test
+
+data:  tbl
+X-squared = 5.4885, df = 6, p-value = 0.4828
+
+Warning message:
+In chisq.test(tbl) : Chi-squared
+approximation may be incorrect
+
+\end{verbatim}
+
+
+
+
+%---------------------------------------------------------------------
+{Chi Square: Contingency table}
+\begin{itemize}
+	\item We have applied the chisq.test() function to the contingency table tbl, and found the p-value to be 0.4828.
+	\item We fail to reject the null hypothesis.
+	
+	
+	\item The warning message found in the solution above is due to the small cell values in the contingency table. \item To avoid such warning, we could combine the second and third columns of tbl.
+\end{itemize}
+
+
+
+
+\section{Test for Equality of Variance and Means}
+
+\begin{itemize}
+\item Test for Equality of Test (\texttt{var.test()})
+\item Welch Two Sample \emph{t-}test (\texttt{t.test()})
+\item Independent Two Sample \emph{t-}test (\texttt{t.test(var.equal=TRUE)})
+
+\end{itemize}
+
+\subsection{Bartlett's test for Homogeneity of Variances}
+ 
+
+Equal variances across samples is called homogeneity of variances. Bartlett's test is used to test if multiple samples have equal variances. 
+
+Some statistical tests, such as the analysis of variance, assume that variances are equal across groups or samples.  The Bartlett test can be used to verify that assumption.
+
+\begin{itemize}
+\item The null hypothesis is that each of the samples have equal variance.
+\item The alternative hypothesis states that at least one sample has a significantly different variance.
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------------------- %
+\newpage
+
+
+%--------------------------------------------------------------------------%
+\newpage
+%section 9 Inference Procedures
+
+
+
+
+\subsection{Hypothesis test of Proportion}
+This procedure is used to assess whether an assumed proportion is supported by evidence. For two tailed tests, the null hypothesis states that the population proportion  π has a specified value, with the alternative stating that π has a different value. 
+
+The hypotheses are typically as follows:   
+
+\begin{itemize}
+	\item[Ho] : $\pi = 0.50$
+	\item[Ha] : $\pi \neq 0.50$
+\end{itemize}
+
+
+\subsubsection{Two Sample Tests}
+
+
+All of the previous hypothesis tests and confidence intervals can be
+extended to the two-sample case.
+
+The same assumptions apply, i.e. data are normally distributed in
+each population and we may want to test if the mean in one
+population is the same as the mean in the other population, etc.
+
+Normality can be checked using histograms, boxplots and Q-Q
+plots as before. The Anderson-Darling test can be used on
+each group of data also.
+
+
+%------------------------------------------------------%
+\subsubsection{Implementation}
+
+This can be carried out in R by hand:
+
+\footnotesize \begin{verbatim}
+>obs.vals <- matrix(c(43,9,44,4), nrow=2, byrow=T)
+>row.tots <- apply(obs.vals, 1, sum)
+>col.tots <- apply(obs.vals, 2, sum)
+>exp.vals <- row.tots%o%col.tots/sum(obs.vals)
+>TS <- sum((obs.vals-exp.vals)^2/exp.vals)
+>TS
+>[1] 1.777415
+\end{verbatim}\normalsize
+
+
+%------------------------------------------------------%
+
+%----------------------------------------------------%
+
+
+\subsubsection{Two Sample Tests}
+
+
+All of the previous hypothesis tests and confidence intervals can be
+extended to the two-sample case.
+
+The same assumptions apply, i.e. data are normally distributed in
+each population and we may want to test if the mean in one
+population is the same as the mean in the other population, etc.
+
+Normality can be checked using histograms, boxplots and Q-Q
+plots as before. The Anderson-Darling test can be used on
+each group of data also.
+
+
+%------------------------------------------------------%
+\subsubsection{Implementation}
+
+This can be carried out in R by hand:
+
+\footnotesize \begin{verbatim}
+>obs.vals <- matrix(c(43,9,44,4), nrow=2, byrow=T)
+>row.tots <- apply(obs.vals, 1, sum)
+>col.tots <- apply(obs.vals, 2, sum)
+>exp.vals <- row.tots%o%col.tots/sum(obs.vals)
+>TS <- sum((obs.vals-exp.vals)^2/exp.vals)
+>TS
+>[1] 1.777415
+\end{verbatim}\normalsize
+
+
+\end{document}

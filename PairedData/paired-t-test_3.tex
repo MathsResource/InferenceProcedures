@@ -1,0 +1,63 @@
+﻿\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{framed}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Frankfurt} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4603]{Science Maths 3 \\ {\normalsize MA4603 Lecture 11A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2017}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+%------------------------------------------------------------------------%
+\frame{
+\frametitle{Paired T test}
+\large
+\begin{itemize}
+\item Firstly we have to compute each of the case-wise differences.
+\item Then we have to compute the mean value of these differences.
+\item Lastly we also have to compute the standard deviation of the differences.
+\end{itemize}
+}
+%----------------------------------------------------------------------%
+\frame{
+To test the null hypothesis that the true mean difference is zero, the procedure is as
+follows:
+1. Calculate the difference $(di = y_i − x_i)$ between the two observations on each pair,
+making sure you distinguish between positive and negative differences.
+2. Calculate the mean difference, $\bar{d}$.
+
+
+3. Calculate the standard deviation of the differences, $s_d$, and use this to calculate the
+standard error of the mean difference, $SE(\bar{d}) = {s_d \over \sqrt{n}}$
+
+4. Calculate the t-statistic, which is given by $ T ={ \bar{d} \over SE(\bar{d})}$.
+
+Under the null hypothesis, this statistic follows a t-distribution with $n − 1$ degrees of freedom.
+
+}
+
+\end{document}

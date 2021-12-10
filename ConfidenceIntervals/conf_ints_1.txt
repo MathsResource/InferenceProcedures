@@ -1,0 +1,167 @@
+﻿\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{framed}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Frankfurt} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4603]{Science Maths 3 \\ {\normalsize MA4603 Lecture 11A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2017}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+
+
+%------------------------------------------------------------------------%
+\frame{
+\frametitle{Confidence interval}
+\large
+\begin{itemize}
+\item A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, such as a population mean.
+
+\item 
+The confidence intervals is calculated from a given set of sample data.
+
+\item 
+Confidence intervals are usually calculated so that this percentage is $95\%$, but we can produce $90\%$, $99\%$, $99.9\%$ (or whatever) confidence intervals for the unknown parameter
+
+\end{itemize}
+}
+
+
+
+%----------------------------------------------------------------------------------------------------------------%
+\frame{
+
+If a statistic is normally distributed and the standard error of the statistic is known, 
+then a confidence interval for that statistic can be computed as follows:
+
+\[
+Statistic \pm (Quantile \times Std. Error)
+\]
+
+The statistic is found in the question. It will be the sample mean, sample proportion or the sample difference.
+}
+
+%------------------------------------------------------------------------%
+\frame{
+\Large
+The quantile depends on the level of confidence desired. 
+
+\begin{itemize}
+\item If the standard error of the statistic is \textbf{known}, then the quantile is from the $Z$ distribution.
+\[
+Statistic \pm (Z_{{\alpha\over 2}} \times Std. Error)
+\]
+\item If the standard error of the statistic is \textbf{unknown}, then the quantile is from the $t-$ distribution, with $n-1$ degrees of freedom.
+\[
+Statistic \pm (t_{{\alpha\over 2},n-1} \times Std. Error)
+\]
+
+\end{itemize}
+Generally, we use 1.96 for the 95\% confidence interval and 2.58 for the 99\% confidence interval.
+}
+%------------------------------------------------------------------------%
+
+
+
+
+%-------------------------------------------------------%
+\section{Confidence Intervals}
+
+\frame{
+\frametitle{Margin of Error}
+
+\[ E = {\mbox{ upper conf. limit} - \mbox{ lower conf. limit} \over 2} \]
+
+
+}
+
+%-------------------------------------------------------%
+
+\frame{
+\frametitle{Point Estimates}
+\begin{itemize}
+\item The sample proportion $\hat{p}$ is the best point estimate of the population proportion $p$.
+\item The sampk
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{confidence interval}
+
+}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{The pooled estimate}
+
+The pooled estimate of $p_1$ and $p_2$ is denoted by $\bar{p}$.
+
+\[ \bar{p} = { x_1 +  x_2  \over n_1 + n_2 } \]
+
+i.e. The overall proportion of successes in the aggregate sample, regardless of population.
+
+}
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Inferences for matched pairs}
+Assumptions
+\begin{itemize}
+\item[1] The sample data is comprised of matched pairs.
+\item[2] The samples are simple random samples.
+\end{itemize}
+}
+
+
+
+%----------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Independent samples}
+\begin{itemize}
+\item These samples are taken quite independently from two populations. There is no link
+between observations in one sample and the other. \item The samples may be of different
+sizes. \item The simplest assumption to make is that both populations have normal distributions,
+though their means and variances may be different. We may denote the two
+population distributions by $N(\mu_x, \sigma^2_x )$ and $N(\mu_y, \sigma^2_y )$. \item The corresponding samples
+(of size m and n) give rise to sample means $\bar{x}$ and $\bar{y}$ and sample variances $s^2_x$
+ and $s^2_y$.
+
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------------------%
+\frame{
+\frametitle{Standard Error of a sample mean}
+
+The standard error of the sample mean is given as
+
+\[  \mbox{S.E.}(\bar{x}) = { \sigma \over \sqrt{n} } \]
+
+}
+
+\end{document}
+

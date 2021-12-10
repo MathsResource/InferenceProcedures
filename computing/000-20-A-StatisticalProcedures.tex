@@ -1,0 +1,983 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+\subsection{Using Statistical Computing for Inference Procedures}
+\begin{enumerate}
+	
+	\item Paired t-test using \texttt{R}
+	%\item[3] Two Sample Test for Proportions
+	\item Test for the equality of variances for two samples
+	\item Shapiro-Wilk Test for Normality
+	\item Graphical procedures for assessing normality
+	\item The minitab graphical summary
+	\item Grubb's Procedure for Determinin an Outlier
+\end{enumerate}
+
+%---------%
+
+\subsection{p-values using Statistical Software}
+\begin{itemize}
+	\item In every inference procedure performed using programs such as SPSS or \texttt{R}, a p-value is presented to the screen for the user to interpret.
+	
+	\item If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
+	failure to reject the null hypothesis.
+	
+	\item Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
+	
+	\item In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
+\end{itemize}
+
+	%--------------------------------------------------------------------------------%
+		{
+			\subsection{R Statistical Computing}
+			\begin{itemize} \item
+				\texttt{R} is a computing software for statistical analysis \item The package is available for all popular operating systems: Windows , Mac OS and Linux
+				\item It is free!
+				\item Everyone (knowledgeable enough) can contribute to the software by
+				writing a package. Packages are available for download through a convenient facility
+				\item \texttt{R} is fairly well documented and the documentation is available either
+				from the program help menu or from the web-site.
+				\item \texttt{R} is the top choice of statistical software among academic statisticians
+				but also very popular in industry.
+				\item \texttt{R} is a powerful tool not only for doing statistics but also all kind of
+				scientific programming.
+			\end{itemize}
+
+			\texttt{R} is a language and environment for statistical computing and graphics.
+			\texttt{R} provides a wide variety of statistical and graphical techniques, and is highly extensible. Among its tools
+			one can find implemented
+			\begin{itemize}
+				\item linear and nonlinear modelling,
+				\item classical statistical tests,
+				\item time-series analysis,
+				\item classification,
+				\item clustering,
+				\item ...and many more.
+			\end{itemize}
+			One of \texttt{R}'s strengths is the ease with which well-designed publication quality plots can be produced.
+			including mathematical symbols and formulae where needed.
+
+			
+			\texttt{R} is an integrated suite of software facilities for data manipulation, calculation and graphical display. It
+			includes
+			\begin{itemize}
+				\item an effective data handling and storage facility,
+				\item a suite of operators for calculations on arrays, in particular matrices,
+				\item a large, coherent. integrated collection of intermediate tools for data analysis,
+				graphical facilities for data analysis and display either on-screen or on hard-copy, and
+				\item a well-developed, simple and effective programming language which includes conditionals, loops,
+				user-defined recursive functions and input and output facilities.
+			\end{itemize}
+		}
+		%--------------------------------------------------------------------------------%
+		
+		
+		{
+			\subsection{R Statistical Computing}
+			Downloading and Installing \texttt{R}:
+			
+			\begin{itemize}
+				\item \texttt{R} can be downloaded from the CRAN website: http://cran.r-project.org/
+				\item You may choose versions for windows, mac and linux.
+				\item As per the instructions on the respective pages, you require the ``base" distribution.
+				\item Now you can download the installer for latest version of \texttt{R} , version 2.17.
+				\item Select the default settings. Once you finish, the \texttt{R} icon should appear on your desktop.
+				\item Clicking on this icon will start up the program.
+			\end{itemize}
+		}
+		%============================%
+		
+\subsection{Using \texttt{R} for Inference Procedures}
+		\begin{itemize}
+			\item [1] Review of the Paired t-test.
+			\item [2] Paired t-test using \texttt{R}
+			%\item [3] Two Sample Test for Proportions
+			\item [3] Test for the equality of variances for two samples
+			\item [4] Shapiro-Wilk Test for Normality
+			\item [5] Graphical procedures for assessing normality
+			\item [6] Grubb's Procedure for Determinin an Outlier
+		\end{itemize}
+		
+		
+
+		
+		%============================%
+		
+		\textbf{Using Confidence Limits}
+		\begin{itemize}
+			\item  Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
+			\item  If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
+			\item  If the null value is outside the range of the confidence limits, we reject the null hypothesis.
+			\item  Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
+		\end{itemize}
+		
+		
+		%------------------------------------------%
+		
+\section{The paired t-test}
+		
+		\begin{itemize}
+			\item  Previously we have seen the paired t-test. It is used to determine whether or
+			not there is a significant difference between paired measurements. Equivalently whether or not
+			the case-wise differences are zero.
+			\item  The mean and standard deviation of the case-wise differences are used to determine the test statistic.
+			\item  Under the null hypothesis, the expected value of the case-wise differences is zero (i.e $H_0 : \mu_d = 0$).
+			\item  The test statistic is computed as
+			\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} \]
+		\end{itemize}
+		
+		
+		
+		%------------------------------------------%
+		
+		\textbf{The Paired t-test (b)}
+		\begin{itemize}
+			\item  The calculation is dependent on the case-wise differences.
+			\item  Here the case-wise differences between paired measurements (e.g. ``before" and ``after").
+			\item  Under the null hypothesis, the mean of case-wise differences is zero.
+			\item  As a quick example, the mean, standard deviation and sample size are presented in the next slide.
+		\end{itemize}
+		
+		
+		%------------------------------------------%
+		
+		\textbf{The paired t-test (c)}
+		\begin{itemize}
+			\item  Observed Mean of Case-wise differences $\bar{d}$ = 8.21,
+			\item  Expected Mean of Case-wise differences under $H_0$ : $\mu_d = 0$,
+			\item  Standard Deviation of Case-wise differences $S_d$ = 7.90,
+			\item  Sample Size $n=14$.
+		\end{itemize}
+		\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
+%------------------------------------------%
+
+\textbf{The paired t-test (c)}
+\begin{verbatim}
+> CWdiff = Before - After
+> mean(CWdiff)
+[1] 8.214286
+> sd(CWdiff)
+[1] 7.904999
+> length(CWdiff)
+[1] 14
+\end{verbatim}
+
+\[ TS = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
+In an exam situation, the candidate will be expected to compute this value. It will be omitted from \texttt{R} code output.
+		
+		%------------------------------------------%
+		
+		\textbf{The paired t-test (e)}
+		\begin{itemize}
+			\item  Procedure is two-tailed, and you can assume a significance level of 5\%.
+			\item  It is also a small sample procedure (n=14, hence df = 13).
+			\item  The Critical value is determined from statistical tables (2.1603).
+			\item  Decision Rule: Reject Null Hypothesis ($|TS|>CV$). Significant difference in measurements before and after.
+		\end{itemize}
+		
+%-------------------------------------------------%
+
+\textbf{The paired t-test (f)}
+\begin{itemize}
+	\item We consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
+	\item Here the null value (i.e. 0) is not within the range of the confidence limits.
+	\item Therefore we reject the null hypothesis.
+\end{itemize}
+\begin{verbatim}
+> t.test(Before,After,paired=TRUE)
+...
+...
+95 percent confidence interval:
+3.650075 12.778496
+...
+\end{verbatim}		
+		%------------------------------------------%
+		
+		\textbf{The paired t-test (f)}
+		Alternative Approach : using p-values.
+		\begin{itemize}
+			\item  The p-values are determined from computer code. (We will use a software called \texttt{R}. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
+			\item  The null and alternative are as before.
+			\item  The computer software automatically generates the appropriate test statistic, and hence the corresponding p-value.
+			\item  The user then interprets the p-values. If p-value is small, reject the null hypothesis. If the p-value is large, the appropriate conclusion is a failure to reject $H_0$.
+			\item  The threshold for being considered small is less than $\alpha/k$, (usually 0.0250). (This is a very arbitrary choice of threshold, suitable for some subject areas, not for others)
+		\end{itemize}
+		
+		
+		%------------------------------------------%
+		
+		\textbf{The paired t-test (g)}
+		Implementing the paired t-test using \texttt{R} for the example previously discussed.
+		\begin{verbatim}
+		> t.test(Before,After,paired=TRUE)
+		
+		Paired t-test
+		
+		data:  Before and After
+		t = 3.8881, df = 13, p-value = 0.001868
+		alternative hypothesis: true difference in means is not 0
+		95 percent confidence interval:
+		3.650075 12.778496
+		sample estimates:
+		mean of the differences
+		8.214286
+		\end{verbatim}
+		
+		
+		%-------------------------------------------------%
+		
+		\textbf{The paired t-test (h)}
+		\begin{itemize}
+			\item  The p-value ($0.001868$) is less than the threshold is less than the threshold $0.0250$.
+			\item  We reject the null hypothesis (mean of case-wise differences being zero, i.e. expect no difference between ``before" and ``after").
+			\item  We conclude that there is a difference between `before' and `after'.
+			\item  That is to say, we can expected a difference between two paired measurements.
+		\end{itemize}
+		
+		%-------------------------------------------------%
+		
+		\textbf{The paired t-test (i)}
+		\begin{itemize}
+			\item  We could also consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
+			\item  Here the null value (i.e. 0) is not within the range of the confidence limits.
+			\item  Therefore we reject the null hypothesis.
+		\end{itemize}
+		\begin{verbatim}
+		> t.test(Before,After,paired=TRUE)
+		...
+		...
+		95 percent confidence interval:
+		3.650075 12.778496
+		...
+		\end{verbatim}
+		
+		
+		
+		
+		
+\newpage		
+	
+	Using Statistical Software
+	\begin{enumerate}
+		\item \texttt{var.test} : Testing Equality of Variances for two samples using \texttt{R}.
+		\item The Shapiro-Wilk Test for Normality (Using \texttt{R}).
+		\item Graphical Procedures for Assessing Normality : The QQ plot
+		\item The Grubbs' Test for Outliers.
+	\end{enumerate}
+	
+	
+	% Part 2
+	%---------------------------- %
+	
+	
+
+	
+	
+	%-------------------------------------------------%
+	%-------------------------------------------------%
+	[fragile]
+	\textbf{Single Sample Proportion Test (a)}
+	\begin{itemize}
+		\item In this procedure, we determine whether or not we are are justified in assuming that the population proportion takes a certain value.
+		\item For example, suppose we believed that the population proportion of students with iphones or androids was $80\%$.
+		\item We would write the null and alternative accordingly.
+		\[H_0 : \pi = 80\% \]
+		\[H_1 : \pi \neq 80\% \]
+		\item The  appropriate \texttt{R} command is \texttt{prop.test(x,n,p)}
+		\item $x$ is the number of successes, $n$ is the sample size and $p$ is the population proportion assumed under the null hypothesis.
+		\item Suppose we survey 65 students, with 50 replying that they had an iphone or android.
+	\end{itemize}
+	
+	
+	%-------------------------------------------------%
+	
+	[fragile]
+	\textbf{Single Sample Proportion Test (b)}
+	\begin{verbatim}
+	> prop.test(50,65,0.80)
+	
+	1-sample proportions test
+	
+	data:  50 out of 65, null probability 0.8
+	X-squared = 0.2163, df = 1, p-value = 0.6418
+	
+	alternative hypothesis: true p is not equal to 0.8
+	95 percent confidence interval:
+	0.6452269 0.8610191
+	
+	sample estimates:
+	p
+	0.7692308
+	\end{verbatim}
+	
+	
+	%==========================================================%
+	
+	
+	[fragile]
+	\textbf{Single Sample Proportion Test (c)}
+	
+	\begin{itemize}
+		\item The p-value is above the threshold. Therefore we fail to reject the null hypothesis that the population proportion ($\pi$) is $80\%$.
+		
+		\item The observed proportion is a very straightforward calculation:
+		
+		\[ \hat{p} = \frac{50}{65} = 0.76923= 76.92\%\]
+		\item Nonetheless, you would be required to show how it was calculated.
+	\end{itemize}
+	
+	
+	
+
+	\textbf{Shapiro-Wilk Test}
+	\begin{framed}
+		
+		\textbf{H$_{0}$}: The sample is drawn from a normally distributed population.\\ \smallskip
+		\textbf{H$_{1}$}: The sample is drawn from a population that is NOT normally distributed
+		
+	\end{framed}
+	
+	\begin{itemize}
+		\item Compare the p-value to some pre-defined thrreshold.
+		\item We will use a significance level of $\alpha=0.05$.
+		\item This test is a one-tailed test. We compare the p-value from the Shapiro Wilk Test to 0.05.
+		\item In the case of two-tailed tests, we would compare the p-value to 0.025, i.e. ($\alpha/2$).
+	\end{itemize}
+	
+	%-----------------------------------------------------------------------%
+	
+	\textbf{Shapiro-Wilk Test}
+	
+	\begin{itemize}
+		\item If the p-value is less than the threshold, we reject the null hypothesis.\\
+		\textit{(We have enough evidence to say that the population is not normally distributed.)}
+		
+		\smallskip
+		\item If the p-value is greater than the threshold, we fail to reject the null hypothesis. \\ \textit{(We dont have enough evidence to say that the population is not normally distributed.)}
+		\smallskip
+		
+		\item Type I and Type II Errors apply to this test, just like any other test.
+		
+	\end{itemize}	
+	
+	
+	
+	%-----------------------------------------------------------------------%
+	
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.79\linewidth]{images/Y1}
+		
+	\end{figure}
+	
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.79\linewidth]{images/Y2}
+		
+	\end{figure}	
+	
+	
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.79\linewidth]{images/Y3}
+		
+	\end{figure}
+	
+			
+			
+			%---------%
+			
+			\textbf{Using \texttt{R} for Inference Procedures}
+			\begin{itemize}
+				\item [1] Paired t-test
+				\item [2] Single Sample Tests for Proportions
+				\item [3] Two Sample Test for Proportions
+				\item [4] Test for the equality of variances for two samples
+				\item [5] Shapiro-Wilk Test for Normality
+				\item [6] Graphical procedures for assessing normality
+			\end{itemize}
+			
+
+
+
+
+
+
+
+
+
+\
+\subsection{Grubbs Test for Determining an Outlier}
+
+The Grubbs test is used to determine if there are any outliers in a data set.\\ \bigskip
+There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values.\\  (For the sake of clarity , we shall call this type of outlier a \textbf{Grubbs Outlier}).\\ Consider the following data set: is the lowest value 4.01 an outlier?
+
+\begin{verbatim}
+6.98 8.49 7.97 6.64
+8.80 8.48 5.94 6.94
+6.89 7.47 7.32 4.01
+\end{verbatim}
+
+Under the null hypothesis, there are no outliers present in the data set. 
+We reject this hypothesis if the p-value is sufficiently small.\\
+(Remark: This is a one-tailed test).
+
+
+%-------------------------------------------------%
+
+\subsection{Grubbs Test for Determining an Outlier}
+\begin{framed}
+	\begin{verbatim}
+	> grubbs.test(x, two.sided=T)
+	Grubbs test for one outlier
+	data: x
+	G = 2.4093, U = 0.4243, p-value = 0.05069
+	alternative hypothesis: lowest value 4.01 is an outlier
+	\end{verbatim}
+\end{framed}
+We dont not have enough evidence to class 4.01 as an outlier.
+We conclude that while small by comparison to the other values, the lowest value 4.01 is not an outlier.
+
+
+
+
+
+%-------------------------------------------------%
+
+\subsection{Test of Equality for Two Sample Proportions (a)}
+The null hypothesis is that two populations have the same proportions for a particular characteristic.
+\[H_0 : \pi_1 = \pi_2 \]
+\[H_1 : \pi_1 \neq \pi_2 \]
+\begin{itemize}
+	\item The command is \texttt{prop.test(c(x1,x2),c(n1,n2))}
+	\item $x1$ and $x2$ are the number of successes from both samples.
+	\item $n2$ and $n2$ are the sample sizes for both groups.
+	\item The difference in population proportions assumed under the null hypothesis is zero.
+	\item (It is possible to specify a different null value, but we will not consider this in this module.)
+\end{itemize}
+
+
+%-------------------------------------------------%
+
+\subsection{Test of Equality for Two Sample Proportions (b)}
+\begin{itemize}
+	\item Consider a study where the proportion of Irish students who owned mobile devices, such as iphones and androids was compared to the corresponding proportion of French student.
+	\item As before, $65$ Irish students were interviewed, with $50$ replying that they owned mobile devices.
+	\item $90$ french students were interview, with 60 responding that they owned mobile devices.
+	\item The test of equality of proportions is implemented on the next slide.
+\end{itemize}
+
+
+%-------------------------------------------------%
+
+
+
+\subsection{Test of Equality for Two Sample Proportions (c)}
+Based on the p-value, we fail to reject the null hypothesis. There is not enough evidence to assume a difference in proportions. Also the expected difference assumed under the null hypothesis, i.e. 0, is contained in the confidence interval.
+\begin{verbatim}
+> prop.test(c(50,60),c(65,90))
+
+2-sample test for equality of proportions
+
+data:  c(50, 60) out of c(65, 90)
+X-squared = 1.4613, df = 1, p-value = 0.2267
+alternative hypothesis: two.sided
+95 percent confidence interval:
+-0.05202058  0.25714878
+sample estimates:
+prop 1    prop 2
+0.7692308 0.6666667
+\end{verbatim}
+
+
+\subsection{Test of Equality for Two Sample Proportions (d)}
+\begin{itemize}
+	\item You would be required to compute the differences in observed proportions.
+	\item Additionally you will given the \texttt{R} code for one sample procedures. This may or may not be relevant for answering the question.
+\end{itemize}
+\begin{verbatim}
+> prop.test(60,90,0.80)
+...
+...
+X-squared = 9.184, df = 1, p-value = 0.002441
+alternative hypothesis: true p is not equal to 0.8
+95 percent confidence interval:
+0.5585219 0.7604058
+sample estimates:
+p
+0.6666667
+\end{verbatim}	
+
+%----------------------------------------%
+\newpage
+
+
+\subsection{Test for Equality of Variance (a)}
+\begin{itemize}
+	\item In this procedure, we determine whether or not two populations have the same variance.
+	\item The assumption of equal variance of two populations underpins several inference procedures. This assumption is tested by comparing the variance of samples taken from both populations.
+	\item We will not get into too much detail about that, but concentrate on how to assess equality of variance.
+	\item The null and alternative hypotheses are as follows:
+	\[ H_0: \sigma^2_1 = \sigma^2_2 \]
+	\[ H_1: \sigma^2_1 \neq \sigma^2_2 \]
+\end{itemize}
+
+
+%----------------------------------------%
+
+\subsection{Test for Equality of Variance (b)}
+\begin{itemize}
+	\item When using \texttt{R} it would be convenient to consider the null and alternative in terms of variance ratios.
+	\item Two data sets have equal variance if the variance ratio is 1.
+	\item \textbf{Remark} : This is a two-tailed test.
+\end{itemize}
+
+\[ H_0: \sigma^2_1 / \sigma^2_2 = 1 \]
+\[ H_1: \sigma^2_1 / \sigma^2_2 \neq 1 \]
+
+%----------------------------------------%
+% - x=c(14,13,16,20,12,18,11,09,13,11)
+% - y=c(15,13,18,20,10,17,23,11,10)
+%----------------------------------------%
+
+\subsection{Test for Equality of Variance(c)}
+You would be required to compute the test statistic for this procedure.
+The test statistic is the ratio of the variances for both data sets.
+\[ TS = \frac{s^2_x}{s^2_y} \]
+The standard deviations would be provided in the \texttt{R} code. \begin{itemize}
+	\item Sample standard deviation for data set $x$ = 3.40
+	\item Sample standard deviation for data set $y$ = 4.63
+\end{itemize}
+To compute the test statistic.
+\[ TS = \frac{3.40^2}{4.63^2} = \frac{11.56}{21.43} = 0.5394 \]
+
+
+%----------------------------------------%
+
+\subsection{Variance Test (d)}
+\begin{verbatim}
+> var.test(x,y)
+
+F test to compare two variances
+
+data:  x and y
+F = 0.5394, num df = 9, denom df = 8, p-value = 0.3764
+alternative hypothesis: 
+true ratio of variances is not equal to 1
+95 percent confidence interval:
+0.1237892 2.2125056
+sample estimates:
+ratio of variances
+0.5393782
+\end{verbatim}
+
+
+%----------------------------------------%
+
+
+\subsection{Variance Test (e)}
+\begin{itemize}
+	\item The p-value is 0.3764 (top right), above the threshold level of 0.0250.
+	\item We fail to reject the null hypothesis.
+	\item There is not enough evidence to say there is a difference in variance between the two populations.
+	\smallskip
+	\item We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
+	\item Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
+\end{itemize}
+
+
+
+
+%----------------------------------------%
+% - x=c(14,13,16,20,12,18,11,09,13,11)
+% - y=c(15,13,18,20,10,17,23,11,10)
+%----------------------------------------%
+
+
+
+%----------------------------------------%
+
+
+\textbf{Variance Test (e)}
+\begin{itemize}
+	\item The p-value is 0.3764 (top right), above the threshold level of 0.0250.
+	\item We fail to reject the null hypothesis.
+	\item We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
+	\item Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
+\end{itemize}
+
+
+
+%-------------------------------------------------%
+
+
+
+\textbf{Shapiro-Wilk Test(a)}
+
+
+\begin{itemize}
+	\item We will often be required to determine whether or not a data set is normally distributed.
+	\item Again, this assumption underpins many statistical models.
+	\item The null hypothesis is that the data set is normally distributed.
+	\item The alternative hypothesis is that the data set is not normally distributed.
+	\item One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+	\item (Remark: You will not be required to compute the test statistic for this test.)
+\end{itemize}
+
+%----------------------------------------%
+
+\textbf{Shapiro Wilk Test(b)}
+For the data set used previously; $x$ and $y$, we use the Shapiro-Wilk test to determine that both data sets are normally distributed.
+\begin{verbatim}
+
+> shapiro.test(x)
+
+Shapiro-Wilk normality test
+
+data:  x
+W = 0.9474, p-value = 0.6378
+
+> shapiro.test(y)
+
+Shapiro-Wilk normality test
+
+data:  y
+W = 0.9347, p-value = 0.5273
+\end{verbatim}
+
+
+
+
+%-------------------------------------------------%
+
+\textbf{Graphical Procedures for assessing Normality}
+
+\begin{itemize}
+	\item The normal probability (Q-Q) plot is a very useful tool for determining whether or not a data set is normally distributed.
+	\item Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+	\item One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
+	\item The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
+\end{itemize}
+
+\begin{verbatim}
+>qqnorm(CWdiff)
+>qqline(CWdiff)
+\end{verbatim}
+
+
+
+%-------------------------------------------------%
+
+
+\textbf{Graphical Procedures for Assessing Normality}
+
+\begin{center}
+	\includegraphics[scale=0.32]{images/10AQQplot}
+\end{center}
+
+%----------------------------------------------------------%
+
+
+
+
+
+\textbf{The paired t-test with \texttt{R}}
+\vspace{-1cm}
+\begin{itemize}
+	\item Previously we have seen the paired $t-$test. It is used to determine whether or
+	not there is a significant difference between paired measurements. \item Equivalently whether or not
+	the case-wise differences are zero.
+	\item The mean and standard deviation of the case-wise differences are used to determine the test statistic.
+	\item Under the null hypothesis, the expected value of the case-wise differences is zero (i.e $H_0 : \mu_d = 0$).
+	%\item The test statistic is computed as
+	%\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} \]
+\end{itemize}
+
+
+
+
+
+
+%------------------------------------------%
+
+\textbf{The paired t-test with \texttt{R}}
+
+\begin{itemize}
+	\item In the following procedure (next slide), there are two sets of values: the \texttt{Before} values and the \texttt{After} values.
+	\item The \texttt{R} command is \texttt{t.test()}, with the additional specification ``\texttt{paired=}".
+	\item The alternative hypothesis is specified in the output. ( Another way of expressing it: True mean of case-wise differences is not zero)
+	\item Also included in the output is a 95\% confidence interval for the sample mean of case-wise differences.
+\end{itemize}
+
+
+
+
+
+%----------------------------------------%
+
+
+\textbf{Test for Equality of Variance}
+\begin{itemize}
+	\item The $p-$value is 0.3764 (top right), above the threshold level of 0.0250.
+	\item We fail to reject the null hypothesis.
+	\item We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
+	\item Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the expected value under the assumption of equal variance i.e. 1.
+\end{itemize}
+
+
+
+%-------------------------------------------------%
+
+
+
+\textbf{Shapiro-Wilk Test for Normality}
+
+
+\begin{itemize}
+	\item We will often be required to determine whether or not a data set is normally distributed.
+	\item Again, this assumption underpins many statistical models.
+	\item The null hypothesis is that the data set is normally distributed.
+	\item The alternative hypothesis is that the data set is not normally distributed.
+	\item One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+	%\item (Remark: You will not be required to compute the test statistic for this test.)
+\end{itemize}
+
+
+
+%----------------------------------------%
+
+
+\textbf{Variance Test (e)}
+\begin{itemize}
+	\item The p-value is 0.3764 (top right), above the threshold level of 0.0250.
+	\item We fail to reject the null hypothesis.
+	\item We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
+	\item Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
+\end{itemize}
+
+
+
+%-------------------------------------------------%
+
+
+
+\textbf{Shapiro-Wilk Test(a)}
+
+
+\begin{itemize}
+	\item We will often be required to determine whether or not a data set is normally distributed.
+	\item Again, this assumption underpins many statistical models.
+	\item The null hypothesis is that the data set is normally distributed.
+	\item The alternative hypothesis is that the data set is not normally distributed.
+	\item One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+	\item (Remark: You will not be required to compute the test statistic for this test.)
+\end{itemize}
+
+
+
+
+
+%-------------------------------------------------%
+
+\textbf{Graphical Procedures for assessing Normality}
+
+\begin{itemize}
+	\item The normal probability (Q-Q) plot is a very useful tool for determining whether or not a data set is normally distributed.
+	\item Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+	\item One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
+	\item The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
+\end{itemize}
+
+\begin{verbatim}
+>qqnorm(CWdiff)
+>qqline(CWdiff)
+\end{verbatim}
+
+\end{document}
+
+%-------------------------------------------------%
+
+
+\textbf{Graphical Procedures for Assessing Normality}
+
+\begin{center}
+	\includegraphics[scale=0.32]{images\10AQQplot}
+\end{center}
+
+
+
+
+
+\section*{Checking for Normality}
+
+\begin{itemize}
+	\item A normal distribution is often a reasonable model for the data. Without inspecting the data, however, it is risky to assume a normal distribution. \item  There are a number of graphs that can be used to check the deviations of the data from the normal distribution. 
+	
+	\item  A histogram is an example of a graph that can be used to check normality. Here, the histogram should reveal a bell shaped curve. 
+\end{itemize}
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{images/normal}
+%\end{figure}
+\[IMAGE\]
+
+
+
+
+
+\subsection{The Q-Q Plot}
+
+\begin{itemize}
+	\item The most useful tool for assessing normality is a quantile quantile or QQ plot. This is a scatterplot with the quantiles of the scores on the horizontal axis and the expected normal scores on the vertical axis. 
+	
+	\item  The steps in constructing a QQ plot are as follows: First, we sort the data from smallest to largest. A plot of these scores against the expected normal scores should reveal a straight line. \item The expected normal scores are calculated by taking the z-scores  where I is the rank in increasing order.
+	
+	\item  Curvature of the points indicates departures of normality. \item  This plot is also useful for detecting outliers. The outliers appear as points that are far away from the overall pattern op points
+\end{itemize}
+
+
+
+\subsection{Graphical Methods}
+
+The quantile-quantile (QQ) plot is an excellent way to see whether the data deviate from normal (the plot can be set up to see if the data deviate from other distributions as well but here we are only interested in the normal distribution). The process SPSS goes through for creating a QQ plot involves determining what proportion of the 'observed' scores fall below any one score, then the z score that would fit that proportion if the data were normally distributed is calculated, and finally that z score that would cut off that proportion (the 'expected normal value') is translated back into the original metric to see what raw score that would be. 
+
+A scatter plot is then created that shows the relationship between the actual 'observed' values and what those values would be 'expected' to be if the data were normally distributed. This is all quite complicated but the 'bottom line' is quite easy, if the data are normally distributed then the circles on the resulting plot (each circle representing a score) will form a straight line. Use the following examples to learn how to interpret QQ plots, be aware that some stat programs switch the axes around from the way it is set up in SPSS.
+
+
+
+
+Kolmogorov Smirnov Tests
+Non-parametric procedures
+Compute the test statistic
+Same distribution
+
+
+
+
+
+\section{F-test of equality of variances}
+The test statistic is
+
+\begin{equation} F = \frac{S_X^2}{S_Y^2}\end{equation}
+
+has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypothesis of equality of variances is true.
+
+
+
+
+
+
+
+\textbf{Test for Equality of Variance (a)}
+\begin{itemize}
+	\item In this procedure, we determine whether or not two data sets have the same variance.
+	\item The assumption of equal variance underpins several inference procedures.
+	\item We will not get into too much detail about that, but concentrate on how to assess equality of variance.
+	\item The null and alternative hypotheses are as follows:
+	\[ H_0: \sigma^2_1 = \sigma^2_2 \]
+	\[ H_1: \sigma^2_1 \neq \sigma^2_2 \]
+\end{itemize}
+
+
+
+%----------------------------------------%
+
+
+\textbf{Variance Test (e)}
+\begin{itemize}
+	\item The p-value is 0.3764, above the threshold level of 0.0250.
+	\item We fail to reject the null hypothesis.
+	\item We can assume that there is no significant difference in sample size.
+	\item Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
+\end{itemize}
+
+
+
+%-------------------------------------------------%
+
+
+
+\textbf{Shapiro-Wilk Test(a)}
+
+
+\begin{itemize}
+	\item We will often be required to determine whether or not a data set is normally distributed.
+	\item Again, this assumption underpins many statistical models.
+	\item The null hypothesis is that the data set is normally distributed.
+	\item The alternative hypothesis is that the data set is not normally distributed.
+	\item One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+	\item (Remark: You will not be required to compute the test statistic for this test.)
+\end{itemize}
+
+\textbf{Graphical Procedures for assessing Normality}
+
+\begin{itemize}
+	\item The Q-Q plot is a very useful tool for determining whether or not a data set is normally distributed
+	\item Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+	\item One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
+	\item The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
+\end{itemize}
+
+\begin{verbatim}
+>qqnorm(CWdiff)
+>qqline(CWdiff)
+\end{verbatim}
+
+\end{document}
+
+
+%-------------------------------------------------%
+
+
+\textbf{Graphical Procedures for Assessing Normality}
+
+\begin{center}
+	\includegraphics[scale=0.32]{images\10AQQplot}
+\end{center}
+
+
+%---------%
+
+%\frametitle{Using \texttt{R} for Inference Procedures}
+\begin{itemize}
+	\item[1] Review of the Paired t-test.
+	\item[2] Paired t-test using \texttt{R}
+	%\item[3] Two Sample Test for Proportions
+	\item[3] Test for the equality of variances for two samples
+	\item[4] Shapiro-Wilk Test for Normality
+	\item[5] Graphical procedures for assessing normality
+	\item[6] Grubb's Procedure for Determinin an Outlier
+\end{itemize}
+
+
+
+
+
+\end{document}
+%Kolmogorov Smirnov Tests
+%Non-parametric procedures
+%Compute the test statistic
+%Same distribution
+
+

@@ -1,0 +1,344 @@
+
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MathsCast]{MathsCast Presentations \\ {\normalsize Two sample inference}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Summer 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+%------------------------------------------------------------------------%
+\begin{document}
+
+% -- Lecture 8B
+% -- Revise the Tables
+% -- Sample Size Estimation for mean
+% -- Example SSE for mean
+% -- SSE for Proportion
+% -- Example SSE for proportion
+% -- Paired Test
+
+%-------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation}
+
+\begin{itemize} \item Recall:
+\[  \mbox{Margin of Error}  = \mbox{Quantile} \times \mbox{Std. Error}\]
+
+\item Also recall that the only way to influence the margin of error is to set the sample size accordingly.
+
+\item Sample size estimation describes the selection of a sample size such that the margin does not exceed a preddetermined level.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size estimation for the mean}
+
+\begin{itemize}
+\item \[ E \geq Q \times S.E.(\bar{x}). \]
+
+\item 
+$E \geq Q \times {\sigma \over \sqrt{n} }$
+
+\item
+\[ \frac{E}{\sigma Q} \geq {1 \over \sqrt{n} } \]
+
+\item Square both sides
+
+
+\[ \frac{E^2}{\sigma^2 Q^2} \geq {1 \over n } \]
+
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size estimation for proportions}
+
+\begin{itemize}
+\item \[ E \geq Q \times S.E.(\hat{p}). \]
+
+\item 
+\[ E \geq Q \times \sqrt{{\hat{p}(1-\hat{p} \over n}}. \]
+
+\item Remark : $\hat{p} \times (1-\hat{p})$
+
+\item Square both sides
+
+
+
+\end{itemize}
+
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size estimation for proportions}
+
+$\left[1.96 \times \sqrt{{ 50 \times 50 \over n}} \right]< 4 $
+
+
+$\left[1.96 \times \sqrt{{ 2500 \over n}} \right]< 4 $
+
+$\left[ \sqrt{{ 2500 \over n}} \right]< {4 \over 1.96}$
+
+$\left[ { 2500 \over n} \right]< {4^2 \over 1.96^2}$
+
+$\left[ { n \over 2500} \right]> {1.96^2 \over 4^2}$
+
+$n> {1.96^2 \over 4^2} \times 2500$
+
+$n>600.25$ 
+n=601
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+
+\frametitle{Sample Size estimation for proportions}
+
+
+$n> {Q^2E^2 \over (0.25)}$
+$n >{Q^2 E^2 \over (2500)}$
+
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Independent Samples}
+
+Two samples are referred to as independent if the observations in one sample are not in any way related to the observations in the other. This is also used in cases where one randomly assign subjects to two groups, give first group treatment A and the second group treatment B and compare the two groups.
+
+
+The approach described herein is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each population is at least 10 times larger than its respective sample.
+\item The sampling distribution of the difference between means is approximately normally distributed
+\end{itemize}
+
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in proportions}
+This lesson describes how to construct a confidence interval for the difference between two sample proportions, p1 - p2.
+\textbf{Estimation Requirements}
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each sample includes at least 10 successes and 10 failures.
+\item The samples comprises less than 10\% of their respective populations.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error for Difference of Proportions}
+
+\[S.E. (\hat{P}_1 - \hat{P}_2)  = \sqrt{ [P_1 \times (1 - P_1) / n_1] + [P_2 \times (1 - P_2) / n_2] } \] 
+\begin{itemize}
+\item $\hat{P}_1$ and $\hat{P}_2$ are the sample proportions of groups 1 and 2 respectively.
+\item $n_1$ and $n_2$ are the sample sizes of groups 1 and 2 respectively.
+\end{itemize}
+N.B. This formula will be provided in the exam paper.
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = sqrt(0.0013) = 0.036 
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Mean Difference Between Matched Data Pairs}
+
+
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item The data set is a simple random sample of observations from the population of interest.
+\item Each element of the population includes measurements on two paired variables (e.g., x and y) such that the paired difference between x and y is: d = x - y.
+\item The sampling distribution of the mean difference between data pairs (d) is approximately normally distributed.
+\end{itemize}
+
+
+
+The observed data are from the same subject or from a matched subject and are drawn from a population with a normal distribution 
+does not assume that the variance of both populations are equal
+
+
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+\begin{center}
+\small
+\begin{tabular}{|c||c|c|c|c|} \hline
+Student & Before & After & Difference $(d_i)$ & $ (d_i -\bar{d})^2$ \\\hline
+1 &90& 95& 5& 16 \\\hline
+2 &85& 89& 4& 9 \\\hline
+3 &76 &73 &-3 &4 \\\hline
+4 &90& 92& 2& 1 \\\hline
+5 &91 &92 &1 &0 \\\hline
+6 &53 &53& 0& 1 \\\hline
+7 &67 &68 &1 &4 \\\hline
+8 &88 &90 &2 &9 \\\hline
+9 &75 &78 &3 &16\\\hline 
+10 &85& 89 &4& 25 \\\hline 
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+Compute the mean difference
+
+\[ \bar{d}  = {\sum{d_i} \over n } = { 3+6 \over 8} \]
+
+Compute the variance of the differences.
+
+\[ s^2_{d}  ={\sum(d_i -\bar{d})^2 \over n-1 } =  { 3+6 \over 9} \]
+
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Difference of Two Means}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+
+\begin{frame}
+\frametitle{How a paired t test works}
+\begin{itemize}
+\item The paired t test compares two paired groups. 
+\item It calculates the difference between each set of pairs, and analyzes that list of differences based on the assumption that the differences in the entire population follow a Gaussian distribution.
+\item First we calculate the difference between each set of pairs, keeping track of sign. 
+\item If the value in column B is larger, then the difference is positive. 
+If the value in column A is larger, then the difference is negative. 
+\item The t ratio for a paired t test is the mean of these differences divided by the standard error of the differences. If the t ratio is large (or is a large negative number), the P value will be small. The number of degrees of freedom equals the number of pairs minus 1. Prism calculates the P value from the t ratio and the number of degrees of freedom.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution 
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$) 
+and the variance ($\sigma$) of the distribution of people not taking the drug are 
+40 and 24 respectively. 
+\end{itemize}
+\end{frame}
+
+
+
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+%-http://onlinestatbook.com/chapter8/difference_means.html
+In order to construct a confidence interval, we are going to make three assumptions:
+
+\begin{itemize}
+\item The two populations have the same variance. This assumption is called the assumption of homogeneity of variance. 
+\item The populations are normally distributed. 
+\item Each value is sampled independently from each other value. 
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance. 
+
+The first step is to compute the estimate of the standard error of the difference between means (). 
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Group & sample size & mean & variance \\ \hline
+X & 17 & 5.353 & 2.743 \\ \hline
+Y & 17 & 3.882 & 2.985 \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item Point estimate : $\bar{x} - \bar{y}$ = 1.4699
+\item Standard Error: 0.5805
+\item Quantile : 1.96
+\end{itemize}
+
+\[ 1.4699  \pm (1.96 \times 0.5805) = (0.33212,2.60768) \]
+
+
+This analysis provides evidence that the mean for Y is higher than the mean for X, 
+and that the difference between means in the population is likely to be between 0.29 and 2.65.
+
+
+\end{frame}
+
+\end{document}

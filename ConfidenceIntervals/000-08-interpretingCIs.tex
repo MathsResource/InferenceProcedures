@@ -1,0 +1,107 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+\section*{Confidence Intervals}
+\subsection{Interpreting Confidence Intervals}
+\begin{itemize}
+\item The upper bound ($+75$) suggests that those in group $B$ could have, on average, 75 more points than those in group $A$.
+\item But the lower bound ($-15$) suggests  that those in group $A$ could have, on average, 15 more points than those in group $B$.
+\item Also, the confidence interval allows for the possibility of both groups having equal means  (i.e. $\bar{x}_B-\bar{x}_A$ = 0)
+\item Essentially we can not be $95\%$ confident that group $B$ has a higher mark than group $A$.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+
+%------------------------------------------------------------------------------%
+
+A confidence interval for the
+mean is an estimate interval constructed with respect to the sample mean by which the likelihood that the interval
+includes the value of the population mean can be specified.
+
+The \emph{level of confidence} associated with a confidence interval indicates the long-run percentage
+ of such intervals which would include the parameter being estimated.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Confidence intervals for the mean typically are constructed with the unbiased estimator $\bar{x}$ at the midpoint
+of the interval.
+
+\item The $\pm Z \sigma_x$ or $\pm Z s_x$ frequently is called the \textbf{\emph{margin of error}} for the confidence interval.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+
+
+%--------------------------%
+
+\textbf{Interpreting Confidence Intervals}
+\begin{itemize}
+\item In the previous lectures, we looked at confidence intervals, noting that these intervals are a pair of limits defining an interval.
+\item Often, we can use confidence intervals to make inferences on a population parameter.
+\item Consider the following example: Suppose that, when considering the leaving cert points of two groups of students $A$ and $B$, the difference of the sample means was found to be $\bar{x}_B-\bar{x}_A$ = 30 points.
+\item We would surmise than the average points level for group $B$ is higher.
+\item Lets suppose that the $95\%$ confidence interval was $(-15,75)$ points. Consider what each of the two numbers mean,
+\end{itemize}
+
+\subsection{Confidence Intervals}
+
+\begin{itemize}
+\item The length of life of a type of battery is estimated from a sample of 100 test items taken from a large population. 
+\item Sample results show that the mean length of life is 57.4 hours with a standard deviation of 15.1 hours. \\ \bigskip
+\item  Construct a 
+95\% confidence interval for the mean length of life of all of these batteries.
+\end{itemize}
+
+%--------------------------%
+
+
+\textbf{Interpreting Confidence Intervals}
+\begin{itemize}
+\item The upper bound ($+75$) inferences that those in group $B$ could have, on average, 75 more points than those in group $A$.
+\item But the lower bound ($-15$) inferences that those in group $A$ could have, on average, 15 more points than those in group $B$.
+\item Also, the confidence interval allows for the possibility of both groups having equal means  (i.e. $\bar{x}_B-\bar{x}_A$ = 0)
+\item Essentially we can not be $95\%$ confident that group $B$ has a higher mark than group $A$.
+\end{itemize}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\end{document}

@@ -1,0 +1,246 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 6C}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% - Last lecture
+% - symmetric Intervals
+% - computing Quantiles
+% - student's t distribution
+% - CI for means
+% - CI for means ( small samples)
+% - CI for Props
+% - CI for differences.
+
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Intervals (Revision) }
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$,$99\%$ and $99.9\%$.
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Level (Revision) }
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+\end{frame}
+
+
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{The Central Limit Theorem (Revision) }
+\begin{itemize}
+\item This theorem states that as sample size $n$ is increased, the sampling distribution of the mean (and for other sample statistics as well) approaches the normal distribution in form, regardless of the form of the population distribution from
+which the sample was taken.
+
+\item For practical purposes, the sampling distribution of the mean can be assumed to be
+approximately normally distributed, even for the most non-normal populations or processes, whenever the
+sample size is $n > 30$.
+
+\item (For populations that are only somewhat non-normal, even a smaller sample size will
+suffice. A variation of the normal distribution can be used for such circumstances.)
+\end{itemize}
+
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing Confidence Intervals}
+Confidence limits are the lower and upper boundaries / values of a confidence interval, that is, the values which define the range of a confidence interval. The general structure of a confidence interval is as follows:
+
+\[ \mbox{Point Estimate}  \pm \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+
+
+\begin{itemize}
+\item Point Estimate: estimate for population parameter of interest, i.e. sample mean, sample proportion.
+\item Quantile: a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item Standard Error: measures the dispersion of the sampling distribution for a given sample size $n$.
+\end{itemize}
+\end{frame}
+
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Quantiles (1) }
+
+\begin{itemize}
+\item The quantile is a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item For practical purposes, the quantile can be taken from the standard normal distribution, if the sample is larger than 30, further to the central limit theorem.
+\item For a specified confidence level $1-\alpha $, the corresponding quantile is the value $a$ that satisfies the following identity (when $n > 30$):
+
+    \[ p( -a \leq Z \leq a) = 1- \alpha \]
+
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+\begin{frame}[fragile]
+\frametitle{Quantiles (2)}
+PCs = Percentiles (i.e. Quantiles)
+\begin{verbatim}
+>PCs=c(180/200,190:199/200,1998:1999/2000)
+
+>
+> PCs
+ [1] 0.9000 0.9500 0.9550 0.9600 0.9650 0.9700 0.9750
+ [8] 0.9800 0.9850 0.9900 0.9950 0.9990 0.9995
+> qnorm(PCs)
+ [1] 1.281552 1.644854 1.695398 1.750686 1.811911
+ [6] 1.880794 1.959964 2.053749 2.170090 2.326348
+[11] 2.575829 3.090232 3.290527
+>
+\end{verbatim}
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}[fragile]
+\frametitle{Quantiles (3)}
+Negative values for Qauntiles
+\begin{verbatim}
+
+>PCs
+ [1] 0.1000 0.0500 0.0450 0.0400 0.0350 0.0300 0.0250
+ [8] 0.0200 0.0150 0.0100 0.0050 0.0010 0.0005
+> qnorm(1-PCs)
+ [1] -1.281552 -1.644854 -1.695398 -1.750686 -1.811911
+ [6] -1.880794 -1.959964 -2.053749 -2.170090 -2.326348
+[11] -2.575829 -3.090232 -3.290527
+\end{verbatim}
+\end{frame}
+%-----------------------------------------------------------%
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Quantiles (4)}
+
+\begin{itemize} \item When the sample size $n$ is greater than 30, we can compute the quantile using Murdoch Barnes table 3, or \texttt{R} code (previous slides).
+Remark
+
+\item $95\%$ of Z random variables are between -1.96 ( quantile for $2.5\%$)and 1.96 ( quantile for $97.5\%$)
+\end{itemize}
+
+\begin{itemize}
+\item If the confidence level is $95\%$, then the quantile is 1.96. Recall
+\[ p( -1.96 \leq Z \leq 1.96) = 0.95 \]
+
+\item If the confidence level is $90\%$, then the quantile is 1.645.
+\[ p( -1.645 \leq Z \leq 1.645) = 0.90 \]
+
+\item If the confidence level is $99\%$, then the quantile is 2.576.
+\[ p( -2.576 \leq Z \leq 2.576) = 0.99 \]
+
+\end{itemize}
+
+
+
+\end{frame}
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error}
+
+\begin{itemize}
+\item The standard error measures the dispersion of the sampling distribution.
+\item For each type of point estimate, there is a corresponding standard error.
+\item A full list of standard error formulae will be attached in your examination paper.
+\item The standard error for a  mean is
+\[ S.E( \bar{x} )  = {\sigma \over \sqrt{n}} \]
+However, we often do not know the value for $\sigma$. For practical purposes, we use the sample standard deviation $s$ as an estimate for $\sigma$ instead.
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}} \]
+\end{itemize}
+
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{ Standard Error for Proportions}
+
+The standard error for proportions is computed using this formula.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (1-\hat{p} )\over n}}
+\]
+
+
+When expressing the proportion as a percentage, we adjust the standard error accordingly.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+}
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Margin of Error}
+
+\begin{itemize}
+\item The product of the quantile and the standard error give us the width of the confidence interval
+\item The width of the confidence interval is known as the \textbf{\emph{margin of error}}.  \[ \mbox{Margin of Error}  = \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+\item The margin of error gives us some idea about how uncertain we are about the unknown population parameter. \item A very wide interval may indicate that more data should be collected before anything very definite can be said about the parameter.
+\item The only way to control the margin of error is to adjust the sample size accordingly.
+\item By choosing an appropriate sample size, it is possible to ensure that the margin of error does not excess a certain threshold.
+\end{itemize}
+
+\end{frame}
+

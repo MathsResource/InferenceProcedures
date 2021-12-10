@@ -1,0 +1,1047 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+\section{Introduction to Hypothesis tests}
+
+\begin{itemize} \item
+In statistics, a  hypothesis test is a method of making decisions using experimental data. \item A result is called \textbf{\emph{statistically significant}} if it is unlikely to have occurred by chance. \item A statistical test procedure is comparable to a trial where a defendant is considered innocent as long as his guilt is not proven.\item  The prosecutor tries to prove the guilt of the defendant. Only when there is enough charging evidence the defendant is condemned.
+\end{itemize}
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+\subsubsection{Hypothesis tests (Null and Alternative Hypotheses) }
+
+%The phrase "test of significance" was coined by Ronald Fisher;
+%"Critical tests of this kind may be called tests of significance, and when such tests are available we may discover whether a second sample is or is not significantly different from the first." \\
+\begin{itemize}
+\item The null hypothesis (which we will denoted $H_0$) is an hypothesis about a population parameter, such as the population mean $\mu$. \item The purpose of hypothesis testing is to test the viability of the null hypothesis in the light of experimental data. \item The alternative hypothesis $H_1$ expresses the exact opposite of the null hypothesis. \item Depending on the data, the null hypothesis either will or will not be rejected as a viable possibility in favour of the alternative hypothesis.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+\subsubsection{Hypothesis Testing}
+The inferential step to conclude that the null hypothesis is false goes as follows: The data (or data more extreme) are very unlikely given that the null hypothesis is true.
+\bigskip
+This means that:
+\begin{itemize}
+\item[(1)] a very unlikely event occurred or
+\item[(2)] the null hypothesis is false.
+\end{itemize}
+\bigskip
+The inference usually made is that the null hypothesis is false. Importantly it doesn't prove the null hypothesis to be false.
+
+
+
+
+%---------------------------------------------------------------------------------------------%
+
+
+
+\subsubsection{The Hypothesis Testing Procedure }
+We will use both of the following four step procedures for hypothesis testing. The level of significance must be determined in advance. The first procedures is as follows:
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the \emph{\textbf{test statistic}} - a standardized value of the numerical outcome of an experiment.
+\item Compute the p-value for that test statistic.
+\item Make a decision based on the p-value.
+\end{itemize}
+
+
+%--------------------------%
+
+
+\subsubsection{The Hypothesis Testing Procedure }
+The second procedures is very similar to the first, but is more practicable for written exams, so we will use this one also. The first two steps are the same.
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the test statistic
+\item Determine the \emph{\textbf{critical value}} (described shortly)
+\item Make a decision based on the critical value.
+\end{itemize}
+
+
+
+%------------------------------------------------%
+
+\subsubsection{Test Statistics}
+\begin{itemize}
+\item A test statistic is a quantity calculated from our sample of data. Its value is used to decide whether or not the null hypothesis should be rejected in our hypothesis test.
+\item The choice of a test statistic will depend on the assumed probability model and the hypotheses under question.
+\item The general structure of a test statistic is
+\[ \mbox{TS}  = {\mbox{Observed Value} - \mbox{Hypothesisd Value}  \over \mbox{Std. Error}}\]
+\end{itemize}
+
+%----------------------------------------------%
+
+
+\subsubsection{The Test Statistic}
+\begin{itemize}
+
+\item In our dice experiment, we observed a value of 401. Under the null hypothesis, the expected value was 350.
+\item The standard error is of the same form as for confidence intervals. $s \over \sqrt{n}$.
+\item (For this experiment the standard error is 17.07).
+\item The test statistic is therefore \[ \mbox{TS}  = {401 - 350  \over 17.07} = 2.99 \]
+\end{itemize}
+
+
+%--------------------------%
+
+
+\subsubsection{The Critical Value}
+
+
+\begin{itemize}
+\item The critical value(s) for a hypothesis test is a threshold to which the value of the test statistic in sample is compared to determine whether or not the null hypothesis is rejected.
+\item The critical value for any hypothesis test depends on the significance level at which the test is carried out, and whether the test is one-sided or two-sided.
+\item The critical value is determined the exact same way as quantiles for confidence intervals; using Murdoch Barnes table 7.
+
+
+\end{itemize}
+
+
+%--------------------------%
+
+
+
+
+
+\subsubsection{Determining the Critical value}
+\begin{itemize} \item The critical value for a hypothesis test is a threshold to which the value of the test statistic in a sample is compared to determine whether or not the null hypothesis is rejected.
+
+\item The critical value for any hypothesis test depends on the significance level at which the test is carried out, and whether the test is one-sided or two-sided.
+\end{itemize}
+
+
+
+%--------------------------%
+
+
+
+\subsubsection{Determining the Critical value}
+\begin{itemize}
+\item A pre-determined level of significance $\alpha$ must be specified. Usually it is set at 5\% (0.05).
+\item The number of tails must be known. ( $k$ is either 1 or 2).
+\item Sample size will be also be an issue. We must decide whether to use $n-1$ degrees of freedom or $\infty$ degrees of freedom, depending on the sample size in question.
+\item The manner by which we compute critical value is identical to the way we compute quantiles.We will consider this in more detail during tutorials.
+\item For the time being we will use 1.96 as a critical value.
+\end{itemize}
+
+
+%------------------------------------------%
+
+
+\subsubsection{Decision Rule:  The Critical Region}
+\begin{itemize}
+\item The critical region CR (or rejection region RR) is a set of values of the test statistic for which the null hypothesis is rejected in a hypothesis test. \item That is, the sample space for the test statistic is partitioned into two regions; one region (the critical region) will lead us to reject the null hypothesis $H_0$, the other will not.
+
+\item A test statistic is in the critical region if the absolute value of the test statistic is greater than the critical value.
+\item So, if the observed value of the test statistic is a member of the critical region, we conclude ``Reject $H_0$"; if it is not a member of the critical region then we conclude "Do not reject $H_0$".
+\end{itemize}
+
+
+
+
+\subsubsection{Critical Region}
+\begin{itemize}
+
+\item $|TS| > CV$ Then we reject null hypothesis.
+\item $|TS| \leq CV$ Then we \textbf{fail to reject} null hypothesis.
+
+\item For our die-throw example; TS = 2.99, CV = 1.96.
+\item Here $|2.99| > 1.96$ we reject the null hypothesis that the die is fair.
+\item Consider this in the context of proof.(More on this in next class)
+\end{itemize}
+
+
+
+\subsubsection{Critical Region}
+In class : graphical representation of material is scheduled here.
+
+
+
+
+
+
+
+
+
+
+
+%--------------------------%
+
+
+
+
+
+
+
+
+
+\subsubsection{Performing a Hypothesis test}
+To summarize: a hypothesis test can be considered as a four step process
+\begin{itemize}
+\item[1] Formally writing out the null and alternative hypothesis.
+\item[2] Computing the test statistic.
+\item[3] Determining the critical value.
+\item[4] Using the decision rule.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------------------%
+{
+\begin{itemize}
+\item $\mu_d$ mean value for the population of differences.
+\item $\bar{d}$ mean value for the sample of differences,
+\item $s_d$ standrd deviation of the differences for the paired sample data.
+\item $n$ number of pairs
+\end{itemize}
+
+
+}
+
+%----------------------------------------------------------------------------------------------------%
+
+{
+\subsubsection{Conclusions in hypothesis testing}
+\begin{itemize}
+\item We always test the null hypothesis.
+\item We reject the null hypothesis, or
+\item We \emph{ fail to reject} the null hypothesis.
+\end{itemize}
+
+{
+
+Test statistics for testing a claim about a mean, when the population variance is known.
+
+\[ Z = {\bar{x}  - \mu \over {\sigma \over \sqrt{n}}} \]
+}
+
+
+
+
+\newpage
+
+\section{Introduction to Hypothesis tests}
+
+\begin{framed}
+\begin{quote}
+The process by which we use data to answer questions about parameters
+is very similar to how juries evaluate evidence about a defendant. from
+Geoffrey Vining, Statistical Methods for Engineers, Duxbury, 1st edition,
+1998.
+\end{quote}
+\end{framed}
+
+
+
+
+
+\begin{itemize}
+\item Setting up and testing hypotheses is an essential part of statistical inference. In order to formulate such a test, usually some theory has been put forward, either because it is believed to be true or because it is to be used as a basis for argument, but has not been proved, for example, claiming that a new drug is better than the current drug for treatment of the same symptoms.
+
+\item In each problem considered, the question of interest is simplified into two competing claims / hypotheses between which we have a choice; the \textit{\textbf{null hypothesis}}, denoted $H_0$, against the \textit{\textbf{alternative hypothesis}}, denoted $H_1$. These two competing claims / hypotheses are not however treated on an equal basis: special consideration is given to the null hypothesis.
+
+\item We have two common situations:
+\begin{enumerate}
+\item The experiment has been carried out in an attempt to disprove or reject a particular hypothesis, the null hypothesis, thus we give that one priority so it cannot be rejected unless the evidence against it is sufficiently strong. For example,
+
+$H_0$: there is no difference in taste between coke and diet coke
+against
+$H_1$: there is a difference.
+
+\item If one of the two hypotheses is 'simpler' we give it priority so that a more 'complicated' theory is not adopted unless there is sufficient evidence against the simpler one. For example, it is 'simpler' to claim that there is no difference in flavour between coke and diet coke than it is to say that there is a difference.
+\end{enumerate}
+\item The hypotheses are often statements about population parameters like expected value and variance; for example $H_0$ might be that the expected value of the height of ten year old boys in the Scottish population is not different from that of ten year old girls. 
+A hypothesis might also be a statement about the distributional form of a characteristic of interest, for example that the height of ten year old boys is normally distributed within the Scottish population.
+\item 
+The outcome of a hypothesis test test is "Reject $H_0$: in favour of $H_1$" or "Do not reject $H_0$".
+\end{itemize}
+
+
+
+
+
+
+
+%--------------------------------------------- %
+\subsection{Hypothesis testing: introduction}
+The objective of hypothesis testing is to access the validity of a claim against a counterclaim using sample data
+\begin{itemize}\item The claim to be “proved” is the alternative hypothesis($H_1$).\item The competing claim is called the null hypothesis($H_0$).\item One begins by assuming that $H_0$ is true. \end{itemize}
+
+If the data fails to contradict $H_0$ beyond a reasonable doubt, then $H_0$ is not rejected. However, failing to reject $H_0$ does not mean that we accept it as true. It simply means that $H_0$ cannot be ruled out as a possible explanation for the observed data. A proof by insufficient data is not a proof at all.
+
+
+
+
+\section{Steps of The Hypothesis Testing Procedure }
+We will use both of the following four step procedures for hypothesis testing. The level of significance must be determined in advance. The first procedures is as follows:
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the \emph{\textbf{test statistic}} - a standardized value of the numerical outcome of an experiment.
+\item Compute the $p$-value for that test statistic.
+\item Make a decision based on the $p$-value.
+\end{itemize}
+
+
+\subsection{The Hypothesis Testing Procedure }
+We will use both of the following four step procedures for hypothesis testing. The level of significance must be determined in advance.
+
+\textbf{Procedure 1}\\
+The first procedures is as follows:
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the \emph{\textbf{test statistic}} - a standardized value of the numerical outcome of an experiment.
+\item Compute the p-value for that test statistic.
+\item Make a decision based on the p-value. (smaller than $\alpha$ or $\alpha/2$? - reject null)
+\end{itemize}
+(We will re-visit this approach later in the course).
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+
+
+The second procedures is very similar to the first, but is more practicable for written exams, so we will use this one also. The first two steps are the same.
+\textbf{Procedure 2}\\
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the test statistic
+\item Determine the \emph{\textbf{critical value}} (described shortly)
+\item Make a decision based on the critical value. (We call this step the \textbf{decision rule} step, and shall discuss it in depth shortly).
+\end{itemize}
+(We will mostly use this approach to hypothesis testing).
+
+\textbf{Performing a Hypothesis test}
+\textbf{Important}
+To summarize: a hypothesis test can be considered as a four step process
+\begin{itemize}
+\item [1] Formally writing out the null and alternative hypothesis.
+\item [2] Computing the test statistic.
+\item [3] Determining the critical value.
+\item [4] Using the decision rule.
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------------------%
+
+{
+\textbf{Conclusions in Hypothesis Testing}
+\textbf{Important}
+\begin{itemize}
+\item  We always test the null hypothesis.
+\item  We either \textbf{\emph{reject}} the null hypothesis, or
+\item  We \textbf{\emph{ fail to reject}} the null hypothesis.
+\item  our conclusion is always one of these two.
+\end{itemize}
+}
+
+
+
+\subsection{Introduction to Hypothesis tests}
+
+\begin{itemize} \item
+A hypothesis test is a method of making decisions using experimental data. \item An outcome is called \textbf{\emph{statistically significant}} if it is unlikely to have occurred by chance. ( i.e. sampling fluctuation)
+
+
+\bigskip
+\item A statistical test procedure is comparable to a trial where a defendant is considered innocent as long as his guilt is not proven.\item  The prosecutor tries to prove the guilt of the defendant. Only when there is enough charging evidence the defendant is condemned.
+\end{itemize}
+
+
+
+
+
+
+\section*{Hypothesis Testing}
+
+
+
+
+Normal distribution
+\[ y = \frac{1}{{\sqrt {2\pi } }}e^{ - \frac{{z^2 }}{2}} = .3989e^{ - 5z^2 } \]
+
+
+
+
+\begin{itemize}
+\item Hypothesis Testing 
+Important Considerations
+
+\item1) Sample size n
+
+\begin{itemize}
+\item Is it large or small?       
+\item "small" less than or equal to thirty.
+\end{itemize}
+
+
+\item2) Significance level 
+\begin{itemize}
+\item 95\% confidence means = 0.05
+\item 99\% confidence means = 0.01
+\end{itemize}
+
+
+\item3) Number of tails in procedure
+\begin{itemize}
+\item Procedures are either one tailed or two tailed.  k=1 or 2
+\item Confidennce intervals are always two tailed.
+\end{itemize}
+
+
+\item4) Standard Error Formula
+
+Back of exam paper
+
+\item5) Tables to use
+\begin{itemize}
+\item Table 3 - Normal "Z" Distribution
+\item Table 7 - student's "t" Distribution
+\item Table 8 - Chi Square Distribution
+\end{itemize}
+
+
+\item6) Degrees of freedom
+
+notation is sometimes 
+
+Large samples    df = 
+Small samples    df = n-1
+
+Chi-Square        df = (r-1)x(c-1)
+r  = number of rows
+c =  number of columns
+
+\item7) Hypothesis tests usually have the following format.
+
+\begin{description}
+\item[Step 1 :] Formally state the null and alternative hypotheses
+\item[Step 2 :] Determine the test statistic
+\item[Step 3 :] Determine the critical value
+\item[Step 4 :] Decision Rule
+\end{description}
+
+
+\item8) Hypothesis testing using p-values
+
+If asked to use p-value, we have a slightly diffferent approach.
+The first two steps are the same as in note 7.
+
+\begin{description}
+\item[Step A :] Formally state the null and alternative hypotheses
+
+\item[Step B :] Determine the test statistic
+\item[Step C :] Determine the p-value
+\item[Step D :] Decision Rule for p-values.
+\end{description}
+\item9)  What is a p-value?
+
+\[\mbox{P-Value} = P(Z|T_S|)\]   TS: Test Statistic
+
+P-value  is found from Murdoch Barnes Tables 3
+
+For example, if the test statistic is 1.96, then the p-value is 0.025
+
+\item10) How to interpret the p-value
+
+(see previous notes)
+
+is the significance value
+
+k is the number of tails
+
+If the p-value is less than k, we reject the null hypothesis.
+If the p-value is greater than k, we reject the null hypothesis.
+
+\item11) The general structure of a test statistic
+
+\[TS =\frac{\mbox{Observed Value-Null Value}}{\mbox{Std. Error}} \]
+
+\item 12) General Structure of a Confidence Interval
+
+
+
+
+Quantiles are compute the same way as critical values.
+
+\end{itemize}
+
+
+
+
+
+\subsection{Hypothesis Testing and p-values}
+\begin{itemize}
+\item In hypothesis tests, the difference between the observed value and the parameter value specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated.
+\item The probability of obtaining data as extreme, or more extreme, than the expected value under the null hypothesis is called the \textbf{\emph{p-value}}.
+
+\end{itemize}
+
+
+
+
+
+
+\subsection{The Test Statistic}
+\begin{itemize}
+
+\item In our dice experiment, we observed a value of 401. Under the null hypothesis, the expected value was 350.
+\item The standard error is of the same form as for confidence intervals. $s \over \sqrt{n}$.
+\item (For this experiment the standard error is 17.07).
+\item The test statistic is therefore \[ \mbox{TS}  = {401 - 350  \over 17.07} = 2.99 \]
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Significance Level}
+
+\begin{itemize}
+\item The significance level of a statistical hypothesis test is a fixed probability of wrongly rejecting the null hypothesis $H_0$, if it is in fact true.
+
+\item Equivalently, the significance level (denoted by $\alpha$) is the probability that the test statistics will fall into the \textbf{\emph{critical region}}, when the null hypothesis is actually true. (We will discuss the critical region shortly).
+
+\item Common choices for $\alpha$ are $0.05$ and $0.01$.\\ \textit{(For this module, we will mostly stick with 0.05.)}
+\end{itemize}
+
+
+\subsection{The Hypothesis Testing Procedure }
+We will use both of the following four step procedures for hypothesis testing. The level of significance must be determined in advance.
+
+\textbf{Procedure 1}\\
+The first procedures is as follows:
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the \emph{\textbf{test statistic}} - a standardized value of the numerical outcome of an experiment.
+\item Compute the p-value for that test statistic.
+\item Make a decision based on the p-value. (smaller than $\alpha$ or $\alpha/2$? - reject null)
+\end{itemize}
+(We will re-visit this approach later in the course).
+
+
+%------------------------------------------------%
+
+\subsection{Test Statistics}
+\begin{itemize}
+\item A test statistic is a quantity calculated from our sample of data. Its value is used to decide whether or not the null hypothesis should be rejected in our hypothesis test.
+\item The choice of a test statistic will depend on the assumed probability model and the hypotheses under question.
+\item The general structure of a test statistic is
+\[ \mbox{TS}  = {\mbox{Observed Value} - \mbox{Null Value}  \over \mbox{Std. Error}}\]
+\item Recall: The ``Null Value" is the expected value, assuming that the null hypothesis is true.
+\end{itemize}
+
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+\subsection{2 sided test}
+A two-sided test is used when we are concerned about a possible
+deviation in either direction from the hypothesized value of the
+mean. The formula used to establish the critical values of the
+sample mean is similar to the formula for determining confidence
+limits for estimating the population mean, except that the
+hypothesized value of the population mean m0 is the reference
+point rather than the sample mean.
+
+
+
+
+
+
+{
+
+Test statistics for testing a claim about a mean, when the population variance is known.
+
+\[ Z = {\bar{x}  - \mu \over {\sigma \over \sqrt{n}}} \]
+}
+
+
+
+
+
+
+\begin{framed}
+\textbf{Conclusions in hypothesis testing}
+\begin{itemize}
+\item We always test the null hypothesis.
+\item We reject the null hypothesis, or
+\item We \emph{ fail to reject} the null hypothesis.
+\end{itemize}
+\end{framed}
+
+
+
+
+
+
+
+
+
+\section{Hypothesis Testing}
+
+
+
+
+
+
+\subsection{Hypothesis Testing: Number of Tails}
+\begin{itemize}
+\item It is important to know how determine correctly the number of tails.
+\item Inference Procedures are either \textbf{One-tailed} or \textbf{Two-Tailed}.
+\item Confidence Intervals are \textbf{always} two-tailed (as far as our module is concerned) . 
+\item Hypothesis tests can either be one-tailed or two-tailed. 
+\end{itemize}
+
+
+
+%---------------------------------------------------------------------------------------------%
+
+{
+
+
+
+
+\subsection{Inference : Structure of a Hypothesis Test (1) }
+
+\begin{itemize}
+\item Formally write out the null and Alternative Hypothesis.
+\begin{itemize}
+\item Denote the null as $H_0$ and the alternative as $H_1$.
+\item Use the parameter values (i.e. $\mu$ and $\pi$), not the sample estimates.
+\item Remember to provide a brief description of each hypothesis.
+\end{itemize}
+\end{itemize}
+
+\subsection{Inference : Structure of a Hypothesis Test (2) }
+
+
+\begin{itemize}
+\item Compute the Test Statistic ($TS$)
+\begin{itemize}
+\item You will need to compute the value for Standard Error (See back of exam paper).
+\item The general structure is 
+\[ {\mbox{observed value} - \mbox{null value} \over \mbox{Standard Error}}  \]
+\item The p-value is computed as $P(Z \geq |TS|)$ (from Murdoch Barnes 3). \\N.B. p-value is for large samples only.
+\end{itemize}
+\end{itemize}
+
+
+
+
+
+\subsection{Inference : Structure of a Hypothesis Test (3) }
+
+
+\begin{itemize}
+\item Determine the Critical Value
+\begin{itemize}
+\item You will need to know the sample size ($n$), the significance ($\alpha$) , and the number of tails ($k$).
+\item In this module, $\alpha$ = 0.05 and $k=2$ always.
+\item Depending on the sample size the degrees of freedom is $\nu = n-1$ 9 when $n \leq 30$ or $\nu = \infty$ when $n > 30$
+\end{itemize}
+\end{itemize}
+
+
+
+{
+\subsection{Inference : Structure of a Hypothesis Test (4) }
+
+\begin{itemize}
+\item Making a decision (Critical Value) :  Is the absolute value of the Test Statistic greater than the Critical Value?
+\begin{itemize}
+\item If $|TS| > CV $ We reject the null hypothesis.
+\item If $|TS| \leq CV $ We fail to reject the null hypothesis.
+\end{itemize}
+\end{itemize}
+}
+
+{
+\subsection{Inference : Structure of a Hypothesis Test (4) }
+\begin{itemize}
+\item Making a decision (p-value) : \\ Is the p-value less than than the critical threshold $\alpha / k$.?
+\begin{itemize}
+\item If p-value $< \alpha /k $ :  We reject the null hypothesis.
+\item If p-value $\geq \alpha /k $ : We fail to reject the null hypothesis.
+\end{itemize}
+\end{itemize}
+
+
+\newpage
+
+
+
+
+
+
+
+%------------------------------------------------%
+
+\textbf{Test Statistics}
+\begin{itemize}
+\item A test statistic is a quantity calculated from our sample of data. Its value is used to decide whether or not the null hypothesis should be rejected in our hypothesis test.
+\item The choice of a test statistic will depend on the assumed probability model and the hypotheses under question.
+\item The general structure of a test statistic is
+\[ \mbox{TS}  = {\mbox{Observed Value} - \mbox{Null Value}  \over \mbox{Std. Error}}\]
+\item Recall: The ``Null Value" is the expected value, assuming that the null hypothesis is true.
+\end{itemize}
+
+%----------------------------------------------%
+
+
+\textbf{The Test Statistic}
+\begin{itemize}
+
+\item In our dice experiment, we observed a value of 401. Under the null hypothesis, the expected value was 350.
+\item The standard error is of the same form as for confidence intervals. $s \over \sqrt{n}$.
+\item (For this experiment the standard error is 17.07).
+\item The test statistic is therefore \[ \mbox{TS}  = {401 - 350  \over 17.07} = 2.99 \]
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{framed}
+\textbf{Performing a Hypothesis test}
+\textbf{Important}
+To summarize: a hypothesis test can be considered as a four step process
+\begin{itemize}
+\item[1] Formally writing out the null and alternative hypothesis.
+\item[2] Computing the test statistic.
+\item[3] Determining the critical value.
+\item[4] Using the decision rule.
+\end{itemize}
+\end{framed}
+
+
+\textbf{Conclusions in Hypothesis Testing}
+\textbf{Important}
+\begin{itemize}
+\item We always test the null hypothesis.
+\item We either \textbf{\emph{reject}} the null hypothesis, or
+\item We \textbf{\emph{ fail to reject}} the null hypothesis.
+\item our conclusion is always one of these two.
+\end{itemize}
+
+
+
+\newpage
+
+
+\subsection{Hypothesis Testing and p-values}
+\begin{itemize}
+\item In hypothesis tests, the difference between the observed value and the parameter value specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated.
+\item The probability of obtaining data as extreme, or more extreme, than the expected value under the null hypothesis is called the \textbf{\emph{p-value}}.
+
+\item There is often confusion about the precise meaning of the probability computed in a significance test.\item  The convention in hypothesis testing is that the null hypothesis ($H_0$) is assumed to be true. 
+
+\item There is often confusion about the precise meaning of the p-value probability computed in a significance test. It is not the probability of the null hypothesis itself.
+\item Thus, if the probability value is $0.0175$, this does not mean that the probability that the null hypothesis is either true or false is $0.0175$.
+\item It means that the probability of obtaining data as different or more different from the null hypothesis as those obtained in the experiment is $0.0175$.
+\item 
+The difference between the statistic computed in the sample and the parameter specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated. \item This probability value is the probability of obtaining data as extreme or more extreme than the current data (assuming $H_0$ is true). 
+\end{itemize}
+
+
+
+\subsubsection{Hypothesis Testing and p-values}
+
+
+
+\begin{itemize}
+\item However, the test does not \textbf{prove} the person cannot predict better than chance; it simply fails to provide evidence that he or she can. \item The probability that the null hypothesis is true is not determined by the statistical analysis conducted as part of hypothesis testing. \item Rather, the probability computed is the probability of obtaining data as different or more different from the null hypothesis (given that the null hypothesis is true) as the data actually obtained. 
+\end{itemize}
+
+
+
+\subsection{Hypothesis Testing(Contd)}
+
+It is not the probability of the null hypothesis itself. Thus, if the probability value is 0.005, this does not mean that the probability that the null hypothesis is either true or false is .005. It means that the probability of obtaining data as different or more different from the null hypothesis as those obtained in the experiment is 0.005.
+
+
+
+\begin{itemize}
+\item To illustrate that the probability is not the probability of the hypothesis, consider a test of a person who claims to be able to predict whether a coin will come up heads or tails. \item One should take a rather sceptical attitude toward this claim and require strong evidence to believe in its validity. 
+\end{itemize}
+
+
+
+\begin{itemize}
+\item The null hypothesis is that the person can predict correctly half the time ($H_0: \pi = 0.5$). In the test, a coin is flipped 20 times and the person is correct 11 times. \item If the person has no special ability ($H_0$ is true), then the probability of being correct 11 or more times out of 20 is 0.41.\item  Would someone who was originally sceptical now believe that there is only a 0.41 chance that the null hypothesis is true? 
+\end{itemize}
+
+
+\subsection{Hypothesis Testing}
+\begin{itemize}
+\item They almost certainly would not since they probably originally thought $H_0$ had a very high probability of being true (perhaps as high as 0.9999). \item There is no logical reason for them to decrease their belief in the validity of the null hypothesis since the outcome was perfectly consistent with the null hypothesis. \end{itemize}
+
+\begin{framed}
+
+The proper interpretation of the test is as follows:
+
+\begin{itemize} \item  A person made a rather extraordinary claim and should be able to provide strong evidence in support of the claim if the claim is to believed. \item The test provided data consistent with the null hypothesis that the person has no special ability since a person with no special ability would be able to predict as well or better more than $40\%$ of the time. \item Therefore, there is no compelling reason to believe the extraordinary claim. \end{itemize} 
+\end{framed}
+
+
+
+
+
+
+
+
+\begin{itemize}
+	\item 
+The null hypothesis is often the reverse of what the experimenter actually believes; it is put forward to allow the data to contradict it. \item In a hypothetical experiment on the effect of alcohol, the experimenter probably expects sleep deprivation to have a harmful effect. \item If the experimental data show a sufficiently large effect of sleep deprivationl, then the null hypothesis that sleep deprivationl has no effect can be rejected. 
+\end{itemize}
+
+\begin{itemize}
+\item Hypothesis tests are almost always made using null-hypothesis tests i.e., tests that answer the question “Assuming that the null hypothesis is true, what is the probability of observing a value for the test statistic that is at least as extreme as the value that was actually observed?” 
+\item
+The critical region of a hypothesis test is the set of all outcomes which, if they occur, will lead us to decide that there is a difference. 
+\item That is, cause the null hypothesis to be rejected in favour of the alternative hypothesis. 
+\item Selecting a suitable critical region is arbitrary.
+\end{itemize}
+
+
+
+\subsection{Hypothesis Testing}
+The inferential step to conclude that the null hypothesis is false goes as follows: The data (or data more extreme) are very unlikely given that the null hypothesis is true.
+\bigskip
+This means that:
+\begin{itemize}
+\item[(1)] a very unlikely event occurred or
+\item[(2)] the null hypothesis is false.
+\end{itemize}
+\bigskip
+The inference usually made is that the null hypothesis is false. Importantly it doesn't prove the null hypothesis to be false.
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+
+
+\subsection{Significance (Die Throw Example)}
+\begin{itemize}
+\item Suppose that the outcome of the die throw experiment was a sum of 401. In previous lectures, a simulation study found that only in approximately $1.75\%$ of cases would a fair die yield this result.
+\item However, in the case of a crooked die (i.e. one that favours high numbers) this result would not be unusual.
+\item A reasonable interpretation of this experiment is that the die is crooked, but importantly the experiment doesn't prove it one way or the other.
+\item We will discuss the costs of making a wrong decision later (Type I and Type II errors).
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Guidance on hypothesis testing}
+
+For the most part, this module will use the $p-$value approach to interpreting a hypothesis test.
+
+For the sake of simplicity, we will 
+\begin{itemize}
+\item If the p-value is less than 0.02, we reject the null hypothesis.
+\item If the p-value is greater than 0.02, we fail to reject the null hypothesis.
+\end{itemize}
+
+Again, the choice of 0.02 as a threshold is arbitrary. Conventionally a p-value between 0.01 and 0.05 would 
+indicate that the testing procedure should be re-appraised, rather than being used as a basis for a decision.
+
+However, later on, we will disgress from this approach, using the "star" system, which is directly implemented 
+with some statistical procedures.
+
+
+
+\section*{Important Steps in a Hypothesis Test Procedure}
+
+
+
+
+%%%Normal distribution
+%%%\[ y = \frac{1}{{\sqrt {2\pi } }}e^{ - \frac{{z^2 }}{2}} = .3989e^{ - 5z^2 } \]
+%%%
+%%%
+%%%MA4413 Statistics for Computing
+%%%
+%%%Lecture Notes 11 : Hypothesis Testing
+
+\begin{itemize}
+\item Hypothesis Testing 
+Important Considerations
+
+\item1) Sample size n
+
+\begin{itemize}
+\item Is it large or small?       
+\item "small" less than or equal to thirty.
+\end{itemize}
+
+
+\item2) Significance level 
+\begin{itemize}
+\item 95\% confidence means = 0.05
+\item 99\% confidence means = 0.01
+\end{itemize}
+
+
+\item3) Number of tails in procedure
+\begin{itemize}
+\item Procedures are either one tailed or two tailed.  k=1 or 2
+\item Confidennce intervals are always two tailed.
+\end{itemize}
+
+
+\item4) Standard Error Formula
+
+Back of exam paper
+
+\item5) Tables to use
+\begin{itemize}
+\item Table 3 - Normal "Z" Distribution
+\item Table 7 - student's "t" Distribution
+\item Table 8 - Chi Square Distribution
+\end{itemize}
+
+
+\item6) Degrees of freedom
+
+notation is sometimes 
+
+Large samples    df = 
+Small samples    df = n-1
+
+Chi-Square        df = (r-1)x(c-1)
+r  = number of rows
+c =  number of columns
+
+\item7) Hypothesis tests usually have the following format.
+
+\begin{description}
+\item[Step 1 :] Formally state the null and alternative hypotheses
+\item[Step 2 :] Determine the test statistic
+\item[Step 3 :] Determine the critical value
+\item[Step 4 :] Decision Rule
+\end{description}
+
+
+\item8) Hypothesis testing using p-values
+
+If asked to use p-value, we have a slightly diffferent approach.
+The first two steps are the same as in note 7.
+
+\begin{description}
+\item[Step A :] Formally state the null and alternative hypotheses
+
+\item[Step B :] Determine the test statistic
+\item[Step C :] Determine the p-value
+\item[Step D :] Decision Rule for p-values.
+\end{description}
+\item9)  What is a p-value?
+
+\[\mbox{P-Value} = P(Z|T_S|)\]   TS: Test Statistic
+
+P-value  is found from Murdoch Barnes Tables 3
+
+For example, if the test statistic is 1.96, then the p-value is 0.025
+
+\item10) How to interpret the p-value
+
+(see previous notes)
+
+is the significance value
+
+k is the number of tails
+
+If the p-value is less than k, we reject the null hypothesis.
+If the p-value is greater than k, we reject the null hypothesis.
+
+\item11) The general structure of a test statistic
+
+\[TS =\frac{\mbox{Observed Value-Null Value}}{\mbox{Std. Error}} \]
+
+\item 12) General Structure of a Confidence Interval
+
+
+
+
+Quantiles are compute the same way as critical values.
+
+\end{itemize}
+
+
+\subsection{Conclusions in hypothesis testing}
+\begin{itemize}
+\item We always test the null hypothesis.
+\item We reject the null hypothesis, or
+\item We \emph{ fail to reject} the null hypothesis.
+\end{itemize}
+
+
+\end{document}

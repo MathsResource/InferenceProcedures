@@ -1,0 +1,529 @@
+﻿\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MathsCast]{MathsCast Presentations \\ {\normalsize The Continuous Uniform Distribution}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Summer 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+%------------------------------------------------------------------------%
+\begin{document}
+%----------------------------------------------------------------------------------------------------%
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Types of inference procedures}
+\large
+\begin{itemize}
+\item The two main types of inference procedures are confidence intervals and hypothesis tests .\item There are two ways of conducting a hypothesis test.\item  One method is to compute the test statistic, and compare to the critical values.\item The second method is to compute the probability value (p-value), and compare it to the significance level.\item Nearly all computer programs use the p-value approach. In this course we will focus more on the p-value approach.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis tests}
+\large
+\begin{itemize} \item
+In statistics , a  hypothesis test is a method of making decisions using experimental data. \item A result is called \textbf{\emph{statistically significant}} if it is unlikely to have occurred by chance. \item A statistical test procedure is comparable to a trial where a defendant is considered innocent as long as his guilt is not proven.\item  The prosecutor tries to prove the guilt of the defendant. Only when there is enough charging evidence the defendant is condemned.
+\end{itemize}
+
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis tests (Null and Alternative Hypotheses) }
+\large
+%The phrase "test of significance" was coined by Ronald Fisher; 
+%"Critical tests of this kind may be called tests of significance, and when such tests are available we may discover whether a second sample is or is not significantly different from the first." \\
+\begin{itemize}
+\item The null hypothesis (denoted $H_0$)is an hypothesis about a population parameter, such as the population mean $\mu$. \item The purpose of hypothesis testing is to test the viability of the null hypothesis in the light of experimental data. \item The alternative hypothesis $H_1$ expresses the exact opposite of the null hypothesis. \item Depending on the data, the null hypothesis either will or will not be rejected as a viable possibility in favour of the alternative hypothesis. 
+\end{itemize}
+
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Null  Hypothesis }
+\large
+\begin{itemize}\item 
+The null hypothesis is often the reverse of what the experimenter actually believes; it is put forward to allow the data to contradict it. \item In a hypothetical experiment on the effect of alcohol, the experimenter probably expects sleep deprivation to have a harmful effect. \item If the experimental data show a sufficiently large effect of sleep deprivationl, then the null hypothesis that sleep deprivationl has no effect can be rejected. 
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{The Null Hypothesis}
+In statistics, a hypothesis is a claim or statement made around a proprty of a population.
+A hypothesis test ( also called a test of significance)  is a standard procedure for testing a claim aboutt that property.
+\begin{itemize}
+\item The null hypothesis is a statement about the value of a population parameter.
+\item The null hypothesis is denoted $H_0$.
+\item It must contain a condition of equality. (i.e. ` = ' , `$ \leq$' or `$\geq$')
+\end{itemize}
+}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Null  Hypothesis }
+\large
+\begin{itemize}
+\item Hypothesis tests are almost always made using null-hypothesis tests i.e., tests that answer the question “Assuming that the null hypothesis is true, what is the probability of observing a value for the test statistic that is at least as extreme as the value that was actually observed?” 
+\item
+The critical region of a hypothesis test is the set of all outcomes which, if they occur, will lead us to decide that there is a difference. 
+\item That is, cause the null hypothesis to be rejected in favour of the alternative hypothesis. 
+\item Selecting a suitable critical region is arbitrary.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Significance Level}
+
+\begin{itemize}
+\item In hypothesis testing, the significance level is the criterion used for rejecting the null hypothesis. \item The significance level is used in hypothesis testing as follows: First, the difference between the results of the experiment and the null hypothesis is determined. \item Then, assuming the null hypothesis is true, the probability of a difference that large or larger is computed . \item Finally, this probability is compared to the significance level.\item  If the probability is less than or equal to the significance level, then the null hypothesis is rejected and the outcome is said to be statistically significant. 
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Significance Level}
+
+\begin{itemize}
+\item Traditionally, experimenters have used either the 0.05 level (sometimes called the 5\% level) or the 0.01 level (1\% level), although the choice of levels is largely subjective. \item The lower the significance level, the more the data must diverge from the null hypothesis to be significant. \item Therefore, the 0.01 level is more conservative than the 0.05 level. The Greek letter alpha ($\alpha$) is sometimes used to indicate the significance level \end{itemize}
+\end{frame}
+%---------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The probability value }
+\begin{itemize}
+\item The probability value (sometimes called the p value) is the probability of obtaining a statistic as different from or more different from the parameter specified in the null hypothesis as the statistic obtained in the experiment. 
+\item The precise meaning of the p-value
+\end{itemize}
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing and p-values}
+\begin{itemize}
+\item There is often confusion about the precise meaning of the probability computed in a significance test.\item  The convention in hypothesis testing is that the null hypothesis ($H_0$) is assumed to be true. 
+
+\item 
+The difference between the statistic computed in the sample and the parameter specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated. \item This probability value is the probability of obtaining data as extreme or more extreme than the current data (assuming $H_0$ is true). 
+\end{itemize}
+
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing(Contd)}
+
+It is not the probability of the null hypothesis itself. Thus, if the probability value is 0.005, this does not mean that the probability that the null hypothesis is either true or false is .005. It means that the probability of obtaining data as different or more different from the null hypothesis as those obtained in the experiment is 0.005.
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing}
+The inferential step to conclude that the null hypothesis is false goes as follows: The data (or data more extreme) are very unlikely given that the null hypothesis is true. 
+\bigskip
+This means that: 
+\begin{itemize}\item [(1)] a very unlikely event occurred or 
+\item[(2)] the null hypothesis is false. \end{itemize}
+
+The inference usually made is that the null hypothesis is false. Importantly it doesn’t prove the null hypothesis to be false.
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item To illustrate that the probability is not the probability of the hypothesis, consider a test of a person who claims to be able to predict whether a coin will come up heads or tails. \item One should take a rather sceptical attitude toward this claim and require strong evidence to believe in its validity. \end{itemize}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item The null hypothesis is that the person can predict correctly half the time ($H_0: \pi = 0.5$). In the test, a coin is flipped 20 times and the person is correct 11 times. \item If the person has no special ability ($H_0$ is true), then the probability of being correct 11 or more times out of 20 is 0.41.\item  Would someone who was originally sceptical now believe that there is only a 0.41 chance that the null hypothesis is true? 
+\end{itemize}
+
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing}
+\begin{itemize}
+\item They almost certainly would not since they probably originally thought $H_0$ had a very high probability of being true (perhaps as high as 0.9999). \item There is no logical reason for them to decrease their belief in the validity of the null hypothesis since the outcome was perfectly consistent with the null hypothesis. \end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing}
+
+The proper interpretation of the test is as follows:
+
+\begin{itemize} \item  A person made a rather extraordinary claim and should be able to provide strong evidence in support of the claim if the claim is to believed. \item The test provided data consistent with the null hypothesis that the person has no special ability since a person with no special ability would be able to predict as well or better more than $40\%$ of the time. \item Therefore, there is no compelling reason to believe the extraordinary claim. \end{itemize} \end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item However, the test does not \textbf{prove} the person cannot predict better than chance; it simply fails to provide evidence that he or she can. \item The probability that the null hypothesis is true is not determined by the statistical analysis conducted as part of hypothesis testing. \item Rather, the probability computed is the probability of obtaining data as different or more different from the null hypothesis (given that the null hypothesis is true) as the data actually obtained. 
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Using P-values to reject the null hypothesis}
+\begin{itemize}
+\item According to one view of hypothesis testing, the significance level should be specified before any statistical calculations are performed. Then, when the p-value is computed from a significance test, it is compared with the significance level. 
+\item The null hypothesis is rejected if p-value is at or below the significance level; it is not rejected if p-value is above the significance level. The degree to which p ends up being above or below the significance level does not matter. 
+\end{itemize}
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{p-values}
+\begin{itemize}
+\item He or she would have no more basis to doubt the validity of the null hypothesis than if p-value had been 0.482. The conclusion would be that the null hypothesis could not be rejected at the 0.05 level. \item In short, this approach is to specify the significance level in advance and use p-value only to determine whether or not the null hypothesis can be rejected at the stated significance level.
+\item 
+Many statisticians and researchers find this approach to hypothesis testing not only too rigid, but basically illogical. It is very reasonable to  have more confidence that the null hypothesis is false with a p-value of 0.0001 then with a p-value of 0.042? 
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{p-values}
+\begin{itemize}
+\item The less likely the obtained results (or more extreme results) under the null hypothesis, the more confident one should be that the null hypothesis is false.The null hypothesis should not be rejected once and for all. The possibility that it was falsely rejected is always present, and, all else being equal, the lower the p-value, the lower this possibility.
+\item According to this view, research reports should not contain the p-value, only whether or not the values were significant (at or below the significance level). 
+\item 
+However it is much more reasonable to just report the p-values. That way each reader can make up his or her mind about just how convinced they are that the null hypothesis is false.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+\section{Assumptions for testing claims about population means}
+\frame{
+\begin{itemize}
+\item The sample is a simple random sample
+\item The value of the population variance $\sigma$ is known.
+\item Either one or both of these conditions is satisfied
+\begin{itemize}
+\item The Population is normally distributed.
+\item The sample size $n$ is greater than 30.
+\end{itemize}
+\end{itemize}
+}
+
+%---------------------------------------------------------------------------------------------%
+
+\frame{
+\frametitle{Siginicance level}
+The significance level (denoted by $\sigma$ ) is the probability that the test statistiics will fall into the critical region, when the null hypothesis is actually true.
+
+Common choices for $\sigma$ are $0.05$ and $0.01$
+
+}
+
+\frame{
+\frametitle{p value}
+The P-value (or p-value or probability value is the probability of getting a value of the test statistic that is at least as extreme as the one representing the sample data, assuming the null hypothesis is true.
+The nul hypothesis is rejected if the P-value is very small, such as less than 0.05.
+
+}
+
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{The alternative Hypothesis}
+
+\begin{itemize}
+\item The alternative hypothesis is a statement that contradists the null hypothesis about the value of a population parameter.
+\item The alternative hypothesis is denoted $H_1$ or $H_a$
+\item It must contain a condition of equality. (i.e. ` = ' , `$ \leq$' or `$\geq$')
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{The alternative Hypothesis}
+
+\begin{itemize}
+\item Suppose we have a die. We do not know if it is a fair die or a crooked die.
+\item If it was a fair die, the expected value of each throw is 3.5.
+\item If it is a crooked die, the expected value is not 3.5.
+\item To be notationally consistent with the rest of the material in this section, we will denoted the expected value as $\mu$ rather $E(x)$.
+\end{itemize}
+
+$H_0 : \mu  = 3.5$  The die is fair.
+$H_1 : \mu  \neq 3.5$ The die is crooked.
+
+If you are conducting a study and want to use a hypothesis to suppprt your claim, the claim must be worded so that it becomes the alternative hypothesis.
+The null hypothesis is written as a statement that is a direct contradition of this.
+
+}
+
+%---------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Critical value}
+A critical value is any value that separates the critical region ( where we reject the null hypothesis) for that tha values of the test statistic that do not lead to a rejection of the null hypothesis.
+
+}
+%---------------------------------------------------------------------------------------------%
+
+
+
+%----------------------------------------------------------------------%
+\frame{
+To test the null hypothesis that the true mean difference is zero, the procedure is as
+follows:
+1. Calculate the difference $(di = y_i − x_i)$ between the two observations on each pair,
+making sure you distinguish between positive and negative differences.
+2. Calculate the mean difference, $\bar{d}$.
+
+
+3. Calculate the standard deviation of the differences, $s_d$, and use this to calculate the
+standard error of the mean difference, $SE(\bar{d}) = {s_d \over \sqrt{n}}$
+
+4. Calculate the t-statistic, which is given by $ T ={ \bar{d} \over SE(\bar{d})}$.
+
+Under the null hypothesis, this statistic follows a t-distribution with $n − 1$ degrees of freedom.
+
+}
+
+
+
+%----------------------------------------------------------------------------------------------------%
+
+\frame{
+\frametitle{Conclusions in hypothesis testing}
+\begin{itemize}
+\item We always test the null hypothesis.
+\item We reject the null hypothesis, or
+\item We \emph{ fail to reject} the null hypothesis.
+\end{itemize}
+}
+
+%---------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Two tailed test}
+
+$H_0:  = $
+$H_1:  \neq $
+
+$\alpha$ is divided equally between the two tail of the critical region.
+
+$\neq$ i.e. \emph{``not equal to"} can also mean \emph{``less than or greater than"}.
+}
+%---------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{The Critical region}
+The critical region ( or rejection region ) is the set of all values of the test statistic that causes us to rejec the null hypothesis.
+
+}
+\frame{
+
+Test statistics for testing a claim about a mean, when the population variance is known.
+
+\[ Z = {\bar{x}  - \mu \over {\sigma \over \sqrt{n}}} \]
+}
+
+%----------------------------------------------------------------------------------------------------%
+\section{Assumptions for testing claims about population means, with unknown variance.}
+\frame{
+\begin{itemize}
+\item The sample is a simple random sample
+\item The value of the population variance $\sigma$ is not known.
+\item Either one or both of these conditions is satisfied
+\begin{itemize}
+\item The Population is normally distributed.
+\item The sample size $n$ is greater than 30.
+\end{itemize}
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\[ t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} \]
+
+degrees of freedom (df or $\nu$) = n-1
+}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{P-values}
+\large
+\begin{itemize}
+\item The null hypothesis either is or is not rejected at the previously stated significance level. Thus, if an experimenter originally stated that he or she was using the $\alpha = 0.05$ significance level and p-value was subsequently calculated to be $0.042$, then the person would reject the null hypothesis at the 0.05 level. \item If p-value had been 0.0001 instead of 0.042 then the null hypothesis would still be rejected at the 0.05 significance level.  \item 
+The experimenter would not have any basis to be more confident that the null hypothesis was false with a p-value of 0.0001 than with a p-value of 0.041. \item Similarly, if the p had been 0.051 then the experimenter would fail to reject the null hypothesis
+\end{itemize}
+
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+What is the standard error $\mbox{S.E.}(\hat{p})$ 
+
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{{\hat{p} \times (1- \hat{p}) \over n}} \]
+
+When computing the standard error for a hypothesis test, we use this formula.
+
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{{\hat{p_0} \times (1- \hat{p_o}) \over n}} \]
+
+Where $p_0$ is the population proportion, as proposed by the null hypothesis.
+}
+
+%---------------------------------------------------------------------------------------------%
+\section{Inference on Proportions}
+\frame{
+Out of 800 randomly selected drivers, 376 admitted that, on occation, they have driven through red lights.
+
+The claim that the majority if drivers have drivien through red lights.
+
+What is the point estimate?
+
+\[ \hat{p} = { x \over n} \]
+
+\begin{itemize}
+\item $\hat{p}$ is the sample proportion (or sample percentage).
+\item $x$ is the number of successes
+\item $n$ is the sample size 
+\end{itemize}
+
+$\hat{p}$ = 376/800 = 0.47  (i.e. $47\%$)
+}
+
+
+
+
+
+
+\frame{
+
+The relevant formulae for standard errors are generally included at the back of exam papers.
+The standard error is computed according to the following formula.
+
+
+\vspace{0.1cm}
+\[
+S.E. (\hat{P}) = \sqrt{ { \hat{P} \times ( 1 - \hat{P}) \over n}}
+\]
+
+\vspace{0.1cm}
+
+\begin{itemize}
+\item $n$ is the sample size
+    \begin{itemize}
+    \item For our example $n = 400$
+    \end{itemize}
+
+\item $\hat{P}$ is the sample proportion
+ \begin{itemize}
+    \item For our example $\hat{P} = 0.60$
+    \end{itemize}
+
+\item $1 - \hat{P}$ is the complement of the sample proportion \begin{itemize}
+    \item For our example $1- \hat{P} = 1 - 0.60  =  0.40$
+    \end{itemize}
+\end{itemize}
+
+}
+%------------------------------------------------------------------------%
+\frame{
+\large
+Using these values, we can calculate the standard error with this expression.
+
+\vspace{0.1cm}
+\[
+S.E. (\hat{P}) = \sqrt{ { 0.60 \times 0.40 \over 400}}
+\]
+
+\vspace{0.1cm}
+
+However, it is easier to perform such calculates when working in terms of percentages.
+
+\vspace{0.1cm}
+\[
+S.E. (\hat{P}) = \sqrt{ { 60 \times 40 \over 400}}  \;[\%]
+\]
+
+}
+
+
+%----------------------------------------------------------------------------------------------------%
+\section{Inferences around two proportions}
+
+\frame{
+\frametitle{Assumptions}
+
+\begin{itemize}
+\item We have proportions from two independent simple random samples
+\item For both samples the conditions $np \geq 5$ $ n(1-p) \geq 5$ are met.
+\end{itemize}
+For population $1$, let
+\begin{itemize}
+\item $p_1$  population proportion
+\item $n_1$ sample size
+\item $x_1$ number of successes in sample 1
+\item $hat{p}_1$ is the sample proportion, an estimate for $p_1$.
+\end{itemize}
+}
+
+

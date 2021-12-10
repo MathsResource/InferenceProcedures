@@ -1,0 +1,189 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+%1. MA4104
+%2. MA4704
+%3. StatsLab
+%4. Check that variance and standard deviations are specified correctly.
+
+
+
+
+
+
+
+
+
+
+
+\section{Confidence Intervals for Means}
+
+The structure of a confidence interval for the mean is as follows:
+\[ \mbox{Sample Mean} \pm  \left( \mbox{Quantile} \times \mbox{Std. Error}  \right) \]
+
+
+\noindent \textbf{Quantiles:}\\
+For large samples (i.e. greater than 30) where a normal distribution can be assumed, the quantiles 
+are as follows\\ \bigskip
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline  $90\%$  &   1.645  \\ 
+\hline  $95\%$  &   1.96  \\
+\hline  $99\%$  &   2.576 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+
+\noindent \textbf{Sample Mean:}\\
+The sample mean $\bar{x}$ is usually given in the question.
+\\ \bigskip
+(Remark: Sample mean is a type of \textbf{\textit{point estimate}}).
+
+
+\noindent \textbf{Standard Error :}\\
+The standard error is computed using the sample standard deviation ($s$) and the sample size ($n$).
+
+\[ S.E. (\bar{x}) = \frac{s}{\sqrt{n}} \]
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------%
+
+
+
+\textbf{Confidence Intervals}
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$, $99\%$ and $99.9\%$.
+\end{itemize}
+
+
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+
+
+
+
+
+
+%------------------------------------------------------------------------%
+
+
+% -- Lecture 8B
+% -- Revise the Tables
+% -- Sample Size Estimation for mean
+% -- Example SSE for mean
+% -- SSE for Proportion
+% -- Example SSE for proportion
+% -- Paired Test
+
+
+
+%------------------------------------------------------------------------------%
+
+
+
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+	\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+	\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+
+%---------------------------------------------------------%
+\begin{itemize}
+	\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution 
+	of people taking the drug are 50 and 25 respectively and that the mean ($\mu$) 
+	and the variance ($\sigma$) of the distribution of people not taking the drug are 
+	40 and 24 respectively. 
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------%
+
+
+\textbf{Standard Error}
+
+\begin{itemize}
+\item The standard error measures the dispersion of the sampling distribution.
+\item For each type of point estimate, there is a corresponding standard error.
+\item A full list of standard error formulae will be attached in your examination paper.
+\item The standard error for a  mean is
+\[ S.E( \bar{x} )  = {\sigma \over \sqrt{n}} \]
+However, we often do not know the value for $\sigma$. For practical purposes, we use the sample standard deviation $s$ as an estimate for $\sigma$ instead.
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}} \]
+\end{itemize}
+
+
+
+
+
+
+
+\section{Confidence Interval of a Mean of the Small Sample}
+
+If the data have a normal probability distribution and the sample standard deviation $s$ is used to estimate the population standard deviation $\sigma$, the interval estimate is given by:
+\begin{equation}
+\bar{X} \pm t_{1-\alpha/2,n-1}\frac{s}{\sqrt{n}}
+\end{equation}
+where $t_{1-\alpha/2,n-1}$ is the value providing an area of $\alpha/2$ in the upper tail of a Students t distribution with n - 1 degrees of freedom.
+
+
+%======================%
+\newpage
+\section{Introduction to Hypothesis Testing}
+\begin{itemize}
+\item So far, we have studied two types of confidence interval, a confidence interval for a sample mean and for a sample proportion.\\ (Later we will call these \textbf{\textit{One Sample}} confidence Intervals.
+\item There are more types of confidence intervals that we will cover later in this course. \\ (We shall refer to these confidence intervals as the \textbf{\textit{Two Sample}} confidence Intervals.
+\item We shall turn our attention to \textit{\textbf{Hypothesis Testing}} in the mean time.
+\end{itemize}
+
+
+\textbf{Determining the Quantile}
+The confidence level is $95\%$. The sample size is greater than 30. Therefore the appropriate quantile is 1.96.\\
+
+
+
+
+
+\end{document}

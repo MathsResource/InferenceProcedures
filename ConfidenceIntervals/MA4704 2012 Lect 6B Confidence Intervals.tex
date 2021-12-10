@@ -1,0 +1,693 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 6C}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% - Last lecture
+% - symmetric Intervals
+% - computing Quantiles
+% - student's t distribution
+% - CI for means
+% - CI for means ( small samples)
+% - CI for Props
+% - CI for differences.
+
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Intervals (Revision) }
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$,$99\%$ and $99.9\%$.
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Level (Revision) }
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+\end{frame}
+
+
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{The Central Limit Theorem (Revision) }
+\begin{itemize}
+\item This theorem states that as sample size $n$ is increased, the sampling distribution of the mean (and for other sample statistics as well) approaches the normal distribution in form, regardless of the form of the population distribution from
+which the sample was taken.
+
+\item For practical purposes, the sampling distribution of the mean can be assumed to be
+approximately normally distributed, even for the most non-normal populations or processes, whenever the
+sample size is $n > 30$.
+
+\item (For populations that are only somewhat non-normal, even a smaller sample size will
+suffice. A variation of the normal distribution can be used for such circumstances.)
+\end{itemize}
+
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing Confidence Intervals}
+Confidence limits are the lower and upper boundaries / values of a confidence interval, that is, the values which define the range of a confidence interval. The general structure of a confidence interval is as follows:
+
+\[ \mbox{Point Estimate}  \pm \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+
+
+\begin{itemize}
+\item Point Estimate: estimate for population parameter of interest, i.e. sample mean, sample proportion.
+\item Quantile: a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item Standard Error: measures the dispersion of the sampling distribution for a given sample size $n$.
+\end{itemize}
+\end{frame}
+
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Quantiles }
+
+\begin{itemize}
+\item The quantile is a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item For practical purposes, the quantile can be taken from the standard normal distribution, if the sample is larger than 30, further to the central limit theorem.
+\item For a specified confidence level $1-\alpha $, the corresponding quantile is the value $a$ that satisfies the following identity (when $n > 30$):
+
+    \[ p( -a \leq Z \leq a) = 1- \alpha \]
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Quantiles}
+
+\begin{itemize} \item When the sample size $n$ is greater than 30, we can compute the quantile using Murdoch Barnes table 3.
+
+\item $95\%$ of Z random variables are between -1.96 ( quantile for $2.5\%$)and 1.96 ( quantile for $97.5\%$)
+\end{itemize}
+
+\begin{itemize}
+\item If the confidence level is $95\%$, then the quantile is 1.96. Recall
+\[ p( -1.96 \leq Z \leq 1.96) = 0.95 \]
+
+\item If the confidence level is $90\%$, then the quantile is 1.645.
+\[ p( -1.645 \leq Z \leq 1.645) = 0.90 \]
+
+\item If the confidence level is $99\%$, then the quantile is 2.576.
+\[ p( -2.576 \leq Z \leq 2.576) = 0.99 \]
+
+\end{itemize}
+
+
+
+\end{frame}
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error}
+
+\begin{itemize}
+\item The standard error measures the dispersion of the sampling distribution.
+\item For each type of point estimate, there is a corresponding standard error.
+\item A full list of standard error formulae will be attached in your examination paper.
+\item The standard error for a  mean is
+\[ S.E( \bar{x} )  = {\sigma \over \sqrt{n}} \]
+However, we often do not know the value for $\sigma$. For practical purposes, we use the sample standard deviation $s$ as an estimate for $\sigma$ instead.
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}} \]
+\end{itemize}
+
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{ Standard Error for Proportions}
+
+The standard error for proportions is computed using this formula.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (1-\hat{p} )\over n}}
+\]
+
+
+When expressing the proportion as a percentage, we adjust the standard error accordingly.
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+}
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Margin of Error}
+
+\begin{itemize}
+\item The product of the quantile and the standard error give us the width of the confidence interval
+\item The width of the confidence interval is known as the \textbf{\emph{margin of error}}.  \[ \mbox{Margin of Error}  = \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+\item The margin of error gives us some idea about how uncertain we are about the unknown population parameter. \item A very wide interval may indicate that more data should be collected before anything very definite can be said about the parameter.
+\item The only way to control the margin of error is to adjust the sample size accordingly.
+\item By choosing an appropriate sample size, it is possible to ensure that the margin of error does not excess a certain threshold.
+\end{itemize}
+
+\end{frame}
+
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Interval for a mean (1) }
+
+\begin{itemize}
+\item For a given week, a random sample of 100 hourly employees selected from a very large number of
+employees in a manufacturing firm has a sample mean wage of $\bar{x} = 280$ dollars, with a sample standard deviation of
+$s = 40$ dollars.
+\item Estimate the mean wage for all hourly employees in the firm with an interval estimate such that we can be 95
+percent confident that the interval includes the value of the population mean.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Interval for a mean (2) }
+
+\begin{itemize}
+\item The point estimate in this case is the sample mean $\bar{x} = 280$ dollars.
+\item We have a large sample (n=100) and the confidence level is $95\%$. Therefore the quantile  is 1.96.
+\item The standard error is computed as follows:
+
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}}  =  {40 \over \sqrt{100}} = 4  \]
+\item \textbf{Confidence Interval for mean}
+
+\[
+280 \pm (1.96 \times 4)  = (280 \pm 7.84) = (\;272.16\;,\;287.84\;)
+\]
+
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Point Estimates for proportions }
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Point Estimates for proportions (2)}
+
+Of a sample of 160 computer programmers, 56 reported than Python was their primary programming language.
+
+Let $\pi$ be the proportion of all programmers who regard Python as their programming language. What is the point estimate for $\pi$?
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%  = {56 \over 160} = 35\%
+\]
+}
+
+\frame{
+\frametitle{Confidence Interval for a proportion (1) }
+
+Refer back to our earlier example of the proportion of Python programmers. Compute a $95\%$ confidence interval.\\
+
+
+\textbf{Determining the Quantile}
+The confidence level is $95\%$. The sample size is greater than 30. Therefore the appropriate quantile is 1.96.\\
+\bigskip
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {35 \times 65 \over 160 }} =  3.77\%
+\] \bigskip
+
+\textbf{Confidence Interval for proportion}
+
+\[
+35 \pm (1.96 \times 3.77) \%  = (35 \pm7.4) \% = (27.6\%,42.4\%)
+\]
+
+}
+
+% -- Lecture 8B
+% -- Revise the Tables
+% -- Sample Size Estimation for mean
+% -- Example SSE for mean
+% -- SSE for Proportion
+% -- Example SSE for proportion
+% -- Paired Test
+
+
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Independent Samples (New Section)}
+\begin{itemize}
+\item Two samples are referred to as independent if the observations in one sample are not in any way related to the observations in the other. \item This is also used in cases where one randomly assign subjects to two groups, i.e. in give first group treatment A and the second group treatment B and compare the two groups.
+\item Often we are interested in the difference between the mean value of some parameter for both groups.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in proportions}
+We can also construct a confidence interval for the difference between two sample proportions, $\pi_1 - \pi_2$. The point estimate is the difference in sample proportions for tho both groups , $\hat{p}_1- \hat{p}_2$.\\\bigskip
+\textbf{Estimation Requirements}
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each sample includes at least 10 successes and 10 failures.
+\item The samples comprises less than 10\% of their respective populations.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error for Difference of Proportions}
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{\hat{p}_1 \times (1 - \hat{p}_1) \over n_1}\right] + \left[{\hat{p}_2 \times (1 - \hat{p}_2) \over n_2}\right] } \]
+\begin{itemize}
+\item $\hat{p}_1$ and $\hat{p}_2$ are the sample proportions of groups 1 and 2 respectively.
+\item $n_1$ and $n_2$ are the sample sizes of groups 1 and 2 respectively.
+\end{itemize}
+N.B. This formula will be provided in the exam paper. Also, there is no accounting for small samples.
+\end{frame}
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{ Difference of Proportions : Example}
+\begin{itemize} \item
+A study finds that a percentage of $40\%$ of IT users out of a random sample of 400 in a large
+community preferred one web browser to all others. \item In another large community, $30\%$ of IT users out of a random sample
+of 300 prefer the same web browser. \item Compute a 95 percent confidence interval for the difference in the proportion of IT users who prefer this particular web browser. \end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Confidence Interval}
+\textbf{Compute the standard Error}
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{\hat{p}_1 \times (1 - \hat{p}_1) \over n_1}\right] + \left[{\hat{p}_2 \times (1 - \hat{p}_2) \over n_2}\right] } \]
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{40 \times 60 \over 400}\right] + \left[{30 \times 70 \over 300}\right] }  = \sqrt{ \left[{2400 \over 400}\right] + \left[{2100\over 300}\right] } \]
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2)
+= \sqrt{ 6 + 7 } = 3.6\% \]
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Confidence Interval}
+\begin{itemize}
+\item The point estimate is the difference in two proportions i.e. $\hat{p}_1 - \hat{p}_2$ = $40 \% - 30 \% = 10 \%$
+\item We have a large sample, and the confidence level is $95\%$. Therefore the quantile is 1.96.
+\item We can now compute the confidence interval for the difference of proportions:
+\[ 10\% \pm (1.96 \times 3.6 \%)  =\; 10\% \pm 7.05 \% = \;(2.95\%, 17.05\%) \]
+
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = \sqrt{0.0013} = 0.036
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Mean Difference Between Matched Data Pairs}
+
+
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item The data set is a simple random sample of observations from the population of interest.
+\item Each element of the population includes measurements on two paired variables (e.g., x and y) such that the paired difference between x and y is: d = x - y.
+\item The sampling distribution of the mean difference between data pairs (d) is approximately normally distributed.
+\end{itemize}
+
+
+
+The observed data are from the same subject or from a matched subject and are drawn from a population with a normal distribution
+does not assume that the variance of both populations are equal
+
+
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+\begin{center}
+\small
+\begin{tabular}{|c||c|c|c|c|} \hline
+Student & Before & After & Difference $(d_i)$ & $ (d_i -\bar{d})^2$ \\\hline
+1 &90& 95& 5& 16 \\\hline
+2 &85& 89& 4& 9 \\\hline
+3 &76 &73 &-3 &4 \\\hline
+4 &90& 92& 2& 1 \\\hline
+5 &91 &92 &1 &0 \\\hline
+6 &53 &53& 0& 1 \\\hline
+7 &67 &68 &1 &4 \\\hline
+8 &88 &90 &2 &9 \\\hline
+9 &75 &78 &3 &16\\\hline
+10 &85& 89 &4& 25 \\\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+Compute the mean difference
+
+\[ \bar{d}  = {\sum{d_i} \over n } = { 3+6 \over 8} \]
+
+Compute the variance of the differences.
+
+\[ s^2_{d}  ={\sum(d_i -\bar{d})^2 \over n-1 } =  { 3+6 \over 9} \]
+
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Difference of Two Means}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+
+\begin{frame}
+\frametitle{How a paired t test works}
+\begin{itemize}
+\item The paired t test compares two paired groups.
+\item It calculates the difference between each set of pairs, and analyzes that list of differences based on the assumption that the differences in the entire population follow a Gaussian distribution.
+\item First we calculate the difference between each set of pairs, keeping track of sign.
+\item If the value in column B is larger, then the difference is positive.
+If the value in column A is larger, then the difference is negative.
+\item The t ratio for a paired t test is the mean of these differences divided by the standard error of the differences. If the t ratio is large (or is a large negative number), the P value will be small. The number of degrees of freedom equals the number of pairs minus 1. Prism calculates the P value from the t ratio and the number of degrees of freedom.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+\end{frame}
+
+
+
+\end{document}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{CI for Proportion: Example (1)}
+
+\begin{itemize}
+\item $\hat{p}  = 0.62$
+\item Sample Size $n=250$
+\item Confidence level $1-\alpha$ is $95\%$
+\end{itemize}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}\frametitle{CI for Proportion: Example (2)}
+
+\begin{itemize}
+\item First, lets determine the quantile.
+\item The sample size is large, so we will use the Z distribution.
+\item (Alternatively we can uses the $t-$ distribution with $\infty$ degrees of freedom.
+\end{itemize}
+
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+A confidence interval for the
+mean is an estimate interval constructed with respect to the sample mean by which the likelihood that the interval
+includes the value of the population mean can be specified.
+
+The \emph{level of confidence} associated with a confidence interval indicates the long-run percentage
+ of such intervals which would include the parameter being estimated.
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item Confidence intervals for the mean typically are constructed with the unbiased estimator $\bar{x}$ at the midpoint
+of the interval.
+
+\item The $\pm Z \sigma_x$ or $\pm Z s_x$ frequently is called the \textbf{\emph{margin of error}} for the confidence interval.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}\frametitle{Student t distribution}
+\begin{itemize}
+
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat(p) \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+}
+
+%
+------------------------------------------------------------------------------%
+
+\frame{
+\[
+\hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72%
+\]
+
+$100\% - \hat{p} = 100\% - 72\% = 28\% $
+
+}
+
+
+%------------------------------------------------------------------------------%
+\frame{
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+
+}
+%------------------------------------------------------------------------------%
+
+\end{document}
+
+
+%-----------------------------------------------------------%
+
+% Confidence Interval for a Proportion
+% One Sample
+%------------------------------------------------------------------------------%
+\frame{
+\textbf{Computing the point estimate}
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+
+

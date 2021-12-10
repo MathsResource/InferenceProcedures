@@ -1,0 +1,46 @@
+
+\frame{
+\frametitle{The Paired t-test}
+A paired t-test is used to compare two population means where you have two samples in
+which observations in one sample can be paired with observations in the other sample.\\
+\bigskip
+Examples of where this might occur are:
+\begin{itemize}
+\item Before-and-after observations on the same subjects (e.g. students’ diagnostic test
+results before and after a particular module or course).
+\item A comparison of two different methods of measurement or two different treatments
+where the measurements/treatments are applied to the \textbf{\emph{same}} subjects.
+\end{itemize}
+}
+
+
+
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Paired t-test}
+\begin{itemize}
+\item We will often be required to compute the case-wise differences, the average of those differences and the standard deviation of those difference.
+
+\item The mean difference for a set of differences between paired observations is
+\[ \bar{d} = \sum d_i \over n \]
+
+\item The computational formula for the standard deviation of the differences
+between paired observations is
+\[s_d = \sqrt{ {\sum d_i^2 - n\bar{d}^2 \over n-1}}\]
+\item It is nearly always a small sample test.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Paired T test}
+\begin{itemize}
+\item $\mu_d$ mean value for the population of differences.
+\item The null hypothesis is that that $\mu_d = 0$
+\item Given $\bar{d}$ mean value for the sample of differences, and $s_d$ standard deviation of the differences for the paired sample data, we can compute this test in the same manner as a one-sample test for the mean
+\end{itemize}
+}
+
+
+

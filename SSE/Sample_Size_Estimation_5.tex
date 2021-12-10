@@ -1,0 +1,610 @@
+
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 7C/8B}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+
+
+%------------------------------------------------------------------------%
+
+
+% -- Lecture 8B
+% -- Revise the Tables
+% -- Sample Size Estimation for mean
+% -- Example SSE for mean
+% -- SSE for Proportion
+% -- Example SSE for proportion
+% -- Paired Test
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%-------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation}
+\textbf{New Section} This is the started of the second section of inference procedures.
+\begin{itemize} \item Recall the formula for margin of error, which we shall denote $E$.
+\[  E = Q_{(1-\alpha)} \times \mbox{Std. Error}\]
+
+\item $Q_{(1-\alpha)}$ denotes the quantile that corresponds to a $1-\alpha$ confidence level. (There is quite a bit of variation in notation in this respect.)
+\item Also recall that the only way to influence the margin of error is to set the sample size accordingly.
+
+\item Sample size estimation describes the selection of a sample size $n$ such that the margin of error does not exceed a pre-determined level $E$.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+
+\begin{itemize}
+
+\item The margin of error does not exceed a certain threshold $E$.
+\[ E \geq Q_{(1-\alpha)} \times S.E.(\bar{x}), \]
+
+\item which can be re-expressed as
+\[E \geq Q_{(1-\alpha)} \times {\sigma \over \sqrt{n} }.\]
+
+\item Divide both sides by $\sigma \times Q_{(1-\alpha)}$.
+\[ \frac{E}{\sigma Q_{(1-\alpha)}} \geq {1 \over \sqrt{n} } \]
+
+\item Square both sides
+
+\[ \frac{E^2}{\sigma^2 Q_{(1-\alpha)}^2} \geq {1 \over n } \]
+
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+\begin{itemize}
+\item Square both sides
+\[ \frac{E^2}{\sigma^2 Q^2_{(1-\alpha)}} \geq {1 \over n } \]
+\item Invert both sides, changing the direction of the relational operator.
+\[ \frac{\sigma^2 Q^2_{(1-\alpha)}}{E^2} \leq n \]
+
+\item The sample size we require is the smallest value for $n$ which satisfies this identity.
+\item The sample standard deviation $s$ may be used as an estimate for $\sigma$.
+\item (This formula would be provided on the exam paper).
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for the Mean: Example}
+\begin{itemize}
+\item An IT training company has developed a new certification program. The company wishes to estimate the average score of those who complete the program by self-study.  \item The standard deviation of the self study group is assumed to be the same as the overall population of candidates, ie. 21.2 points.
+    \item How many people must be tested if the sample mean is to be in error by no more than 3 points, with 95\% confidence.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Sample Size Estimation}
+\textbf{New Section} This is the started of the second section of inference procedures.
+\begin{itemize} \item Recall the formula for margin of error, which we shall denote $E$.
+\[  E = Q_{(1-\alpha)} \times \mbox{Std. Error}\]
+
+\item $Q_{(1-\alpha)}$ denotes the quantile that corresponds to a $1-\alpha$ confidence level. (There is quite a bit of variation in notation in this respect.)
+\item Also recall that the only way to influence the margin of error is to set the sample size accordingly.
+
+\item Sample size estimation describes the selection of a sample size $n$ such that the margin of error does not exceed a pre-determined level $E$.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+
+\begin{itemize}
+
+\item The margin of error does not exceed a certain threshold $E$.
+\[ E \geq Q_{(1-\alpha)} \times S.E.(\bar{x}), \]
+
+\item which can be re-expressed as
+\[E \geq Q_{(1-\alpha)} \times {\sigma \over \sqrt{n} }.\]
+
+\item Divide both sides by $\sigma \times Q_{(1-\alpha)}$.
+\[ \frac{E}{\sigma Q_{(1-\alpha)}} \geq {1 \over \sqrt{n} } \]
+
+\item Square both sides
+
+\[ \frac{E^2}{\sigma^2 Q_{(1-\alpha)}^2} \geq {1 \over n } \]
+
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+\begin{itemize}
+\item Square both sides
+\[ \frac{E^2}{\sigma^2 Q^2_{(1-\alpha)}} \geq {1 \over n } \]
+\item Invert both sides, changing the direction of the relational operator.
+\[ \frac{\sigma^2 Q^2_{(1-\alpha)}}{E^2} \leq n \]
+
+\item The sample size we require is the smallest value for $n$ which satisfies this identity.
+\item The sample standard deviation $s$ may be used as an estimate for $\sigma$.
+\item (This formula would be provided on the exam paper).
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for the Mean: Example}
+\begin{itemize}
+\item An IT training company has developed a new certification program. The company wishes to estimate the average score of those who complete the program by self-study.  \item The standard deviation of the self study group is assumed to be the same as the overall population of candidates, ie. 21.2 points.
+    \item How many people must be tested if the sample mean is to be in error by no more than 3 points, with 95\% confidence.
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for the Mean: Example}
+
+\begin{itemize}
+\item The sample size we require is the smallest value for $n$ which satisfies this identity.
+\[ n \geq \frac{\sigma^2 Q^2_{(1-\alpha)}}{E^2}  \]
+\item Remark: $1-\alpha$ = 0.95, therefore $Q_{(1-\alpha)}$ = 1.96. Also $E=3$ and $\sigma =21.2$.
+\[ n \geq \frac{(21.2)^2 \times (1.96)^2}{3^2} \]
+\item Solving, the required sample size is the smallest value of $n$ that satisfies
+\[ n \geq 191.8410 \]
+\item Therefore, the company needs to test 192 self-study candidates.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for Proportions}
+We can also compute appropriate sample sizes for studies based on proportions.
+\begin{itemize}
+\item From before; \[ E \geq Q \times S.E.(\hat{p}). \]
+(For the sake of brevity, we will just use the notation $Q$ for quantile.)
+
+\item Divide both sides by Q.
+
+\[ E \geq Q \times \sqrt{ {\pi(1-\pi)  \over n} }. \]
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for Proportions}
+\begin{itemize}
+\item Remark: $E$ must be expressed in the same form as $\pi$, either as a proportion or as a percentage.
+\item Remark : The standard error is maximized at $\pi = 0.50$,which is to say $\pi(1-\pi)$ can never exceed 0.25 ( or 25\%). Therefore the standard error is maximized at $\pi = 0.50$. To make the procedure as conservative as possible, we will always use $0.25$ as our value for $\hat{p}_1 \times (1 - \hat{p}_1)$. (Equivalently 2500 for percentages).
+\item If we use percentages, $\pi \times (100-\pi)$ can not exceed 2500 (i.e $ 50 \times (100-50)=2500)$.
+
+\[ E \geq Q \times \sqrt{{2500 \over n}}. \]
+
+
+\end{itemize}
+
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for proportions}
+
+\begin{itemize}
+
+\item Dive both sides by $Q$, the square both sides:
+
+\[ \left({E\over Q}\right)^2 \geq {2500 \over n}. \]
+
+\item Invert both sides, changing the direction of the relational operator, and multiply both sides by $2500$.
+
+\[ \left({Q\over E}\right)^2 \times 2500 \leq n. \]
+
+\item The sample size we require is the smallest value for $n$ which satisfies this identity. (The formula,  depicted two slides previously, would be provided on the exam paper, but without the maximized standard error).
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for proportions: Example}
+\begin{itemize}
+\item An IT journal wants to conduct a survey to estimate the true proportion of university students that own laptops.
+\item The journal has decided to uses a confidence level of $95\%$, with a margin of error of $2\%$.
+\item How many university students must be surveyed?
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size estimation for proportions}
+
+\begin{itemize}
+\item Confidence level = 0.95. Therefore the quantile is $Q_{(1-\alpha)} = 1.96$
+\item Using the formula: \[ n \geq \left({1.96 \over 2 }\right)^2 \times 2500  \]
+\item The required sample size is the smallest value for $n$ which satisfies this identity: \[ n \geq 2401  \]
+\item The required sample size is therefore 2401.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Two Sample Inference Procedures}
+\textbf{New Section} This is the started of the third section of inference procedures.
+\begin{itemize}
+\item Two samples are referred to as independent if the observations in one sample are not in any way related to the observations in the other. \item This is also used in cases where one randomly assign subjects to two groups, i.e. in give first group treatment A and the second group treatment B and compare the two groups.
+\item Often we are interested in the difference between the mean value of some parameter for both groups.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Two Sample Inference Procedures}
+The approach for computing a confidence interval for the difference of the means of two independent samples,  described shortly, is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each population is at least 10 times larger than its respective sample. (Otherwise a different approach is required).
+\item The sampling distribution of the difference between means is approximately normally distributed
+\end{itemize}
+
+\end{frame}
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference Of Two Means}
+%-http://onlinestatbook.com/chapter8/difference_means.html
+In order to construct a confidence interval, we are going to make three assumptions:
+
+\begin{itemize}
+\item The two populations have the same variance. This assumption is called the assumption of homogeneity of variance.
+\item For the time being, we will use this assumption. Later on in the course, we will discuss the validity of this assumption for two given samples.
+\item The populations are normally distributed.
+\item Each value is sampled independently from each other value.
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Confidence Interval}
+
+\begin{itemize}
+\item As always the first step is to compute the point estimate. For the difference of means for groups $X$ and $Y$, the point estimate is simply the difference between the two means i.e. $\bar{x} - \bar{y}$.
+
+\item As we have seen previously, sample size has a bearing in computing both the quantile and the standard error.
+For two groups, we will use the aggregate sample size ($n_x+n_y)$ to compute the quantile. (For the time being we will assume, the aggregate sample size is large ($n_x+n_y)> 30$.)
+
+\item Lastly we must compute the standard error $S.E.(\bar{x}-\bar{y})$. The formula for computing standard error for the difference of two means, depends on whether or not the aggregate sample size is large or not. For the case that the sample size is large, we use the following formula (next slide).
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Confidence Interval}
+Standard Error for difference of two means (large sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of samples $X$ and $Y$ respectively.
+\item $n_x$ and $n_y$ is the sample size of both samples.\bigskip
+
+\item For small samples, the degrees of freedom is $df = n_x + n_y - 2$. If the sample size $n \leq 32$, we can find appropriate $t-$quantile, rather than assuming it is a $z-$quantile.
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{CI for Difference in Two Means}
+A research company is comparing computers from two different companies, X-Cel and Yellow, on the basis of energy consumption per hour. Given the following data, compute a $95\%$ confidence interval for the difference in energy consumption.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Type & sample size & mean & variance \\ \hline
+X-cel & 17 & 5.353 & 2.743 \\ \hline
+Yellow & 17 & 3.882 & 2.985 \\ \hline
+\end{tabular}
+\end{center}
+Remark: It is reasonable to believe that the variances of both groups are the same. Be mindful of this.
+
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item Point estimate : $\bar{x} - \bar{y}$ = 1.469
+\item Standard Error: 0.5805
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{\frac{2.743}{17} + \frac{2.985}{17}}  \]
+\item Quantile : 1.96 (Large sample, with confidence level of $95\%$.)
+\end{itemize}
+
+\[ 1.469  \pm (1.96 \times 0.5805) = (0.3321,2.607) \]
+
+
+This analysis provides evidence that the mean consumption level per hour for X-cel is higher than the mean consumption level per hour for Yellow, and that the difference between means in the population is likely to be between 0.332 and 2.607 units.
+\end{frame}
+
+%---------------------------------------------------------%
+\begin{frame}
+
+\frametitle{Computing the Confidence Interval}
+Standard Error for difference of two means (small aggregate sample)
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  s^2_p \left({1\over n_x}+{1\over n_y} \right)} \]
+
+Pooled Variance $s^2_p$ is computed as:
+
+\[ s^2_p = \frac{(n_x-1)s^2_x + (n_y-1)s^2_y}{(n_x-1) + (n_y-1)} \]
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{CI for Difference in Two Means}
+From the previous example (comparing X-cel and Yellow) lets compute a 95\% confidence interval when the sample sizes are $n_x=10$ and $n_y=12$ respectively. (Lets assume the other values remain as they are.)
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Type & sample size & mean & variance \\ \hline
+X-cel & 10 & 5.353 & 2.743 \\ \hline
+Yellow & 12 & 3.882 & 2.985 \\ \hline
+\end{tabular}
+\end{center}
+The point estimate $\bar{x} - \bar{y}$ remains as 1.469. Also we require that both samples have equal variance. As both $X$ and $Y$ have variances at a similar level, we will assume equal variance.
+
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+
+\frametitle{Computing the Confidence Interval}
+\begin{itemize} \item Pooled variance $s^2_p$ is computed as:
+
+\[ s^2_p = \frac{(10-1)2.743 + (12-1)2.985}{(10-1) + (12-1)}  = \frac{57.52}{20} = 2.87\]
+
+\item Standard error for difference of two means is therefore
+
+\[ S.E.(\bar{x}-\bar{y}) = \sqrt{  2.87 \left({1\over 10}+{1\over 12} \right)} = 0.726 \]
+
+\item The aggregate sample size is small i.e. 22. The degrees of freedom is $n_x+n_y-2 = 20$.
+From Murdoch Barnes tables 7, the quantile for a $95\%$ confidence interval is 2.086.
+
+\item The confidence interval is therefore
+\[ 1.469  \pm (2.086 \times 0.726) = 1.4699 \pm 1.514 =  (-0.044, 2.984 )  \]
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in proportions}
+We can also construct a confidence interval for the difference between two sample proportions, $\pi_1 - \pi_2$. The point estimate is the difference in sample proportions for tho both groups , $\hat{p}_1- \hat{p}_2$.\\\bigskip
+\textbf{Estimation Requirements}
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each sample includes at least 10 successes and 10 failures.
+\item The samples comprises less than 10\% of their respective populations.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error for Difference of Proportions}
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{\hat{p}_1 \times (1 - \hat{p}_1) \over n_1}\right] + \left[{\hat{p}_2 \times (1 - \hat{p}_2) \over n_2}\right] } \]
+\begin{itemize}
+\item $\hat{p}_1$ and $\hat{p}_2$ are the sample proportions of groups 1 and 2 respectively.
+\item $n_1$ and $n_2$ are the sample sizes of groups 1 and 2 respectively.
+\end{itemize}
+N.B. This formula will be provided in the exam paper. Also, there is no accounting for small samples.
+\end{frame}
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{ Difference of Proportions : Example}
+\begin{itemize} \item
+A study finds that a percentage of $40\%$ of IT users out of a random sample of 400 in a large
+community preferred one web browser to all others. \item In another large community, $30\%$ of IT users out of a random sample
+of 300 prefer the same web browser. \item Compute a 95 percent confidence interval for the difference in the proportion of IT users who prefer this particular web browser. \end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Confidence Interval}
+\textbf{Compute the standard Error}
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{\hat{p}_1 \times (1 - \hat{p}_1) \over n_1}\right] + \left[{\hat{p}_2 \times (1 - \hat{p}_2) \over n_2}\right] } \]
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2) =
+\sqrt{ \left[{40 \times 60 \over 400}\right] + \left[{30 \times 70 \over 300}\right] }  = \sqrt{ \left[{2400 \over 400}\right] + \left[{2100\over 300}\right] } \]
+
+\[ S.E. (\hat{p}_1 - \hat{p}_2)
+= \sqrt{ 6 + 7 } = 3.6\% \]
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Confidence Interval}
+\begin{itemize}
+\item The point estimate is the difference in two proportions i.e. $\hat{p}_1 - \hat{p}_2$ = $40 \% - 30 \% = 10 \%$
+\item We have a large sample, and the confidence level is $95\%$. Therefore the quantile is 1.96.
+\item We can now compute the confidence interval for the difference of proportions:
+\[ 10\% \pm (1.96 \times 3.6 \%)  =\; 10\% \pm 7.05 \% = \;(2.95\%, 17.05\%) \]
+
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = \sqrt{0.0013} = 0.036
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Mean Difference Between Matched Data Pairs}
+
+
+The approach described in this lesson is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item The data set is a simple random sample of observations from the population of interest.
+\item Each element of the population includes measurements on two paired variables (e.g., x and y) such that the paired difference between x and y is: d = x - y.
+\item The sampling distribution of the mean difference between data pairs (d) is approximately normally distributed.
+\end{itemize}
+
+
+
+The observed data are from the same subject or from a matched subject and are drawn from a population with a normal distribution
+does not assume that the variance of both populations are equal
+
+
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+\begin{center}
+\small
+\begin{tabular}{|c||c|c|c|c|} \hline
+Student & Before & After & Difference $(d_i)$ & $ (d_i -\bar{d})^2$ \\\hline
+1 &90& 95& 5& 16 \\\hline
+2 &85& 89& 4& 9 \\\hline
+3 &76 &73 &-3 &4 \\\hline
+4 &90& 92& 2& 1 \\\hline
+5 &91 &92 &1 &0 \\\hline
+6 &53 &53& 0& 1 \\\hline
+7 &67 &68 &1 &4 \\\hline
+8 &88 &90 &2 &9 \\\hline
+9 &75 &78 &3 &16\\\hline
+10 &85& 89 &4& 25 \\\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing the Case Wise Differences}
+Compute the mean difference
+
+\[ \bar{d}  = {\sum{d_i} \over n } = { 3+6 \over 8} \]
+
+Compute the variance of the differences.
+
+\[ s^2_{d}  ={\sum(d_i -\bar{d})^2 \over n-1 } =  { 3+6 \over 9} \]
+
+\end{frame}
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Difference of Two Means}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+
+\begin{frame}
+\frametitle{How a paired t test works}
+\begin{itemize}
+\item The paired t test compares two paired groups.
+\item It calculates the difference between each set of pairs, and analyzes that list of differences based on the assumption that the differences in the entire population follow a Gaussian distribution.
+\item First we calculate the difference between each set of pairs, keeping track of sign.
+\item If the value in column B is larger, then the difference is positive.
+If the value in column A is larger, then the difference is negative.
+\item The t ratio for a paired t test is the mean of these differences divided by the standard error of the differences. If the t ratio is large (or is a large negative number), the P value will be small. The number of degrees of freedom equals the number of pairs minus 1. Prism calculates the P value from the t ratio and the number of degrees of freedom.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}
+\[ ( \bar{X} - \bar{Y} ) \pm \left[ \mbox{Quantile } \times S.E(\bar{X}-\bar{Y}) \right] \]
+\begin{itemize}
+\item If the combined sample size of X and Y is greater than 30, even if the individual sample sizes are less than 30, then we consider it to be a large sample.
+\item The quantile is calculated according to the procedure we met in the previous class.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------%
+\begin{frame}\begin{itemize}
+\item Assume that the mean ($\mu$) and the variance ($\sigma$) of the distribution
+of people taking the drug are 50 and 25 respectively and that the mean ($\mu$)
+and the variance ($\sigma$) of the distribution of people not taking the drug are
+40 and 24 respectively.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%---------------------------------------------------------%
+\begin{frame}
+\frametitle{Difference in Two means}
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance.
+
+The first step is to compute the estimate of the standard error of the difference between means ().
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+\end{frame}
+
+
+
+\end{document} 

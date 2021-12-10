@@ -1,0 +1,154 @@
+\documentclass[14pt, a4paper]{article}
+\usepackage{epsfig}
+\usepackage{subfigure}
+%\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+%\usepackage[dvips]{graphicx}
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\usepackage{vmargin}
+% left top textwidth textheight headheight
+% headsep footheight footskip
+\setmargins{3.0cm}{2.5cm}{15.5 cm}{22cm}{0.5cm}{0cm}{1cm}{1cm}
+\renewcommand{\baselinestretch}{1.5}
+\pagenumbering{arabic}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{ill}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{notation}{Notation}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\renewcommand{\thenotation}{}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\title{MA4605}
+\author{ } \date{ }
+
+
+\begin{document}
+\author{Kevin O'Brien}
+\title{MA4605}
+
+\tableofcontents \setcounter{tocdepth}{2}
+
+
+\section{Statistical Inference} What is Statistical Inference?
+\begin{itemize}\item Hyptothesis testing \item Confidence
+Intervals \item Sample size estimation.\end{itemize}
+
+\subsection{Hypothesis testing: introduction}
+The objective of hypothesis testing is to access the validity of a claim against a counterclaim using sample data
+\begin{itemize}\item The claim to be “proved” is the alternative hypothesis($H_1$).\item The competing claim is called the null hypothesis($H_0$).\item One begins by assuming that $H_0$ is true. \end{itemize}
+
+If the data fails to contradict $H_0$ beyond a reasonable doubt, then $H_0$ is not rejected. However, failing to reject $H_0$ does not mean that we accept it as true. It simply means that $H_0$ cannot be ruled out as a possible explanation for the observed data. A proof by insufficient data is not a proof at all.
+
+\begin{quote}
+“The process by which we use data to answer questions about parameters
+is very similar to how juries evaluate evidence about a defendant.” –from
+Geoffrey Vining, Statistical Methods for Engineers, Duxbury, 1st edition,
+1998.
+\end{quote}
+
+
+
+
+\subsection{two populations}
+
+Two samples drawn from two populations are independent samples if
+the selection of the sample from population 1 does not affect the
+selection of the sample from population 2. The following notation
+will be used for the sample and population measurements:
+
+\begin{itemize}
+\item $p_1$ and $p_2$ = means of populations 1 and 2,
+
+\item $\sigma_1$ and $\sigma_2$ = standard deviations of
+populations 1 and 2,
+
+\item $n_l$ and $n_2$ = sizes of the samples drawn from
+populations 1 and 2 ($n_1 >30 $, $n_2 >30 $),
+
+\item $x_1$ and $x_2$, = means of the samples selected from
+populations 1 and 2,
+
+\item $s_{1}$ and $s_{2}$ = standard deviations of the samples
+selected from populations 1 and 2.
+
+\end{itemize}
+\newpage
+
+
+\subsection{Standard Error}
+
+\begin{equation}
+S.E(\bar{X}_{1}-\bar{X}_{2}) =
+\sqrt(\frac{s^2_{1}}{n_{1}}+\frac{s^2_{2}}{n_{2}})
+\end{equation}
+
+\subsection{Example}
+The mean height of adult males is 69 inches and the standard
+deviation is 2.5 inches. The mean height of adult females is 65
+inches and the standard deviation is 2.5 inches. Let population 1
+be the population of male heights, and population 2 the population
+of female heights. Suppose samples of 50 each are selected from
+both populations.
+
+
+
+\subsection{Example 3} Ten replicate analyses of the concentration
+of mercury in a sample of commercial gas condensate gave the
+following results (in ng/ml) :
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+23.3 & 22.5 & 21.9 & 21.5 & 19.9 & 21.3 & 21.7 & 23.8 & 22.6 &
+24.7\\
+  \hline
+\end{tabular}
+
+Compute 99\% confidence limits for the mean.
+\section{Hypothesis Tests for Two Means}
+
+If the population standard deviations $\sigma_1$ and $\sigma_2$
+are known, the test statistic is of the form:
+
+\begin{equation}
+Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2 ) }{\sqrt{
+\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}} }
+\end{equation}
+The critical value and p-value are looked up in the normal tables.
+
+
+
+
+
+
+\subsection{F-test of equality of variances}
+The test statistic is
+
+\begin{equation} F = \frac{S_X^2}{S_Y^2}\end{equation}
+
+has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypothesis of equality of variances is true.
+
+
+\chapter{Further Inference}
+
+\section{Fractional factorial design}
+
+(d)	Define the following terms used in fractional factorial design; Defining relation,
+	Generator, Confounding, Resolution. Which design resolution is considered
+	optimal?
+
+
+
+

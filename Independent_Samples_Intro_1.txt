@@ -1,0 +1,26 @@
+
+
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Independent Samples (New Section)}
+\begin{itemize}
+\item Two samples are referred to as independent if the observations in one sample are not in any way related to the observations in the other. \item This is also used in cases where one randomly assign subjects to two groups, i.e. in give first group treatment A and the second group treatment B and compare the two groups.
+\item Often we are interested in the difference between the mean value of some parameter for both groups.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Independent Samples}
+
+The approach for computing a confidence interval for the difference of the means of two independent samples,  described shortly, is valid whenever the following conditions are met:
+
+\begin{itemize}
+\item Both samples are simple random samples.
+\item The samples are independent.
+\item Each population is at least 10 times larger than its respective sample. (Otherwise a different approach is required).
+\item The sampling distribution of the difference between means is approximately normally distributed
+\end{itemize}
+
+\end{frame}

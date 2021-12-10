@@ -1,0 +1,84 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MathsCast]{MathsCast Presentations \\ {\normalsize The Continuous Uniform Distribution}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Summer 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+%------------------------------------------------------------------------%
+\begin{document}
+%-------------------------------------------------------%
+\frame{
+\frametitle{Sampling Error}
+A random sample should be representative of the population. However, all statistics based on sample values, have an inherent sample value.
+\\
+
+A large sample provides more information about the population than a small sample so a statistic from a large sample will have less error.
+\\ \bigskip
+Suppose repeated samples are taken from the same population, and the same statistic (i.e. sample mean or sample variance) is calculated each time. These statistics will vary, which is to say, they have a distribution.
+
+The probability distribution of a sample is called the \textbf{sampling distribution}.
+
+
+}
+%----------------------------------------------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------------------%
+\begin{frame}\frametitle{Power} 
+The power of a statistical hypothesis test measures the test's ability to reject the null hypothesis when 
+it is actually false - that is, to make a correct decision.
+
+
+In other words, the power of a hypothesis test is the probability of not committing a type II error. 
+It is calculated by subtracting the probability of a type II error from 1, usually expressed as: 
+Power = 1 - P(type II error) = 1-$\beta$
+
+The maximum power a test can have is 1, the minimum is 0. Ideally we want a test to have high power, close to 1.
+\end{frame}
+
+
+
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Underlying rational of hypothesis testing}
+
+\begin{itemize}\item 
+If, under a given observed assumption, the probability of setting the sample is exceptionally small, we conclude that the underlying assumption is not correct.
+
+\item When testing a clainm, we make an assumption (i.e. the null hypothesis) that contains, wholly or partially, a supposition of equality.
+
+\item We then compare the assumption and the sample results and we form one of the following conclusions.
+
+\item If the sample can easil occur when the assumption ( null hypothesis) is true, we attribute that relatively small discrepanncy between the assumption and the sample results to chance.
+
+\item If the sample is an uncommon occurence when that assumption is true, we explain the relatively large discrepancy between the assumption and the sampke, by concluding that the assumption is not true.
+\end{itemize}
+}
+
+\end{document}

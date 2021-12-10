@@ -1,0 +1,65 @@
+
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx} % Font Family
+\usepackage{helvet} % Font Family
+\usepackage{color}
+\mode<presentation> {
+\usetheme{Default} % was Frankfurt
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usefonttheme{serif}
+%\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+\setbeamercovered{dynamic}
+\title[MA4704]{Technology Maths 4 \\ {\normalsize Lecture 11A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Spring 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+\renewcommand{\arraystretch}{1.5}
+%----------------------------------------------------------------------------------------------------------%
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{This Lecture}
+This Lecture will look at hypothesis tests and confidence intervals for proportions, and concludes the `Inferences Procedures' section of the course (corresponding to Question 4 of the end of year paper). In part, it acts as a revision for this part of the course also.
+\begin{itemize}
+\item Some Remarks about one tailed tests
+\item Confidence Interval For Proportions
+\item Hypothesis test for a proportion (single sample)
+\item Hypothesis test for difference in proportions from two populations
+\item Estimation an appropriate for a proportion estimate
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{One Tailed Hypothesis test}
+\begin{itemize}
+\item A one-sided test is a statistical hypothesis test in which the values for which we can reject the null hypothesis, $H_0$ are located entirely in one tail of the probability distribution.
+
+\item In other words, the critical region for a one-sided test is the set of values less than the critical value of the test, or the set of values greater than the critical value of the test.
+
+\item A one-sided test is also referred to as a one-tailed test of significance.
+
+\item A rule of thumb is to consider the alternative hypothesis.  If only one alternative is offered by $H_1$ (i.e. a $<$ or a $>$ is present, then it is a one tailed test.)
+\item (When computing quantiles from Murdoch Barnes table 7, we set $k=1$)
+\item For the sake of brevity, we have focussed two-tailed procedures in this module, as those procedures are far more commonly used. Awareness of one-tailed procedures is encouraged.
+\end{itemize}
+\end{frame}
+
+\end{document} 

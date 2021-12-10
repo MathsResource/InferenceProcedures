@@ -1,0 +1,258 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{framed}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4603]{Science Maths 3 \\ {\normalsize MA4603 Lecture 11A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2017}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%---------%
+\begin{frame}
+\frametitle{Using \texttt{R} for Inference Procedures}
+\begin{itemize}
+\item[1] Review of the Paired t-test.
+\item[2] Paired t-test using \texttt{R}
+%\item[3] Two Sample Test for Proportions
+\item[3] F-Test for the equality of variances for two samples
+\item[4] Shapiro-Wilk Test for Normality
+\item[5] Graphical procedures for Assessing Normality
+\item[6] Grubb's Procedure for Determining an Outlier
+\end{itemize}
+\end{frame}
+%---------%
+\begin{frame}
+\frametitle{p-values using \texttt{R}}
+\begin{itemize}
+\item In every inference procedure performed using \texttt{R}, a p-value is presented to the screen for the user to interpret.
+
+\item \textbf{IMPORTANT} If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
+failure to reject the null hypothesis.
+
+\item \textbf{IMPORTANT} Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
+
+\item In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
+\item \textbf{Exception:} The Shapiro-Wilk Test for Normality is one tailed.
+\end{itemize}
+\end{frame}
+
+%---------%
+\begin{frame}
+\frametitle{Using Confidence Limits}
+\begin{itemize}
+\item Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
+\item If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
+\item If the null value is outside the range of the confidence limits, we reject the null hypothesis.
+\item Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Interpreting P-values}
+	\textbf{Important}
+	\begin{itemize}
+		\item From the computer output, determine the $p-$value. \smallskip 
+		\item Compare the p-value to $\alpha/k$. \smallskip 
+		\item For all of the statistical computing procedures presented here, the tests are all two-tailed, with the exception of the Shapiro-Wilk Test. \smallskip 
+		\item If $p-$value $< 0.025$, then we reject $H_0$. \smallskip 
+		\item (\textbf{\textit{Shapiro-Wilk Test}}) If $p-$value $< 0.050$, then we reject $H_0$.
+	\end{itemize}
+\end{frame}	
+%------------------------------------------%
+
+\begin{frame}
+\frametitle{The Paired $t$-Test (a)}
+
+\begin{itemize}
+\item Previously we have seen the paired t-test. It is used to determine whether or
+not there is a significant difference between paired measurements. Equivalently whether or not
+the case-wise differences are zero.
+\item The mean and standard deviation of the case-wise differences are used to determine the test statistic.
+\item Under the null hypothesis, the expected value of the case-wise differences is zero (i.e $H_0 : \mu_d = 0$).
+\item The test statistic is computed as
+\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} \]
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (b)}
+\begin{itemize}
+\item The calculation is dependent on the case-wise differences.
+\item Here the case-wise differences between paired measurements (e.g. ``before" and ``after").
+\item Under the null hypothesis, the mean of case-wise differences is zero.
+\item As a quick example, the mean, standard deviation and sample size are presented in the next slide.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (c)}
+\begin{itemize}
+\item Observed Mean of Case-wise differences $\bar{d}$ = 8.21,
+\item Expected Mean of Case-wise differences under $H_0$ : $\mu_d = 0$,
+\item Standard Deviation of Case-wise differences $S_d$ = 7.90,
+\item Sample Size $n=14$.
+\end{itemize}
+
+\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
+\end{frame}
+%------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (d)}
+
+\begin{itemize}
+\item Procedure is two-tailed, and you can assume a significance level of 5\%.
+\item It is also a small sample procedure (n=14, hence df = 13).
+\item The Critical value is determined from statistical tables (2.1603).
+\item Decision Rule: Reject Null Hypothesis ($|TS|>CV$). Significant difference in measurements before and after.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (e)}
+Alternative Approach : using p-values.
+\begin{itemize}
+\item The p-values are determined from computer code. (We will use a software called \texttt{R}. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
+\item The null and alternative are as before.
+\item The computer software automatically generates the appropriate test statistic, and hence the corresponding p-value.
+\item The user then interprets the p-values. If p-value is small, reject the null hypothesis. If the p-value is large, the appropriate conclusion is a failure to reject $H_0$.
+\item The threshold for being considered small is less than $\alpha/k$, (usually 0.0250). (This is a very arbitrary choice of threshold, suitable for some subject areas, not for others)
+\end{itemize}
+\end{frame}
+%------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (f)}
+Implementing the paired t-test using \texttt{R} for the example previously discussed.
+\begin{verbatim}
+> t.test(Before,After,paired=TRUE)
+
+        Paired t-test
+
+data:  Before and After
+t = 3.8881, df = 13, p-value = 0.001868
+alternative hypothesis: true difference in means is not 0
+95 percent confidence interval:
+  3.650075 12.778496
+sample estimates:
+mean of the differences
+               8.214286
+
+\end{verbatim}
+\end{frame}
+
+%-------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (g)}
+\begin{itemize}
+\item The p-value ($0.001868$) is less than the threshold is less than the threshold $0.0250$.
+\item We reject the null hypothesis (mean of case-wise differences being zero, i.e. expect no difference between ``before" and ``after").
+\item We conclude that there is a difference between `before' and `after'.
+\item That is to say, we can expected a difference between two paired measurements.
+\end{itemize}
+\end{frame}
+%-------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{The Paired $t$-Test (h)}
+\begin{itemize}
+\item We could also consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
+\item Here the null value (i.e. 0) is not within the range of the confidence limits.
+\item Therefore we reject the null hypothesis.
+\end{itemize}
+\begin{verbatim}
+> t.test(Before,After,paired=TRUE)
+...
+...
+95 percent confidence interval:
+  3.650075 12.778496
+...
+\end{verbatim}
+\end{frame}
+
+
+
+
+%----------------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Grubbs Test for Determining an Outlier}
+
+The Grubbs test is used to determine if there are any outliers in a data set.\\ \bigskip
+There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values (For the sake of clarity, we shall call this type of outlier a \textbf{Grubbs Outlier}). Consider the following data set: is the lowest value 4.01 an outlier?
+\begin{verbatim}
+6.98 8.49 7.97 6.64
+8.80 8.48 5.94 6.94
+6.89 7.47 7.32 4.01
+\end{verbatim}
+
+Under the null hypothesis, there are no outliers present in the data set. 
+We reject this hypothesis if the p-value is sufficiently small.
+\end{frame}
+
+%-------------------------------------------------%
+\begin{frame}[fragile]
+\frametitle{Grubbs Test for Determining an Outlier}
+\begin{framed}
+\begin{verbatim}
+> grubbs.test(x, two.sided=T)
+Grubbs test for one outlier
+data: x
+G = 2.4093, U = 0.4243, p-value = 0.05069
+alternative hypothesis: lowest value 4.01 is an outlier
+\end{verbatim}
+\end{framed}
+We conclude that while small by comparison to the other values, the lowest value 4.01 is not an outlier, i.e. We dont have enough evidence to treat it as such.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Interpreting P-values}
+	\textbf{Important}
+	\begin{itemize}
+		\item From the computer output, determine the $p-$value. \smallskip 
+		\item Compare the p-value to $\alpha/k$. \smallskip 
+		\item For all of the statistical computing procedures presented here, the tests are all two-tailed, with the exception of the Shapiro-Wilk Test. \smallskip 
+		\item If $p-$value $< 0.025$, then we reject $H_0$. \smallskip 
+		\item (\textbf{\textit{Shapiro-Wilk Test}}) If $p-$value $< 0.050$, then we reject $H_0$.
+	\end{itemize}
+\end{frame}	
+\end{document}
+%-------------------------------------------------%
+
+%-------------------------------------------------%
+
+Kolmogorov Smirnov Tests
+Non-parametric procedures
+Compute the test statistic
+Same distribution

@@ -1,0 +1,230 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 7A/7B}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Margin of Error}
+
+\begin{itemize}
+\item The product of the quantile and the standard error give us the width of the confidence interval
+\item The width of the confidence interval is known as the \textbf{\emph{margin of error}}.  \[ \mbox{Margin of Error}  = \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+\item The margin of error gives us some idea about how uncertain we are about the unknown population parameter. \item A very wide interval may indicate that more data should be collected before anything very definite can be said about the parameter.
+\item The only way to control the margin of error is to adjust the sample size accordingly.
+\item By choosing an appropriate sample size, it is possible to ensure that the margin of error does not excess a certain threshold.
+\end{itemize}
+
+\end{frame}
+
+\frame{
+\frametitle{Point Estimates for proportions (1) }
+(From Last Class)
+
+Of a sample of 160 computer programmers, 56 reported than Python was their primary programming language.
+
+Let $\pi$ be the proportion of all programmers who regard Python as their programming language. What is the point estimate for $\pi$?
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%  = {56 \over 160} = 35\%
+\]
+}
+%----------------------------------------------------------------%
+
+%----------------------------------------------------------------%
+\frame{
+\frametitle{Confidence Interval for a proportion (2) }
+
+Refer back to our earlier example of the proportion of Python programmers. Compute a $95\%$ confidence interval.\\
+
+
+\textbf{Determining the Quantile}
+The confidence level is $95\%$. The sample size is greater than 30. Therefore the appropriate quantile is 1.96.\\
+\bigskip
+\textbf{Computing the Standard Error}
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {35 \times 65 \over 160 }} =  3.77\%
+\] \bigskip
+\textbf{Confidence Interval for proportion}
+\[
+35 \pm (1.96 \times 3.77) \%  = (35 \pm7.4) \% = (27.6\%,42.4\%)
+\]
+}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Student's $t-$distribution (1)}
+(Revision from last class, but very important).
+\begin{itemize} \item We indicated that use of the normal distribution in estimating a population mean is warranted for any large sample ($n > 30$).
+
+\item For a small sample ($n \leq 30$) only if the population is normally distributed \textbf{and} $\sigma$ is known, the standard normal distribution can be used compute quantiles. In practice,this case is unusual.
+
+\item Now we consider the situation in which the sample is small and the population is assumed to be normally distributed, but $\sigma$ is not known.
+\item We use the \textbf{\textit{Student's $t-$distribution}} for small samples.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Student's $t-$distribution (2)}
+\begin{itemize}
+\item Student's $t-$distribution is a variation of the normal distribution, designed to factor in the increased uncertainty resulting from smaller samples.
+\item The distribution is really a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Student's $t-$distribution (3)}
+\begin{itemize}
+\item With increasing
+sample size, the $t-$distribution approaches the form of the standard normal (`Z') distribution.
+\item In fact the standard normal distribution can be thought of as the $t-$distribution with $\infty$ degrees of freedom.
+\item For computing quantiles, we will consider the `Z' distribution in this way.
+(i.e. from now on, we will use only the Student $t-$distribution for Inference Procedures, as it can simplify matters greatly)
+
+\item For values of $n$ much greater then 30, the difference between using $df = n-1$ and $df = \infty$ is negligible.
+
+\item ( As this will be relevant later, remember that a confidence interval is a \textbf{two-tailed} procedure, i.e. $k=2$.)
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Interval for a Mean (Small Sample)}
+\begin{itemize}
+\item The mean operating life for a random sample of $n = 10$ light bulbs is $\bar{x} = 4,000$ hours, with the sample
+standard deviation $s = 200$ hours. \item The operating life of bulbs in general is assumed to be approximately normally distributed.\item
+We estimate the mean operating life for the population of bulbs from which this sample was taken, using a 95 percent
+confidence interval as follows:
+
+\[4,000\pm(2.262)(63.3)  = (3857,4143)\]
+
+\item The point estimate is 4,000 hours. The sample standard deviation is 200 hours, and the sample size is 10. Hence \[S.E(\bar{x} ) = { 200 \over \sqrt{10}} = 63.3\]
+
+\item From Murdoch Barnes Table 7, the $t-$quantile with $df=9$ is 2.262. (95\% confidence interval so use 0.0250 column).
+\end{itemize}
+\end{frame}
+
+%--------------------------%
+\begin{frame}
+\frametitle{Interpreting Confidence Intervals}
+\begin{itemize}
+\item In the previous lectures, we looked at confidence intervals, noting that these intervals are a pair of limits defining an interval.
+\item Often, we can use confidence intervals to make inferences on a population parameter.
+\item Consider the following example: Suppose that, when considering the leaving cert points of two groups of students $A$ and $B$, the difference of the sample means was found to be $\bar{x}_B-\bar{x}_A$ = 30 points.
+\item We would surmise than the average points level for group $B$ is higher.
+\item Lets suppose that the $95\%$ confidence interval was $(-15,75)$ points. Consider what each of the two numbers mean,
+\end{itemize}
+\end{frame}
+%--------------------------%
+
+\begin{frame}
+\frametitle{Interpreting Confidence Intervals}
+\begin{itemize}
+\item The upper bound ($+75$) inferences that those in group $B$ could have, on average, 75 more points than those in group $A$.
+\item But the lower bound ($-15$) inferences that those in group $A$ could have, on average, 15 more points than those in group $B$.
+\item Also, the confidence interval allows for the possibility of both groups having equal means  (i.e. $\bar{x}_B-\bar{x}_A$ = 0)
+\item Essentially we can not be $95\%$ confident that group $B$ has a higher mark than group $A$.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals}
+\begin{itemize}
+\item We have studied two types of confidence interval, a confidence interval for a sample mean and for a sample proportion (Later we will call these \textbf{\textit{One Sample}} confidence Intervals.
+\item There are more types of confidence intervals that we will cover later in this course. (We shall refer to these confidence intervals as the \textbf{\textit{Two Sample}}confidence Intervals.
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{p-values}
+\begin{itemize}
+\item He or she would have no more basis to doubt the validity of the null hypothesis than if p-value had been 0.482. The conclusion would be that the null hypothesis could not be rejected at the 0.05 level. \item In short, this approach is to specify the significance level in advance and use p-value only to determine whether or not the null hypothesis can be rejected at the stated significance level.
+\item
+Many statisticians and researchers find this approach to hypothesis testing not only too rigid, but basically illogical. It is very reasonable to  have more confidence that the null hypothesis is false with a p-value of 0.0001 then with a p-value of 0.042?
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{p-values}
+\begin{itemize}
+\item The less likely the obtained results (or more extreme results) under the null hypothesis, the more confident one should be that the null hypothesis is false. \item The null hypothesis should not be rejected once and for all. The possibility that it was falsely rejected is always present, and, all else being equal, the lower the p-value, the lower this possibility.
+\item According to this view, research reports should not contain the p-value, only whether or not the values were significant (at or below the significance level).
+\item
+However it is much more reasonable to just report the p-values. That way each reader can make up his or her mind about just how convinced they are that the null hypothesis is false.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+\frame{
+\frametitle{p-value}
+\begin{itemize}
+\item The p-value (or p-value or probability value is the probability of getting a value of the test statistic that is at least as extreme as the one representing the sample data, assuming the null hypothesis is true.
+\item The null hypothesis is rejected if the P-value is very small, such as less than 0.05.
+\end{itemize}
+}
+
+
+
+
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{p-values}
+\large
+\begin{itemize}
+\item The null hypothesis either is or is not rejected at the previously stated significance level. Thus, if an experimenter originally stated that he or she was using the $\alpha = 0.05$ significance level and p-value was subsequently calculated to be $0.042$, then the person would reject the null hypothesis at the 0.05 level. \item If p-value had been 0.0001 instead of 0.042 then the null hypothesis would still be rejected at the 0.05 significance level.  \item
+The experimenter would not have any basis to be more confident that the null hypothesis was false with a p-value of 0.0001 than with a p-value of 0.041. \item Similarly, if the p had been 0.051 then the experimenter would fail to reject the null hypothesis
+\end{itemize}
+
+\end{frame}
+%---------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Critical value}
+A critical value is any value that separates the critical region ( where we reject the null hypothesis) for that values of the test statistic that do not lead to a rejection of the null hypothesis.
+
+}
+
+
+%-----------------------------------------------------------------%
+\end{document} 

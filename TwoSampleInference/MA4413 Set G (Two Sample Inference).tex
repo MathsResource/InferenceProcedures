@@ -1,0 +1,177 @@
+﻿\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4413t]{Statistics for Computing \\ {\normalsize Lecture 10A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Summer 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+%----------------------------------------------------------------------------------------------------------%
+\begin{document}
+
+\begin{frame}
+\frametitle{This Class}
+\begin{itemize}
+\item Look at some worked examples of hypothesis testing
+\item The paired t -test
+\item Type I and Type II errors
+\item Formulae
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+\item The schedule of formulae that will be at the back of your examination paper will be posted on the SULIS site shortly.
+\item It is advisable to familiarise yourself with the contents before the examination.
+\item Please let me know as soon as possible if there are any issues with it.
+\end{itemize}
+\end{frame}
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Paired t test}
+The paired t test was devloped by Guinness Brewery employee, Gossett, in1908.
+\begin{itemize}
+\item First we have to compute the case-wise differences.
+\item Then we compute the variance of those differences.
+\end{itemize}
+
+}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+% -  Type I and Type II error
+% - Paired T test
+% - Examples
+% - Test for the mean
+% - Test for p-valuies
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Relationship between significance and Type I error}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\end{frame}
+\frame{
+\frametitle{Paired T test}
+\large
+\begin{itemize}
+\item Firstly we have to compute each of the case-wise differences.
+\item Then we have to compute the mean value of these differences.
+\item Lastly we also have to compute the standard deviation of the differences.
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Paired T test}
+\begin{itemize}
+\item $\mu_d$ mean value for the population of differences.
+\item $\bar{d}$ mean value for the sample of differences,
+\item $s_d$ standrd deviation of the differences for the paired sample data.
+\item $n$ number of pairs
+\end{itemize}
+
+
+}
+%----------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Type I and Type II errors - Die Example}
+\begin{itemize}
+\item Recall our die throw experiment example. 
+\item Suppose we perform the experiment twice with two different dice.
+\item We dont not know for sure whether or not either of the dice is fair or crooked.
+\item Suppose we get a sum of 401 from one die, and 360 from the other.
+\end{itemize}
+\end{frame}
+
+
+
+
+%-----------------------------------------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Examples}
+\large
+For the sake of brevity, in the following example the following values are always used or realised.
+
+\begin{itemize}
+\item Test statistic  = 2.7
+\item Significance level $\alpha$ = 0.05. Tests are always two tailed.
+\item Samples are either large or of size $n = 10$
+\item In the case of large samples CV = 1.96. For small samples, CV = .
+\item
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}
+\large
+\begin{itemize}
+\item All of the following example will have the same significance level and test statistic.
+\item Hence the overall outcomes are the same ( $\alpha$ = 0.05, k=2, TS = 2.7)
+\item We will use both the p-value method and the critcal value approach.
+\item 
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Hypothesis testing for Two Samples}
+\large
+\begin{itemize}
+\item Paired t test
+\item Difference of two mean (large samples)
+\item Difference of two mean (small samples)
+\item Difference of two propotions (large sample only)
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing the Standard Error and Test Statistic }
+\begin{itemize}
+\item The point estimate is therefore $\bar{x}_1 -\bar{x}_2$
+\item The standard error is computed from formulae.
+\item The test statistic is therefore 
+% \[ (\bar{x}_1 -\bar{x}_2) - (0) \over \mbox{S.E. }(\bar{x}_1 -\bar{x}_2  )} \]
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Difference of proportions}
+\large
+\begin{itemize}
+\item The point estimate is the difference 
+\item Observed difference  = $7\%$. Under the null hypothesis, the expected difference is $0\%$
+\item The standard error formulae
+\end{itemize}
+\end{frame}

@@ -1,0 +1,112 @@
+\chapter{Confidence Intervals}
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+
+A confidence interval for the
+mean is an estimate interval constructed with respect to the sample mean by which the likelihood that the interval
+includes the value of the population mean can be specified.
+
+The \emph{level of confidence} associated with a confidence interval indicates the long-run percentage
+of such intervals which would include the parameter being estimated.
+
+
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Confidence intervals for the mean typically are constructed with the unbiased estimator $\bar{x}$ at the midpoint
+of the interval.
+
+\item The $\pm Z \sigma_x$ or $\pm Z s_x$ frequently is called the \textbf{\emph{margin of error}} for the confidence interval.
+\end{itemize}
+%-------------------------------------------------------------------------------%
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+
+\begin{itemize}
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+%----------------------------------------------------%
+
+\textbf{Statistical Inference : Confidence Intervals}
+\begin{itemize}
+	\item Confidence intervals allow us to use sample data to estimate a parameter value, such as a population mean.
+	\item A confidence interval is a range of values for which we can be confident (at a specific level) that parameter value (such as the population mean)  lies within.
+	\item A confidence level will have a specified level of confidence, commonly $95\%$.
+	\item The $95\%$ confidence interval is a range of values which contains the parameter value of interest with a probability of 0.95.
+	\item We can expected that a $95\%$ confidence interval will not contain the parameter value of interest with a probability of 0.05.
+
+	\item It is natural to interpret a $95\%$ confidence interval on the mean as an interval with a 0.95 probability of containing the population mean.
+	\item However, the proper interpretation is not that simple.
+	\item Consider the case in which 1,000 studies estimating the value of $\mu$  in a certain population all resulted
+	in estimates between 30 and 40. \smallskip 
+	\item Suppose one more study was conducted and the $95\%$ confidence interval on $\mu$ was reported 
+	to be $40 \leq \mu \leq 50$ (based on that one study).
+	
+	\item The probability that $\mu$ is between 40 and 50 is very low, the reported confidence interval not withstanding.
+	
+\end{itemize}
+
+%---------------------------------------------------------------------%
+\section{Confidence intervals}
+
+\begin{itemize}
+\item In statistics one often would like to estimate unknown parameters for a known distribution. For example, you may think that your parent population is normal, but the mean is unknown, or both the mean and standard deviation are unknown. 
+\item From a data set you can't hope to know the exact values of the parameters, but the data should give you a good idea what they are. For the mean, we expect that the sample mean or average of our data will be a good choice for the population mean, and intuitively, we understand that the more data we have the better this should be. How do we quantify this?
+
+\item Statistical theory is based on knowing the sampling distribution of some statistic such as the mean. This allows us to make probability statements about the value of the parameters, such as we are 95 per cent certain the parameter is in some range of values.
+\item Most studies will only sample part of a population and then the result is used to interpret the null hypothesis in the context of the whole population. Any estimates obtained from the sample only approximate the population value. 
+\item Confidence intervals allow statisticians to express how closely the sample estimate matches the true value in the whole population. Often they are expressed as 95\% confidence intervals. 
+\item Formally, a 95\% confidence interval of a procedure is any range such that the interval covers the true population value 95\% of the time given repeated sampling under the same conditions.
+
+\item If these intervals span a value (such as zero) where the null hypothesis would be confirmed then this can indicate that any observed value has been seen by chance. For example a drug that gives a mean increase in heart rate of 2 beats per minute but has 95\% confidence intervals of5 to 9 for its increase may well have no effect whatsoever.
+
+\item The 95\% confidence interval is often misinterpreted as the probability that the true value lies between the upper and lower limits given the observed sample. However this quantity is more a credible interval available only from Bayesian statistics.
+
+\end{itemize}
+%-----------------------------------------------------------%
+\medskip
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+\begin{framed}
+
+\noindent \textbf{Computing Confidence Intervals}\\
+Confidence limits are the lower and upper boundaries / values of a confidence interval, that is, the values which define the range of a confidence interval. The general structure of a confidence interval is as follows:
+
+\[ \mbox{Point Estimate}  \pm \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+
+
+\begin{itemize}
+\item \textbf{Point Estimate:} estimate for population parameter of interest, i.e. sample mean, sample proportion.
+\item \textbf{Quantile:} a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item \textbf{Standard Error:} measures the dispersion of the sampling distribution for a given sample size $n$.
+\end{itemize}
+
+
+\end{framed}
+%-----------------------------------------------------------%
+
+
+
+\textbf{Confidence Intervals  }
+Restating a couple of points made earlier:
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$, $99\%$ and $99.9\%$.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,423 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 6C}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% - Last lecture
+% - symmetric Intervals
+% - computing Quantiles
+% - student's t distribution
+% - CI for means
+% - CI for means ( small samples)
+% - CI for Props
+% - CI for differences.
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Computing Confidence Intervals}
+Confidence limits are the lower and upper boundaries / values of a confidence interval, that is, the values which define the range of a confidence interval. The general structure of a confidence interval is as follows:
+
+\[ \mbox{Point Estimate}  \pm \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+
+
+\begin{itemize}
+\item Point Estimate: estimate for population parameter of interest, i.e. sample mean, sample proportion.
+\item Quantile: a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item Standard Error: measures the dispersion of the sampling distribution for a given sample size $n$.
+\end{itemize}
+\end{frame}
+
+
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Intervals (Revision) }
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$, $99\%$ and $99.9\%$.
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Level (Revision) }
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+\end{frame}
+\begin{frame}
+\frametitle{Quantiles }
+
+\begin{itemize}
+\item The quantile is a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item For practical purposes, the quantile can be taken from the standard normal distribution, if the sample is larger than 30, further to the central limit theorem.
+\item For a specified confidence level $1-\alpha $, the corresponding quantile is the value $a$ that satisfies the following identity (when $n > 30$):
+
+    \[ p( -a \leq Z \leq a) = 1- \alpha \]
+
+\end{itemize}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Quantiles}
+
+\begin{itemize} \item When the sample size $n$ is greater than 30, we can compute the quantile using Murdoch Barnes table 3.
+
+\item $95\%$ of Z random variables are between -1.96 ( quantile for $2.5\%$)and 1.96 ( quantile for $97.5\%$)
+\end{itemize}
+
+\begin{itemize}
+\item If the confidence level is $95\%$, then the quantile is 1.96. Recall
+\[ p( -1.96 \leq Z \leq 1.96) = 0.95 \]
+
+\item If the confidence level is $90\%$, then the quantile is 1.645.
+\[ p( -1.645 \leq Z \leq 1.645) = 0.90 \]
+
+\item If the confidence level is $99\%$, then the quantile is 2.576.
+\[ p( -2.576 \leq Z \leq 2.576) = 0.99 \]
+
+\end{itemize}
+
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+Broadly speaking, there are three different types of confidence interval
+\begin{description}
+\item[Type 1] Sample with \textbf{known} population variance
+\begin{itemize}
+\item The size of the sample doesn't matter.
+\end{itemize}
+\item[Type 2] Large sample with \textbf{unknown} population variance
+\begin{itemize}
+\item The size of the sample is more than 30 ($n > 30$)
+\end{itemize}
+\item[Type 3] Small sample with \textbf{unknown} population variance
+\begin{itemize}
+\item The size of the sample is 30 or less ($n\leq 30$)
+\end{itemize}
+\end{description}
+\end{frame}
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 1 : Known Population Variance}\\
+\begin{itemize}
+\item This type of confidence interval is very rare in practive, but it is very simple to implement and used as introductory
+teaching material with those studying confidence intervals for the first time.
+\item This type of confidence interval is computed using this formula:
+\[ \bar{x} \pm z_{(\alpha/2)}{\sigma \over \sqrt{n}} \]
+\item A description of each item is on the next slide.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 1 : Known Population Variance}\\
+\begin{itemize}
+
+\item The point estimate is the sample mean : $\bar{x}$
+
+\item We use a \textbf{\textit{quantile}} from the standard normal (Z) distribution to ``scale"
+the confidence interval to the specified confidence level (usually 95\%).
+
+\item Let the confidence level be denoted in the for $(1-\alpha)\times 100\%$, and hence determine $\alpha$.
+For example, if the confidence level is 95\%, then $\alpha$ is 0.05 (or 5\%).
+
+\item The Quantile ($z_{(\alpha/2)}$) is the value for the Standard Normal Tables (for example Murdoch Barnes Table 3) such that
+\[ P(Z \geq z_{(\alpha/2)}) = {\alpha \over 2}\]
+
+\item For a 95\% confidence interval, the quantile is 1.96. For a 99\% confidence interval, the quantile is 2.576.
+\end{itemize}
+\end{frame}
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 1 : Known Population Variance}\\
+\begin{itemize}
+
+\item The population standard deviation is $\sigma$. The sample size is $n$.
+\item The standard error to be used in this confidence interval is
+\[ \mbox{S.E}(\bar{x}) = \frac{\sigma}{\sqrt{n}}\]
+
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 2 : Large Sample, Unknown Population Variance}\\
+\begin{itemize}
+
+\item The point estimate is the sample mean : $\bar{x}$
+
+\item For a type 2 confidence interval, we can determine a \textbf{\textit{quantile}} for the confidence interval in the same way that for the Type 1 confidence interval.
+
+\item Recall: For a 95\% confidence interval, the quantile is 1.96. For a 99\% confidence interval, the quantile is approximately 2.58.
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 2 : Large Sample, Unknown Population Variance}\\
+\begin{itemize}
+\item The population standard deviation which we denote $\sigma^2$ is unknown.
+Instead we are given the sample variance $s^2$. We use the sample standard deviation (the square root of the variance) as an estimate for the population standard deviation $\sigma$.
+\[ s \mbox{ is an estimate for } \sigma \]
+
+\item The sample size is $n$.
+\item The standard error to be used in a Type 2 confidence interval is
+\[ \mbox{S.E}(\bar{x}) = \frac{s}{\sqrt{n}}\]
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 3 : Small Sample, Unknown Population Variance}\\
+\begin{itemize}
+\item Firstly, we will clarify the similarities of the Type 2 and Type 3 confidence interval.
+\item The point estimate is the sample mean $\bar{x}$.
+\item The sample standard deviation $s$ is used to estimate the population $\sigma$.
+\item The standard error is
+\[ \mbox{S.E}(\bar{x}) = \frac{s}{\sqrt{n}}\]
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals for Sample Means}
+\textbf{Type 3 : Small Sample, Unknown Population Variance}\\
+\begin{itemize}
+\item The key difference is in determining the quantile. Rather than use the standard normal distribution, we must use the student $t-$ distribution. Quantiles for this distribution are also tabulated in statistical tables (for Example, Murdoch Barnes Table 7).
+\item Recall that we must determine a value for $\alpha$ ( and hence $\alpha/2$). For a 95\% confidence interval, $\alpha= 0.05$  and $\alpha/2 = 0.025$.
+\item Computing a quantile from the $t-$ distribution additionally requires the specification of the \textit{\textbf{degrees of freedom}}. Degrees of Freedom are often denote as $df$ or by the greek letter $\nu$ (``nu").
+\item For small sample confidence intervals (i.e. $n \leq 30$), the degrees of freedom are
+\[ df = n-1 \]
+\end{itemize}
+\end{frame}
+
+
+
+
+%--------------------------------------------------%
+\begin{frame}
+\frametitle{Using the $t-$distribution for large samples}
+
+\begin{itemize}
+\item The $t-$distribution is used for computing quantiles in the case of small samples (i.e. when sample size $n \leq 30$).
+\item A key value in the $t-$distribution is the degrees of freedom, denoted $df$ (or sometimes $\nu$). For small samples \[ df= n-1\].
+\item The $t-$distribution is used for computing quantiles in the case of large samples too, as an alternative to using the $Z$ distribution.
+\item In this case , use the value $\infty$ as the degrees of freedom (see bottom row of table 7).
+\[ df= \infty\]
+\item This means that we can use the $t-$ distribution for finding the quantiles of all types of confidence intervals.
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------%
+
+%--------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{The Central Limit Theorem }
+\begin{itemize}
+\item This theorem states that as sample size $n$ is increased, the sampling distribution of the mean (and for other sample statistics as well) approaches the normal distribution in form, regardless of the form of the population distribution from
+which the sample was taken.
+
+\item For practical purposes, the sampling distribution of the mean can be assumed to be
+approximately normally distributed, even for the most non-normal populations or processes, whenever the
+sample size is $n > 30$.
+
+\item (For populations that are only somewhat non-normal, even a smaller sample size will
+suffice. A variation of the normal distribution can be used for such circumstances.)
+\end{itemize}
+
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Standard Error}
+
+\begin{itemize}
+\item The standard error measures the dispersion of the sampling distribution.
+\item For each type of point estimate, there is a corresponding standard error.
+\item A full list of standard error formulae will be attached in your examination paper.
+\item The standard error for a  mean is
+\[ S.E( \bar{x} )  = {\sigma \over \sqrt{n}} \]
+However, we often do not know the value for $\sigma$. For practical purposes, we use the sample standard deviation $s$ as an estimate for $\sigma$ instead.
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}} \]
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Interval for a mean (1) }
+Finally, an example to finish the class:
+\begin{itemize}
+\item For a given week, a random sample of 100 hourly employees selected from a very large number of
+employees in a manufacturing firm has a sample mean wage of $\bar{x} = 280$ dollars, with a sample standard deviation of
+$s = 40$ dollars.
+\item Estimate the mean wage for all hourly employees in the firm with an interval estimate such that we can be 95
+percent confident that the interval includes the value of the population mean.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Interval for a mean (2) }
+
+\begin{itemize}
+\item The point estimate in this case is the sample mean $\bar{x} = 280$ dollars.
+\item We have a large sample (n=100) and the confidence level is $95\%$. Therefore the quantile  is 1.96.
+\item The standard error is computed as follows:
+
+\[ S.E( \bar{x} )  = {s \over \sqrt{n}}  =  {40 \over \sqrt{100}} = 4  \]
+\item \textbf{Confidence Interval for mean}
+
+\[
+280 \pm (1.96 \times 4)  = (280 \pm 7.84) = (\;272.16\;,\;287.84\;)
+\]
+
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+%-----------------------------------------------------------%
+
+% -- Lecture 8B
+% -- Revise the Tables
+% -- Sample Size Estimation for mean
+% -- Example SSE for mean
+% -- SSE for Proportion
+% -- Example SSE for proportion
+% -- Paired Test
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%--------------------------------------------------------%
+
+\begin{frame}
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = \sqrt{0.0013} = 0.036
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------%
+
+% Confidence Interval for a Proportion
+% One Sample
+%------------------------------------------------------------------------------%
+
+
+

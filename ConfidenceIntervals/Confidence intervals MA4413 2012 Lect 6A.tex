@@ -1,0 +1,500 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Default} % was Frankfurt
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4413]{MA4413 Statistics for Computing \\ {\normalsize MA4413 Lecture 6A : Continuous Distributions}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Autumn 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+
+\begin{frame}
+\frametitle{Statistical Inference}
+
+\begin{itemize}
+\item Statistics and Population parameters
+\item Random Sampling
+\item Properties of Estimators
+\item Estimation (Point and Interval)
+\item Confidence Intervals
+\item The Central Limit Theorem
+\item Standard Errors
+\end{itemize}
+
+
+\end{frame}
+
+
+%----------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Statistical Inference : Definitions}
+\begin{itemize}
+\item A \textbf{\emph{population}} consists of an entire set of objects, observations, or scores that have something in common.
+For example, a population might be defined as students in a university.
+
+\item Some populations are only hypothetical. Consider an experiment where a die is thrown 100 times and the sum of the scores was recorded.
+\item The researcher might define a population as the sums that would result if this experiment was repeated an infinite number of times.
+\item The population is hypothetical in the sense that it is not reasonable to repeat this experiment indefinitely.
+\item The distribution of a population can be described by several parameters such as the mean and standard deviation.
+
+\end{itemize}
+\end{frame}
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Sample}
+\begin{itemize}
+
+\item A sample is a subset of a population.
+\item Suppose we are interested in some characteristic of a population ( e.g. amount of time spent on the internet)
+\item Since it is usually impractical to test every member of a population, a sample from the population is typically
+the best approach available.
+\item To be properly representative of a population, a sample should be both \textbf{\emph{ random}} and sufficiently large.
+
+
+\end{itemize}
+\end{frame}
+
+
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Random Sampling}
+\begin{itemize}
+
+\item In random sampling, each item or element of the population has an equal chance of being chosen at each draw.
+\item A sample is random if the method for obtaining the sample meets the criterion of randomness
+(each element having an equal chance at each draw).
+
+
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Biased Sampling}
+\begin{itemize}
+
+
+\item A biased sample is one in which the method used to create the sample results
+in samples that are systematically different from the population.
+
+
+\item For instance, consider a market research project on attitudes of attendees towards an event they attended.
+
+\item Collecting the data by publishing a questionnaire and asking people to fill it out and
+send it in would produce a biased sample.
+
+\item People interested enough to spend their time and energy filling out and sending in the questionnaire
+are likely to have different attitudes about the event than those not taking the time to fill out the questionnaire.
+
+\end{itemize}
+\end{frame}
+
+
+
+%----------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Statistical Inference : Parameters}
+\begin{itemize}
+\item A parameter is a numerical quantity measuring some aspect of a population of scores.
+\item The population mean $\mu$ and population variance $\sigma^2$ are commonly used parameters.
+\item Another commonly used parameter is the population proportion $\pi$.
+\item (Remark : greek letters are used to designate parameters.)
+\item Parameters are rarely known and are usually estimated by \textbf{\emph{statistics}} computed from samples.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Statistical Inference : Statistics}
+\begin{itemize}
+\item The most common use of the word `statistics'is for describing a wide range of techniques and procedures for analyzing, interpreting and displaying data.
+\item In a second usage, a ``statistic" is defined as a numerical quantity (such as the sample mean) calculated from a sample.
+\item Sample mean $\bar{x}$ and sample standard deviation $s$ are types of statistics.
+\item These statistics are used to estimate population parameters.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Estimators}
+\begin{itemize}
+\item Three important attributes of statistics as estimators are: \begin{itemize} \large
+\item unbiasedness, \item consistency,  \item  relative efficiency.\end{itemize}
+\item A statistic is unbiased if, in the long run, it's value is reasonably close to the parameter it is estimating.
+\item An estimator is consistent if the estimator tends to get closer to the parameter it is estimating as the sample size increases.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Estimators}
+\begin{itemize}
+
+\item The efficiency of a statistic is the degree to which the statistic is stable from sample to sample.
+\item That is, the less subject to sampling fluctuation a statistic is, the more efficient it is.
+\item \textbf{\emph{Sampling fluctuation}} refers to the extent to which a statistic takes on different values with different samples.
+\item That is, it refers to how much the statistic's value fluctuates from sample to sample.
+
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Inferential Statistics}
+\begin{itemize}
+\item Inferential statistics are used to draw inferences about a population from a sample.
+\item Consider an experiment in which 10 subjects who performed a task after 24 hours of sleep
+deprivation scored 12 points lower than 10 subjects who performed after a normal night's sleep.
+\item Is the difference real or could it be due to chance?
+\item How much larger could the real difference be than the 12 points found in the sample?
+\item These are the types of questions answered by inferential statistics.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Estimation}
+\begin{itemize}
+\item When a parameter is being estimated, the estimate can be either a single number or it can be a range of numbers.
+\item When the estimate is a single number, such as a sample mean, the estimate is called a \textbf{\emph{point estimate}}.
+\item When the estimate is a range of values, the estimate is called an \textbf{\emph{interval estimate}}.
+\item \textbf{\emph{Confidence intervals}} are used for interval estimation.
+\item As we will soon see, point estimates are not usually as informative as confidence intervals.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Confidence Intervals}
+\begin{itemize}
+\item Confidence intervals allow us to use sample data to estimate a parameter value, such as a population mean.
+\item A confidence interval is a range of values for which we can be confident (at a specific level) that parameter value (such as the population mean)  lies within.
+\item A confidence level will have a specified level of confidence, commonly $95\%$.
+\item The $95\%$ confidence interval is a range of values which contains the parameter value of interest with a probability of 0.95.
+\item We can expected that a $95\%$ confidence interval will not contain the parameter value of interest with a probability of 0.05.
+\end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Statistical Inference : Confidence Intervals}
+\begin{itemize}
+
+\item It is natural to interpret a $95\%$ confidence interval on the mean as an interval with a 0.95 probability of containing the population mean.
+\item However, the proper interpretation is not that simple.
+\item Consider the case in which 1,000 studies estimating the value of $\mu$  in a certain population all resulted
+in estimates between 30 and 40.
+\item Suppose one more study was conducted and the $95\%$ confidence interval on $\mu$ was computed
+to be $40 \leq \mu \leq 50$ (based on that one study).
+
+\item The probability that $\mu$ is between 40 and 50 is very low, the confidence interval not withstanding.
+
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Central Limit Theorem}
+
+\begin{itemize}
+
+\item Before we can begin computing confidence intervals, we must introduce the \textbf{\emph{Central Limit Theorem}}.
+
+\item Suppose random sample of size $n$ are drawn from any distribution, with the distribution having a mean of $\mu$ (equivalently $E(X)$) and variance of $\sigma^2$ (i.e. standard deviation of $\sigma$).
+
+\item Also suppose that the sample size is large ( i.e. $n > 30$ ).
+
+\item The sample means tend to form a normal distribution with mean $\mu$ and standard deviation $ { \sigma \over \sqrt{n} }$
+
+\item We call the standard deviation of the sample means the \textbf{\emph{standard error}}
+\item Standard error is commonly denoted as $S.E.$
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Central Limit Theorem}
+
+\begin{itemize}
+
+\item Recall from earlier lectures, an experiment was carried out where the sum of 100 throws of a die were recorded.
+
+\item The underlying distribution of the die values is not normally distributed. \\(Actually discrete uniform between 1 and 6.)
+
+\item Nonetheless the distribution of the sum of 100 throws was normally distributed. Necessarily the distribution of the average score for 100 throws is normally distributed.
+
+\end{itemize}
+\end{frame}
+
+\frame{
+\frametitle{Distribution of means}
+
+\begin{center}
+\includegraphics[scale=0.4]{6BHist}
+\end{center}
+
+}
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Exercise}
+From previous lecture, we know the following properties of the dice distribution. \\(Remark: In this case we know the variance, but that is not always the case.)
+\begin{itemize}
+\item Mean (Expected Value) $E(X) = \mu = 3.5$
+\item Variance $V(X) = \sigma^2 = 2.9166$
+\item Standard deviation $= \sigma = 1.707$
+\end{itemize}
+
+Compute the standard error $S.E.(\bar{x})$ for the mean value $\bar{x}$ of die values:
+\begin{itemize}
+\item when the die is thrown 25 times
+\item when the die is thrown 225 times.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Exercise}
+\begin{itemize}
+\item When the die is thrown 25 times n = 25
+\item Therefore the standard error is
+\[ {\sigma \over \sqrt{n}}  = {1.707 \over \sqrt{25}} = {1.707 \over 5} = 0.3415. \]
+\item When the die is thrown 225 times: n = 225
+\item Therefore the standard error is
+\[ {\sigma \over \sqrt{n}}  = {1.707 \over \sqrt{225}} = {1.707 \over 15} = 0.1138. \]
+
+\end{itemize}
+\end{frame}
+\frame{
+\frametitle{Distribution of means}
+
+\begin{center}
+\includegraphics[scale=0.4]{6BHist2}
+\end{center}
+
+}
+
+\frame{
+\frametitle{Distribution of means}
+
+\begin{center}
+\includegraphics[scale=0.4]{6BHist3}
+\end{center}
+
+}
+
+%----------------------------------------------------%
+\begin{frame}
+\frametitle{Exercise}
+\begin{itemize}
+\item Compare the two histograms on the previous slides. These horizontal range of value is the same for both histograms.
+
+\item We can see that with a larger sample size ($n=225$), the distribution of sample means are clustered closely around the 3.5 mark, and have much less dispersion than distribution of sample means with a sample size $n=25$.
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Confidence Intervals (Revision) }
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$,$99\%$ and $99.9\%$.
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Confidence Level}
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+\end{frame}
+
+
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{The Central Limit Theorem}
+\begin{itemize}
+\item This theorem states that as sample size $n$ is increased, the sampling distribution of the mean (and for other sample statistics as well) approaches the normal distribution in form, regardless of the form of the population distribution from
+which the sample was taken.
+
+\item For practical purposes, the sampling distribution of the mean can be assumed to be
+approximately normally distributed, even for the most non-normal populations or processes, whenever the
+sample size is $n > 30$.
+
+\item (For populations that are only somewhat non-normal, even a smaller sample size will
+suffice. A variation of the normal distribution can be used for such circumstances.)
+\end{itemize}
+
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Computing Confidence Intervals}
+Confidence limits are the lower and upper boundaries / values of a confidence interval, that is, the values which define the range of a confidence interval. The general structure of a confidence interval is as follows:
+
+\[ \mbox{Point Estimate}  \pm \left[ \mbox{Quantile} \times \mbox{Standard Error} \right] \]
+
+
+\begin{itemize}
+\item Point Estimate: estimate for population parameter of interest, i.e. sample mean, sample proportion.
+\item Quantile: a value from a probability distribution that scales the intervals according to the specified confidence level.
+\item Standard Error: measures the dispersion of the sampling distribution for a given sample size $n$.
+\end{itemize}
+\end{frame}
+
+
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Point Estimates (1) }
+
+\begin{itemize}
+\item Point estimates are generally straightforward calculations.
+\item Sometimes they will even be stated directly in the questions.
+\item When considering the population mean $\mu$, the appropriate point estimate is the sample mean $\bar{x}$.
+\item When considering the population proportion $\pi$, the appropriate point estimate is the sample proportion $\hat{p}$.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Point Estimates (2) }
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Point Estimates (3)}
+
+Of a sample of 160 computer programmers, 56 reported than Python was their primary programming language.
+
+Let $\pi$ be the proportion of all programmers who regard Python as their programming language. What is the point estimate for $\pi$?
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%  = {56 \over 160} = 35\%
+\]
+
+
+
+}
+\end{document}
+
+
+\end{document}
+
+
+
+
+
+\item What is the probability that the lifespan of the laptop will be at least
+6 years?
+\item What is the probability that the lifespan of the laptop will not exceed
+4 years?
+\item What is the probability of the lifespan being between 5 years and 6
+years?
+
+
+%----------------------------------------------------------------------------%
+\frame{
+\frametitle{The Exponential Distribution}
+A continuous random variable having p.d.f. f(x), where:
+$f(x) = \lambda x e ^{-\lambda x} $
+is said to have an exponential distribution, with parameter $\lambda$.
+The cumulative distribution is given by:
+$F(x) = 1 - e^{\lambda x}$
+
+Expectation and Variance
+$E(X) = 1 / \lambda$\\
+$V(X) = 1 / \lambda^2$\\
+}
+
+
+
+%---------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Exponential Distribution Lifetimes}
+The average lifespan of a laptop is 5 years. You may assume that
+the lifespan of computers follows an exponential probability
+distribution. \begin{itemize}\item (3 marks) What is the
+probability that the lifespan of the laptop will be at least 6
+years? \item
+What is the probability that the lifespan of the laptop will not
+exceed 4 years? \item What is the probability of the
+lifespan being between 5 years and 6 years?
+\end{itemize}
+Suppose the lifetime of a PC is exponentially distributed with
+mean $\mu =5$
+We should be told the average lifetime $\mu$.
+\[
+P( X \geq x_o) = e^{{-x_o \over \mu}}
+\]
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+

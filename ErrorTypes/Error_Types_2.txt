@@ -1,0 +1,105 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Frankfurt} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MA4704]{Technological Mathematics 4 \\ {\normalsize MA4704 Lecture 7A/7B}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Spring Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+%---------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Types of Error}
+\begin{itemize}
+\item The probability of a Type I error is designated by the Greek letter alpha ( $\alpha$) and is called the Type I error rate.
+\item The probability of a Type II error (the Type II error rate) is designated by the Greek letter beta ( $\beta$ ).
+\item A Type II error is only an error in the sense that an opportunity to reject the null hypothesis correctly was lost.
+\item It is not an error in the sense that an incorrect conclusion was drawn since no conclusion is drawn when the null hypothesis is not rejected.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------------------------------%
+
+
+
+
+\begin{frame}
+\frametitle{Type I and Type II Error}
+\begin{itemize}
+\item
+\item
+\item A type II error would occur if it was concluded that the two drugs produced the same effect, i.e. there is no difference between the two drugs on average, when in fact they produced different ones.
+\item A type II error is frequently due to sample sizes being too small.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Types of Error}
+\begin{itemize}
+\item
+A Type I error, on the other hand, is an error in every sense of the word. A conclusion is drawn that the null hypothesis is false when, in fact, it is true. Therefore, Type I errors are generally considered more serious than Type II errors.
+ \item
+The probability of a Type I error ( ) is called the significance level and is set by the experimenter. There is a trade-off between Type I and Type II errors. The more an experimenter protects himself or herself against Type I errors by choosing a low level, the greater the chance of a Type II error.
+\item
+Requiring very strong evidence to reject the null hypothesis makes it very unlikely that a true null hypothesis will be rejected. However, it increases the chance that a false null hypothesis will not be rejected, thus lowering the likelihood of Type II error.
+\item
+The Type I error rate is almost always set at .05 or at .01, the latter being more conservative since it requires stronger evidence to reject the null hypothesis at the .01 level then at the .05 level.
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Type I and II errors}
+There are two kinds of errors that can be made in hypothesis testing:
+\begin{itemize}
+\item[(1)] a true null hypothesis can be incorrectly rejected
+\item[(2)] a false null hypothesis can fail to be rejected.
+\end{itemize}
+
+The former error is called a Type I error and the latter error is called a Type II error. \\
+
+The probability of Type I error is always equal to the level of significance that is used as the standard for rejecting
+the null hypothesis; it is designated by the lowercase Greek $\alpha$ (alpha).
+
+\end{frame}
+
+
+%---------------------------------------------------------------------------%
+\begin{frame}
+These two types of errors are defined in the table below.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&True State: H0 True	& True State: H0 False\\\hline
+Decision: Reject H0	& Type I error&	Correct\\
+Decision: Do not Reject H0	& Correct 	&Type II error\\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\end{document}

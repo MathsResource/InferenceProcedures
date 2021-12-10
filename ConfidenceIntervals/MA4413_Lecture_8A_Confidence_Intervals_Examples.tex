@@ -1,0 +1,296 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+\mode<presentation> {
+ \usetheme{Default} % was
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+\setbeamercovered{dynamic}
+\title[MA4413]{Statistics for Computing \\ {\normalsize Lecture 8A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+\renewcommand{\arraystretch}{1.5}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+% - Last lecture
+% - symmetric Intervals
+% - computing Quantiles
+% - student's t distribution
+% - CI for means
+% - CI for means ( small samples)
+% - CI for Props 
+% - CI for differences.
+
+\begin{frame}
+\frametitle{Last Lecture}
+In the last lecture, we discussed
+\begin{itemize}
+\item Sampling distributions and the central limit theorem
+\item Standard error ( standard deviation )
+\item Introduction to confidence intervals
+\end{itemize}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Symmetric Intervals}
+
+\begin{itemize}
+\item Suppose we want to determine a \textbf{\emph{symmetric interva}}l of values such that the tails (the areas on either side of the interval) are of equal dimension. 
+\item The tails are the probability areas on either side of this interval
+\item If the area of the interval corresponds to $1-\alpha$ (in percentages: $100(1-\alpha)\%$), then the area of each tail is $\alpha/2$.
+\item For example, suppose we wanted a symmetric interval for $95\%$. In this case the value of $\alpha$ is $0.05$ ( or $5\%$).
+\item This means that the area in each tail is $0.025$  ( or $2.5\%$).
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------%
+\frame{
+IMAGE HERE\\
+SYMMETRIC INTERVAL AND TWO TAILS
+}
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{Symmetric Intervals}
+\begin{itemize}
+\item Supposed we are asked to compute a $95 \% $ symmetric interval.
+\item What is the quantile of the standard normal distribution that corresponds to this interval
+\item Find $a$ such that $P(-a \leq Z \leq a) = 0.95$
+\item Necessarily $P(Z \geq a) = 0.0250$. 
+\item Using the Murdoch Barnes tables we can compute $a$ to be 1.96.
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------%
+\begin{frame}
+It is known that a normal distribution has the following characterisitcs
+\begin{itemize}
+\item mean $\pm$ 1.96$\sigma$ includes 95\% of the population.
+\item mean $\pm$ 2.58$\sigma$ includes 99\% of the population.
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{Computing Confidence Intervals}
+\begin{itemize}
+\item Point Estimate : Sample mean, Sample Proportion
+\item Quantile 
+\item Standard Error
+\end{itemize}
+\[ \mbox{ Point Estimate } \pm \mbox{Quantile } \times \mbox{Std. Error} \]
+\end{frame}
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Limits}
+\begin{itemize}
+\item
+\item 
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{Confidence Intervals : Computing the point estimate}
+\begin{itemize}
+\item The point estimate is derived from the sample.
+\item Two examples of point estimates are  the sample mean $\bar{x}$ and the sample proportion $\hat{p}$.
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------%
+\begin{frame}
+\frametitle{Quantile}
+\begin{itemize}
+\item If the variance of the population is known, or if it is larger than 30. then we can use a quantile from the standard normal distribution.
+\item If the sample size is 30 or less, we must use a variation of the standard normal distribution, called the \textbf{\emph{Student's t- Distribution}}.  
+\item For the time being, we will assume that the variance is known. 
+\item Later we will consider the case of small samples.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Central Limit Theorem}
+\begin{itemize}
+\item Recall the central limit theorem
+\item The central limit theorem gives the normal distribution its key place in statistical inference.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Computing the Standard Error}
+Standard Error for a mean
+\[
+S.E. (\hat{x}) \;=\; {\sigma \over \sqrt{n }}
+\]
+Standard Error for a proportion
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {p \times 1-p \over n }}
+\]
+}
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{Example 1 CI for Mean (1)}
+
+A company purchases a very large quantity of hardware components, and wishes to know the average weight of a component. A random sample of 625 components is weighed, and it is found that the mean sample weight is 150 gram.
+The sample standard deviation is 30 grams.
+\begin{itemize}
+\item What is the estimate for the population mean weight?
+\item What is the standard error?
+\end{itemize}
+
+
+}
+
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{Example 1 CI for Mean (2)}
+
+The estimate for the population mean weight is the sample mean. $\bar{x} = 150$ grams.
+Standard Error for a mean
+\[
+S.E. (\hat{x}) \;=\; {30 \over \sqrt{625 } = {30 \over 25 } =1.2}
+\]
+
+}
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Example 2: CI for Proportion (1)}
+
+\begin{itemize}
+\item $\hat{p}  = 0.04$
+\item Sample Size $n=100$
+\item Confidence level $1-\alpha$ is $95\%$
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\frame{
+
+\frametitle{Example 2: CI for Proportion (2)}
+
+Standard Error for a proportion
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {0.40 \times 0.60 \over 1000 }}
+\]
+
+}
+
+%-----------------------------------------------------------%
+
+\begin{frame}\frametitle{Student T distribution}
+
+\begin{itemize}
+\item 
+\item Student's T distribution is a variation of the normal distribution, designed to facotr in the increased uncertainty resutling from smlaler samples.
+\item  It is characterized by its degrees of freedom.
+\end{itemize}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}
+\frametitle{CI for Proportion: Example (1)}
+
+\begin{itemize}
+\item $\hat{p}  = 0.04$
+\item Sample Size $n=100$
+\item Confidence level $1-\alpha$ is $95\%$
+\end{itemize}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}\frametitle{CI for Proportion: Example (2)}
+
+\begin{itemize}
+\item First, lets determine the quantile.
+\item The sample size is large, so we will use the Z distribution.
+\item (Alternatively we can uses the $t-$ distribution with $\infty$ degrees of freedom.
+\end{itemize}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+
+% Confidence Interval for a Proportion
+% One Sample
+%------------------------------------------------------------------------------%
+\frame{
+\textbf{Computing the point estimate}
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100\%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+
+
+
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Example (2)}
+\begin{itemize}
+\item Let's look at this example again, but this time we will express our values in terms of percentages, rather than proportions. \item
+We have to adjust the formula for standard error accordingly.
+\end{itemize}
+
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat{p} \times (100 -\hat{p} )\over n}} \hspace{1cm} [\%]
+\]
+
+
+\begin{itemize}
+\item $ \hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72\%$
+
+\item $100 - \hat{p} = 100\% - 72\% = 28\% $
+\end{itemize}
+}
+
+
+%------------------------------------------------------------------------------%
+\frame{
+\frametitle{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {2016 \over 200 }} = \sqrt{10.08} = 3.175 \%
+\]
+
+So the standard error is $3.175 \%$.
+
+}
+
+\end{document}

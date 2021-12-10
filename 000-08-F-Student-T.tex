@@ -1,0 +1,217 @@
+\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+
+%------------------------------------------------------------------------------%
+
+
+\section*{The Student $t-$distribution}
+
+
+\begin{itemize}
+\item A similar distribution to standard normal is student-t. The student-t is defined in part by degree of freedom in the formula n-1, where n is sample size. This means that were variables from the distribution to be picked one by one, all but the last one could be chosen freely. 
+\item There is no choice but to take the very last one and no freedom to choose any other variable at that point. Therefore one variable is not free; it's like having to pick the last tile out of a bag during a Scrabble® game where there is no choice but to choose that letter.
+
+\item Different distributions like the F and the chi-square have different definitions of degree of freedom, and some even use more than one df in definition. The issue gets confusing because df definition is linked to type of test performed and isn't the same with the various parametric (based on parameters) and non-parametric (not based on parameters) tests.
+\item Essentially, it won't always be $n-1$. Goodness of fit or contingency table testing may use the chi-square distribution with different df than that which evaluates single variable hypothesis testing of the variance or standard deviation.
+\end{itemize}
+
+What is important to remember is that each time degree of freedom is used to define a distribution, it changes it. It still may have certain characteristics that are unchanging, but size and appearance vary. When people are drawing representations of distributions, particularly two of the same distributions that have a different df, they're advised to make them look different in size to convey that df is not the same.
+
+
+
+
+\subsection{Small samples}
+\begin{itemize} \item We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$). \item For a small sample ($n \leq 30$) only if the population is normally distributed
+\textbf{and} $\sigma$ is known, the standard normal distribution can be used compute quantiles. In practice,
+this case is unusual.
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\end{itemize}
+
+
+\subsection{Student's $t-$Distribution}
+\begin{itemize} 
+\item We use the \textbf{\textit{Student's $t-$distribution}} for small samples.
+\item The Student $t-$distribution is the appropriate basis for
+determining the standardized test statistic when the sampling
+distribution of the mean is normally distributed but $s$ is not
+known. 
+\item The sampling distribution can be assumed to be normal
+either because the population is normal or because the sample is
+large enough to invoke the central limit theorem. 
+\item \textbf{[IMPORTANT]} The $t$
+distribution is required when the sample is small ($n < 30$). For
+larger samples, where $n \geq 30$, normal approximation can be used. 
+\item For the critical
+value approach, the procedure is identical to that described  for the normal distribution, except for the use of $t$
+instead of $z$ as the test statistic.
+\end{itemize}
+
+
+%--------------------------------------------------%
+
+\textbf{Using the $t-$distribution for large samples}
+
+\begin{itemize}
+\item The $t-$distribution is used for computing quantiles in the case of small samples (i.e. when sample size $n \leq 30$).
+\item A key value in the $t-$distribution is the degrees of freedom, denoted $df$ (or sometimes $\nu$). For small samples \[ df= n-1\].
+\item The $t-$distribution is used for computing quantiles in the case of large samples too, as an alternative to using the $Z$ distribution.
+\item In this case , use the value $\infty$ as the degrees of freedom (see bottom row of table 7).
+\[ df= \infty\]
+\item This means that we can use the $t-$ distribution for finding the quantiles of all types of confidence intervals.
+
+\end{itemize}
+
+\section{Small samples}
+\begin{itemize} 
+\item We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$). 
+\item For a small sample ($n \leq 30$) only if the population is normally distributed
+\textbf{and} $\sigma$ is known, the standard normal distribution can be used compute quantiles. In practice,
+this case is unusual.
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\begin{itemize}
+\item Student's $t-$distribution is a variation of the normal distribution, designed to factor in the increased uncertainty resulting from smaller samples.al
+\item The distribution is really a family of distributions, with a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item With increasing
+sample size, the $t-$distribution approaches the form of the standard normal (`Z') distribution.
+\item In fact the standard normal distribution can be thought of as the $t-$distribution with $\infty$ degrees of freedom.
+\item For computing quantiles, we will consider the `Z' distribution in this way.
+\item For values of $n$ greater then 30, the difference between using $df = n-1$ and $df = \infty$ is negligible.
+
+\item As this will be relevant later, remember that a confidence interval is a \textbf{two-tailed} procedure, i.e. $k=2$.
+\end{itemize}
+
+
+
+\begin{itemize}
+\item Student's $t-$values are determined using the \texttt{t} family of commands (e.g. \texttt{qt, pt, dt}).
+\item To compute quantiles, use the code below.
+\item The degrees of freedom must be additionally be specified. Degrees of freedom are computed as sample size minus one ($n-1$)
+\item As the degrees of freedom gets larger and larger, the student t distribution converges to the Z distribution.
+
+\end{itemize}
+
+
+
+
+\subsection{Using the Student $t-$ distribution in statistical software}
+
+\begin{itemize}
+\item Student-t distribution is used for the data that follow the normal model with unknown standard deviation
+specially when sample sizes are small.
+
+\item For Student’s $t-$distribution, statistical tables such (e.g. Murdoch Barnes and State Examinations Commision tables) only tabulate quantiles with degrees of freedom of less than 30. (\textit{Some other tables go as far as 50}).
+\item This constraint has given rise to the convention that a sample of size greater than 30 is a “large sample” and in this case the standard normal distribution should be used.
+\[  n > 30 \rightarrow \mbox{Large Sample} \rightarrow \mbox{Use Z distribution} \]
+\[  n \leq 30 \rightarrow \mbox{Small Sample} \rightarrow \mbox{Use t-distribution} \]
+
+\item However there is a disparity between the “Z” value and the correct “t” value. For a sample size of 61 (i.e. degrees of freedom =60), the 97.5\% t-quantiles of Student's t distribution is 2.003, and not 1.96.
+
+\item However, statistical software is free from this restraint. The correct distribution will be automatically used. The Student’s “t” distribution  can be used in all appropriate cases. As the sample size increases the Student “t” distribution converges with the standard normal distribution
+
+\item This is worth remembering when doing analyses with statistical software.
+\end{itemize}
+.
+
+
+
+
+
+\section{Summary}
+% \subsection{The $t$ distribution}
+% TESTING A HYPOTHESIS CONCERNING THE MEAN BY USE OF THE t DISTRIBUTION:
+% \subsection{Student's t distribution}
+We use the student's $t-$ distribution when the population variance $\sigma$ is not known and either one or both of these conditions are met.
+
+\begin{itemize}
+\item The Population is normally distributed.
+\item The sample size $n$ is greater than 30.
+\end{itemize}
+N.B. The student t distribution is different for different sample sizes.
+
+\begin{itemize}
+\item The Student t distribution has approximately the same shape as the normal distribution, but has longer tails.
+\item That is to say, reflects the higher variability associated with small samples.
+\item As the sample size gets progressively larger, the student t distribution becomes more and more like the normal distribution.
+
+\item Degrees of freedom corresponds to the number of sample values that can vary after certain restrictions have been imposed on all data values.
+
+\item df = $n-1$
+\end{itemize}
+
+
+
+\begin{framed}
+\textbf{IMPORTANT} : Using Murdoch Barnes Table 7\\ \bigskip
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Size & Sample Size (n) & degrees of freedom \\ 
+\hline 
+Small & 30 or less & n-1 \\ 
+\hline 
+Large & more than 30 & $\infty$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{framed}
+
+%------------------------------------------------------------------------------%
+
+\textbf{Small samples}
+\begin{itemize} \item We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$). \item For a small sample ($n \leq 30$) only if the population is normally distributed
+\textbf{and} $\sigma$ is known, the standard normal distribution can be used compute quantiles. In practice,
+this case is unusual.
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\end{itemize}
+
+\begin{framed}
+\noindent \textbf{Using Tables for the $t$-Distribution}
+
+Degress of freedmom n-1
+
+\begin{itemize}
+\item For values between 31 and 40 we can use degrees freedom = 40
+
+\item For samples sizes between 41 and 60, we can use degrees of freedom 60
+
+\item For samples sizes between 61 and 120, we can use degrees of freedom 120
+
+\item For samples larger than 120, we can use $\infty$
+\end{itemize}
+
+\end{framed}
+
+\end{document}

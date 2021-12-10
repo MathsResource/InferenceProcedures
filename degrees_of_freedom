@@ -1,0 +1,17 @@
+
+\section{Degrees of Freedom}
+
+
+\begin{itemize}
+\item Degree of freedom (df) is a concept most used in statistics and physics. In both cases it tends to define limits of a system and position or size of what is being analyzed, so that it can be visually represented. Definition of df in both fields is related, but not quite the same.
+%\item In physics, degree of freedom positions objects or systems, and each degree references a position in time, space or in other measurements. 
+\item Df could be used synonymously with the term coordinate, and it usually means independent coordinates of the fewest number. The actual degree of freedom is based on the system being described in phase space or in all the potential types of space a system inhabits simultaneously. Every single part of phase space the system takes up can be considered a df, which helps to define the full realities of the system being considered.
+\item From a statistical standpoint, degree of freedom defines distributions of populations or samples and is encountered when people begin to study inferential statistics: hypothesis testing and confidence intervals. 
+\item As with the scientific definition, df in statistics describes shape or aspects of sample or population depending on data. Not all drawn representations of distributions have a degree of freedom measurement. The common standard normal distribution is not defined by degrees; instead, it will be the same bell-shaped curve in all instances.
+\end{itemize}
+
+
+
+What is important to remember is that each time degree of freedom is used to define a distribution, it changes it. It still may have certain characteristics that are unchanging, but size and appearance vary. When people are drawing representations of distributions, particularly two of the same distributions that have a different df, they are advised to make them look different in size to convey that df is not the same.
+
+\end{document}

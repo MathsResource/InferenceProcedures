@@ -1,0 +1,359 @@
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Introduction to Hypothesis tests}
+\large
+\begin{itemize} \item
+In statistics, a  hypothesis test is a method of making decisions using experimental data. \item A result is called \textbf{\emph{statistically significant}} if it is unlikely to have occurred by chance. \item A statistical test procedure is comparable to a trial where a defendant is considered innocent as long as his guilt is not proven.\item  The prosecutor tries to prove the guilt of the defendant. Only when there is enough charging evidence the defendant is condemned.
+\end{itemize}
+
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis tests (Null and Alternative Hypotheses) }
+\large
+%The phrase "test of significance" was coined by Ronald Fisher;
+%"Critical tests of this kind may be called tests of significance, and when such tests are available we may discover whether a second sample is or is not significantly different from the first." \\
+\begin{itemize}
+\item The null hypothesis (which we will denoted $H_0$) is an hypothesis about a population parameter, such as the population mean $\mu$. \item The purpose of hypothesis testing is to test the viability of the null hypothesis in the light of experimental data. \item The alternative hypothesis $H_1$ expresses the exact opposite of the null hypothesis. \item Depending on the data, the null hypothesis either will or will not be rejected as a viable possibility in favour of the alternative hypothesis.
+\end{itemize}
+
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Null Hypothesis }
+\large
+\begin{itemize}
+\item The null hypothesis is what the experimenter supposes the outcome before the test is performed, based on prior assumptions (note:  future remarks on the Dice experiment will be based on this view).
+\item An alternative view is that the null hypothesis is often the reverse of what the experimenter actually believes; it is put forward to allow the data to contradict it. \item In a hypothetical experiment on the effect of sleep deprivation, the experimenter probably expects sleep deprivation to have a harmful effect. \item If the experimental data show a sufficiently large effect of sleep deprivation, then the null hypothesis ,expressing that sleep deprivation has no effect, can be rejected.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{The Null Hypothesis }
+\large
+\begin{itemize}
+\item Hypothesis tests are almost always performed using null-hypothesis tests.
+
+    \item The rationale is as follows: ``Assuming that the null hypothesis is true, what is the probability of observing a value for the test statistic that is at least as extreme as the value that was actually observed?"
+\item
+The critical region of a hypothesis test is the set of all outcomes which, if they occur, will lead us to decide that there is a difference.
+\item That is, cause the null hypothesis to be rejected in favour of the alternative hypothesis.
+% \item (Remark: Selecting a suitable critical region is arbitrary (for later) ).
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Writing the Null Hypothesis}
+%In statistics, a hypothesis is a claim or statement made around a property of a population.
+%A hypothesis test (also called a test of significance) is a standard procedure for testing a claim about that %property.
+\begin{itemize}
+\item The null hypothesis is denoted $H_0$.
+\item It will often express it's argument in the form of a mathematical relation, with a written description of the hypothesis (we will do it this way).
+\item $H_0$ will always refer to the population parameter ( i.e. never the observed value) and must contain a condition of equality. (i.e. ` = ' , `$ \leq$' or `$\geq$')
+\end{itemize}
+}
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Writing the Null Hypothesis}
+Simple examples of null hypothesis ( disregard context for the time being ):
+\begin{itemize}
+\item $H_0$:  $\mu = 350$. Population mean is 350.
+\item $H_0$:  $\pi = 70\%$. Population proportion is $70\%$.
+\item $H_0$:  $\mu \leq 100$. Population mean is less than or equal to $100$.
+\item $H_0$:  $\pi \geq 60\%$. Population proportion is greater than or equal to $60\%$.
+
+\end{itemize}
+}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Writing the Null Hypothesis (Dice Example)}
+
+\begin{itemize}
+\item Recall our experiment of throwing a dice 100 times and computing the result, performed using a fair die and a crooked die.
+\item Suppose we perform this experiment again. We do not know whether the die we are using is fair or crooked. As we have no reason to believe otherwise, we will assume the dice is fair.
+    \item We expect a result close to 350. This can be our null hypothesis.
+\item We will write this as $H_0$:  $\mu = 350$. The die is fair.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Writing the Alternative Hypothesis}
+%In statistics, a hypothesis is a claim or statement made around a property of a population.
+%A hypothesis test (also called a test of significance) is a standard procedure for testing a claim about that %property.
+\begin{itemize}
+\item The alternative hypothesis is denoted $H_1$ ( or $H_a$)
+\item It will express the precise opposite argument of the null hypothesis, again mathematically with a written description of the hypothesis.
+\item $H_1$ use the following relational operators; ` $\neq$ ' , `$<$' or `$>$', depending on the null hypothesis.
+\item $H_1$ will never contain a condition of equality.
+\end{itemize}
+}
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Writing the Alternative Hypothesis}
+Simple examples of Alternative hypothesis ( based on previous example ):
+\begin{itemize}
+\item $H_0$:  $\mu = 350$.  Therefore  $H_1$:  $\mu \neq 350$. (Die Throws Example)
+\item $H_0$:  $\pi = 70\%$. Therefore  $H_1$:  $\pi \neq 70\%$.
+\item $H_0$:  $\mu \leq 100$. Therefore  $H_1$:  $\mu > 100$.
+\item $H_0$:  $\pi \geq 60\%$. Therefore  $H_1$:  $\pi < 60\%$.
+\end{itemize}
+Remember to provide a brief written description for both hypotheses.
+}
+
+%----------------------------------------------------------------------------------------------------%
+\frame{
+\frametitle{Number of Tails (For Later) }
+
+\begin{itemize}
+\item The alternative hypothesis indicates the number of tails.
+\item A rule of thumb is to consider how many alternative to the $H_0$ is offered by $H_1$.
+\item When $H_1$ includes either of these relational operators;`$>$' ,`$<$' , only one alternative is offered.
+\item When $H_1$ includes the $\neq$ relational operators, two alternatives are offered (i.e.`$>$' or `$<$').
+\end{itemize}
+}
+
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Significance Level}
+
+\begin{itemize}
+\item In hypothesis testing, the significance level $\alpha$ is the criterion used for rejecting the null hypothesis. \item The significance level is used in hypothesis testing as follows: First, the difference between the results of the experiment and the null hypothesis is determined.(i.e. Observed - Null). \item Then, assuming the null hypothesis is true, the probability of a difference that large or larger is computed . \item Finally, this probability is compared to the significance level.\item  If the probability is less than or equal to the significance level, then the null hypothesis is rejected and the outcome is said to be statistically significant.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing}
+The inferential step to conclude that the null hypothesis is false goes as follows: The data (or data more extreme) are very unlikely given that the null hypothesis is true.
+\bigskip
+This means that:
+\begin{itemize}
+\item[(1)] a very unlikely event occurred or
+\item[(2)] the null hypothesis is false.
+\end{itemize}
+\bigskip
+The inference usually made is that the null hypothesis is false. Importantly it doesn't prove the null hypothesis to be false.
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------------------%
+
+
+\begin{frame}
+\frametitle{Significance (Die Throw Example)}
+\begin{itemize}
+\item Suppose that the outcome of the die throw experiment was a sum of 401. In previous lectures, a simulation study found that only in approximately $1.75\%$ of cases would a fair die yield this result.
+\item However, in the case of a crooked die (i.e. one that favours high numbers) this result would not be unusual.
+\item A reasonable interpretation of this experiment is that the die is crooked, but importantly the experiment doesn't prove it one way or the other.
+\item We will discuss the costs of making a wrong decision later (Type I and Type II errors).
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------------------%
+%Slide 18
+\begin{frame}
+\frametitle{Significance Level}
+
+\begin{itemize}
+\item Traditionally, experimenters have used either the 0.05 level (sometimes called the 5\% level) or the 0.01 level (1\% level), although the choice of levels is largely subjective.  \item The lower the significance level, the more the data must diverge from the null hypothesis to be significant. \item Therefore, the 0.01 level is more conservative than the 0.05 level. \item The Greek letter alpha ($\alpha$) is sometimes used to indicate the significance level. \item We will $\alpha =0.05$ in this module. \end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+%Slide 19
+\begin{frame}
+\frametitle{Hypothesis Testing and p-values}
+\begin{itemize}
+\item In hypothesis tests, the difference between the observed value and the parameter value specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated.
+\item The probability of obtaining data as extreme, or more extreme, than the expected value under the null hypothesis is called the \textbf{\emph{p-value}}.
+\item There is often confusion about the precise meaning of the p-value probability computed in a significance test. It is not the probability of the null hypothesis itself.
+\item Thus, if the probability value is $0.0175$, this does not mean that the probability that the null hypothesis is either true or false is $0.0175$.
+\item It means that the probability of obtaining data as different or more different from the null hypothesis as those obtained in the experiment is $0.0175$.
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------------------------------------------%
+
+\frame{
+\frametitle{Significance Level}
+
+\begin{itemize}
+\item The significance level of a statistical hypothesis test is a fixed probability of wrongly rejecting the null hypothesis $H_0$, if it is in fact true.
+
+\item Equivalently, the significance level (denoted by $\alpha$) is the probability that the test statistics will fall into the \textbf{\emph{critical region}}, when the null hypothesis is actually true. ( We will discuss the critical region shortly).
+
+\item Common choices for $\alpha$ are $0.05$ and $0.01$
+\end{itemize}
+}
+
+%--------------------------%
+
+\begin{frame}
+\frametitle{The Hypothesis Testing Procedure }
+We will use both of the following four step procedures for hypothesis testing. The level of significance must be determined in advance. The first procedures is as follows:
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the \emph{\textbf{test statistic}} - a standardized value of the numerical outcome of an experiment.
+\item Compute the p-value for that test statistic.
+\item Make a decision based on the p-value.
+\end{itemize}
+\end{frame}
+
+%--------------------------%
+
+\begin{frame}
+\frametitle{The Hypothesis Testing Procedure }
+The second procedures is very similar to the first, but is more practicable for written exams, so we will use this one more. The first two steps are the same.
+
+\begin{itemize}
+\item Formally write out the null and alternative hypotheses (already described).
+\item Compute the test statistic
+\item Determine the \emph{\textbf{critical value}} (described shortly)
+\item Make a decision based on the critical value.
+\end{itemize}
+\end{frame}
+\begin{frame}
+
+%------------------------------------------------%
+
+\frametitle{Test Statistics}
+\begin{itemize}
+\item A test statistic is a quantity calculated from our sample of data. Its value is used to decide whether or not the null hypothesis should be rejected in our hypothesis test.
+\item The choice of a test statistic will depend on the assumed probability model and the hypotheses under question.
+    \item The general structure of a test statistic is
+\[ \mbox{TS}  = {\mbox{Observed Value} - \mbox{Hypothesisd Value}  \over \mbox{Std. Error}}\]
+\end{itemize}
+\end{frame}
+%----------------------------------------------%
+% Slide 24
+\begin{frame}
+\frametitle{The Test Statistic}
+\begin{itemize}
+
+\item In our dice experiment, we observed a value of 401. Under the null hypothesis, the expected value was 350.
+\item The standard error is of the same form as for confidence intervals. $s \over \sqrt{n}$.
+\item (For this experiment the standard error is 17.07).
+\item The test statistic is therefore \[ \mbox{TS}  = {401 - 350  \over 17.07} = 2.99 \]
+\end{itemize}
+\end{frame}
+
+%--------------------------%
+
+
+\begin{frame}
+\frametitle{The Critical Value}
+
+
+\begin{itemize}
+\item The critical value(s) for a hypothesis test is a threshold to which the value of the test statistic in sample is compared to determine whether or not the null hypothesis is rejected.
+\item The critical value for any hypothesis test depends on the significance level at which the test is carried out, and whether the test is one-sided or two-sided.
+\item The critical value is determined the exact same way as quantiles for confidence intervals.
+
+\end{itemize}
+\end{frame}
+
+%--------------------------%
+
+
+\begin{frame}
+\frametitle{One Tailed Hypothesis test}
+\begin{itemize}
+\item A one-sided test is a statistical hypothesis test in which the values for which we can reject the null hypothesis, $H_0$ are located entirely in one tail of the probability distribution.
+
+\item In other words, the critical region for a one-sided test is the set of values less than the critical value of the test, or the set of values greater than the critical value of the test.
+
+\item A one-sided test is also referred to as a one-tailed test of significance.
+
+\item A rule of thumb is to consider the alternative hypothesis.  If only one alternative is offered by $H_1$ (i.e. a $``<"$ or a $``>"$ is present, then it is a one tailed test.)
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Two Tailed Hypothesis test}
+\begin{itemize}
+\item
+A two-sided test is a statistical hypothesis test in which the values for which we can reject the null hypothesis, H0 are located in both tails of the probability distribution.
+
+\item In other words, the critical region for a two-sided test is the set of values less than a first critical value of the test and the set of values greater than a second critical value of the test.
+
+\item A two-sided test is also referred to as a two-tailed test of significance.
+\item A rule of thumb is to consider the alternative hypothesis.  If only one alternative is offered by $H_1$ (i.e. a $`\neq'$ is present, then it is a two tailed test.)
+\end{itemize}
+\end{frame}
+
+
+%--------------------------%
+
+
+\begin{frame}
+\frametitle{Determining the Critical value}
+\begin{itemize} \item The critical value for a hypothesis test is a threshold to which the value of the test statistic in a sample is compared to determine whether or not the null hypothesis is rejected.
+
+\item The critical value for any hypothesis test depends on the significance level at which the test is carried out, and whether the test is one-sided or two-sided.
+\end{itemize}
+\end{frame}
+
+
+%--------------------------%
+
+
+\begin{frame}
+\frametitle{Determining the Critical value}
+\begin{itemize}
+\item A pre-determined level of significance $\alpha$ must be specified. Usually it is set at 5\% (0.05).
+\item The number of tails must be known. (For later - One tailed or two tailed : $k$ is either 1 or 2).
+\item Sample size will be also be an issue. We must decide whether to use $n-1$ degrees of freedom or $\infty$ degrees of freedom, depending on the sample size in question.
+\item The manner by which we compute critical value is identical to the way we compute quantiles.We will consider this in more detail during tutorials.
+\item For the time being we will use 1.96 as a critical value.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------%
+
+\begin{frame}
+\frametitle{Decision Rule:  The Critical Region}
+\begin{itemize}
+\item The critical region CR (or rejection region RR) is a set of values of the test statistic for which the null hypothesis is rejected in a hypothesis test. \item That is, the sample space for the test statistic is partitioned into two regions; one region (the critical region) will lead us to reject the null hypothesis $H_0$, the other will not.
+
+\item A test statistic is in the critical region if the absolute value of the test statistic is greater than the critical value.
+    \item So, if the observed value of the test statistic is a member of the critical region, we conclude ``Reject $H_0$"; if it is not a member of the critical region then we conclude "Do not reject $H_0$".
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Critical Region}
+\begin{itemize}
+
+\item $|TS| > CV$ Then we reject null hypothesis.
+\item $|TS| \leq CV$ Then we \textbf{fail to reject} null hypothesis.
+
+\item For our die-throw example; TS = 2.99, CV = 1.96.
+\item Here $|2.99| > 1.96$ we reject the null hypothesis that the die is fair.
+\item Consider this in the context of proof.
+\end{itemize}
+\end{frame}
+
+%--------------------------%
+
+\begin{frame}
+\frametitle{Performing a Hypothesis test}
+To summarize: a hypothesis test can be considered as a four step process
+\begin{itemize}
+\item Formally writing out the null and alternative hypothesis.
+\item Computing the test statistic.
+\item Determining the critical value.
+\item Using the decision rule.
+\end{itemize}
+\end{frame}

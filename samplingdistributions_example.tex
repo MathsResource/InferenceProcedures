@@ -1,0 +1,70 @@
+
+\subsection{sampling distributions}
+Suppose that the heights of students are normally distributed with a
+mean of 68.5 inches and a standard deviation of 2.7 inches.\\ If 200 random samples of
+size 25 are drawn from this population and their means recorded to the nearest tenth
+of an inch, determine:
+\begin{itemize}
+\item[(1)] The expected mean and standard deviation of the sampling distribution of the
+mean.
+\item[(2)] The expected number of recorded sample means that fall between 67.9 and 69.2
+inclusive.
+\item[(3)] The expected number of recorded sample means falling below 67.0.
+\end{itemize}
+
+%-------------------------------------------------------------------------------%
+
+
+\subsection{Sampling distributions}
+
+The sampling distribution of the mean of 25 observations has the same mean
+as the population, which is 68.5 inches, and standard deviation from (5.3) of
+2.7/5 = 0.54.\\ \bigskip 
+
+The samples are random, so one can’t be sure just how many will have means
+recorded between 67.9 and 69.2 inches. One can work out the probability that
+a recorded mean will so lie, from the sampling distribution of the sample mean
+which is normal with mean 68.5 and standard deviation 0.54. \\ \bigskip 
+
+That probability is the probability that the sample mean lies between 67.85 and 69.25, allowing
+for the crude recording of the means. The corresponding z scores are
+(67.85 − 68.5)/0.54 = −1.20 and (69.25 − 68.5)/0.54 = 1.39.
+
+%-------------------------------------------------------------------------------%
+
+\subsection{Sampling distributions}
+The probability between the two z values is
+\[0.9177 − 0.1151 = 0.8026.\]
+Since there are 200 samples drawn, you can now think of each as a single trial.
+The recorded mean lies between 67.9 and 69.2 with probability 0.8026 at each
+trial.
+
+We are dealing with a binomial distribution with n = 200 trials and
+probability of success $p = 0.8026$. The expected number of successes is
+\[np = 200 × 0.8026 = 160.52.\]
+
+%-------------------------------------------------------------------------------%
+
+Similarly, the probability that a recorded mean lies below 67.0 is the probability
+that the sample mean lies below 66.95. The z value is (66.95 − 68.5)/0.54 =
+−2.87. We want the left-hand tail probability for z = −2.87, which is the
+right-hand tail probability for z = 2.87. \\  \bigskip { From Table 4 of the New Cambridge
+}Statistical Tables this is 0.00205. So the expected number of sample means out
+of 200 recorded below 67.0 is $200 \times 0.00205 = 0.41$.
+
+
+%-------------------------------------------------------------------------------------------------------------------%
+{
+
+The mean of the sampling distribution is the mean of the population
+
+$\mu_{\bar{x}}$ = $\mu$
+
+The standard deviation of the sampling distribution is the square root of the standard deviation of the population.
+
+
+We call this standard deviation the \textbf{\emph{Standard Error}} .
+
+\[ \sigma_{\bar{x}} = {\sigma \over\sqrt{ n} }\]
+}
+

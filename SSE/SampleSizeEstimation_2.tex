@@ -1,0 +1,152 @@
+
+%-------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation}
+
+\begin{itemize} \item Recall the formula for margin of error, which we shall denote $E$.
+\[  E = Q_{(1-\alpha)} \times \mbox{Std. Error}\]
+
+\item $Q_{(1-\alpha)}$ denotes the quantile that corresponds to a $1-\alpha$ confidence level. (There is quite a bit of variation in notation in this respect.)
+\item Also recall that the only way to influence the margin of error is to set the sample size accordingly.
+
+\item Sample size estimation describes the selection of a sample size $n$ such that the margin of error does not exceed a pre-determined level $E$.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+
+\begin{itemize}
+
+\item The margin of error does not exceed a certain threshold $E$.
+\[ E \geq Q_{(1-\alpha)} \times S.E.(\bar{x}), \]
+
+\item which can be re-expressed as
+\[E \geq Q_{(1-\alpha)} \times {\sigma \over \sqrt{n} }.\]
+
+\item Divide both sides by $\sigma \times Q_{(1-\alpha)}$.
+\[ \frac{E}{\sigma Q_{(1-\alpha)}} \geq {1 \over \sqrt{n} } \]
+
+\item Square both sides
+
+\[ \frac{E^2}{\sigma^2 Q_{(1-\alpha)}^2} \geq {1 \over n } \]
+
+
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for the Mean}
+
+\begin{itemize}
+\item Square both sides
+
+\[ \frac{E^2}{\sigma^2 Q^2_{(1-\alpha)}} \geq {1 \over n } \]
+
+\item Invert both sides, changing the direction of the relational operator.
+
+\[ \frac{\sigma^2 Q^2_{(1-\alpha)}}{E^2} \leq n \]
+
+
+\item The sample size we require is the smallest value for $n$ which satisfies this identity.
+\item The sample standard deviation $s$ may be used as an estimate for $\sigma$.
+\item (This formula would be provided on the exam paper).
+\end{itemize}
+
+
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for the Mean: Example}
+
+\begin{itemize}
+\item An IT training company has developed a new certification program. The company wishes to estimate the average score of those who complete the program by self-study.  \item The standard deviation of the self study group is assumed to be the same as the overall population of candidates, ie. 21.2 points.
+    \item How many people must be tested if the sample mean is to be in error by no more than 3 points, with 95\% confidence.
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for the Mean: Example}
+
+\begin{itemize}
+\item The sample size we require is the smallest value for $n$ which satisfies this identity.
+\[ n \geq \frac{\sigma^2 Q^2_{(1-\alpha)}}{E^2}  \]
+\item Remark: $1-\alpha$ = 0.95, therefore $Q_{(1-\alpha)}$ = 1.96. Also $E=3$ and $\sigma =21.2$.
+\[ n \geq \frac{(21.2)^2 \times (1.96)^2}{3^2} \]
+\item Solving, the required sample size is the smallest value of $n$ that satisfies
+\[ n \geq 191.8410 \]
+\item Therefore, the company needs to test 192 self-study candidates.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for proportions}
+We can also compute appropriate sample sizes for studies based on proportions.
+\begin{itemize}
+\item From before; \[ E \geq Q \times S.E.(\hat{p}). \]
+(For the sake of brevity, we will just use the notation $Q$ for quantile.)
+
+\item Divide both sides by Q.
+
+\[ E \geq Q \times \sqrt{ {\pi(1-\pi)  \over n} }. \]
+
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for proportions}
+\begin{itemize}
+\item Remark: $E$ must be expressed in the same form as $\pi$, either as a proportion or as a percentage.
+\item Remark : The standard error is maximized at $\pi = 0.50$,which is to say $\pi(1-\pi)$ can never exceed 0.25 ( or 25\%). Therefore the standard error is maximized at $\pi = 0.50$. To make the procedure as conservative as possible, we will use $0.25$ as our value for $\hat{p}_1 \times (1 - \hat{p}_1)$.
+\item If we use percentages, $\pi \times (100-\pi)$ can not exceed 2500 (i.e $ 50 \times (100-50)=2500)$.
+
+\[ E \geq Q \times \sqrt{{2500 \over n}}. \]
+
+
+\end{itemize}
+
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size Estimation for proportions}
+
+\begin{itemize}
+
+\item Dive both sides by $Q$, the square both sides:
+
+\[ \left({E\over Q}\right)^2 \geq {2500 \over n}. \]
+
+\item Invert both sides, changing the direction of the relational operator, and multiply both sides by $2500$.
+
+\[ \left({Q\over E}\right)^2 \times 2500 \leq n. \]
+
+\item The sample size we require is the smallest value for $n$ which satisfies this identity. (This formula would be provided on the exam paper, but without the maximized standard error).
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{SSE for proportions: Example}
+\begin{itemize}
+\item An IT journal wants to conduct a survey to estimate the true proportion of university students that own laptops.
+\item The journal has decided to uses a confidence level of $95\%$, with a margin of error of $2\%$.
+\item How many university students must be surveyed?
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------%
+\begin{frame}
+\frametitle{Sample Size estimation for proportions}
+
+\begin{itemize}
+\item Confidence level = 0.95. Therefore the quantile is $Q_{(1-\alpha)} = 1.96$
+\item Using the formula: \[ n \geq \left({1.96 \over 2 }\right)^2 \times 2500  \]
+\item The required sample size is the smallest value for $n$ which satisfies this identity: \[ n \geq 2401  \]
+\item The required sample size is therefore 2401.
+\end{itemize}
+\end{frame}
+
+\end{document}
