@@ -1,0 +1,322 @@
+﻿\documentclass[]{report}
+
+\voffset=-1.5cm
+\oddsidemargin=0.0cm
+\textwidth = 480pt
+
+\usepackage{framed}
+\usepackage{subfiles}
+\usepackage{graphics}
+\usepackage{newlfont}
+\usepackage{eurosym}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\begin{document}
+
+
+
+\section{Two Sample Mean - Inference Worked Example}
+%%Question 3 Part b : Confidence interval for the difference in means of two samples.
+%% b) 
+The mean and standard deviation of the weights of a sample of Irish students according to sex are given below
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+& Number & Mean & Std. Dev. \\ \hline
+Male &100&75&10 \\ \hline
+Female&110& 66&8 \\  \hline
+
+\end{tabular}
+\end{center}
+
+
+Calculate a 95\% confidence interval for the difference between the mean weight of all male
+students and the mean weight of all female students.(7 males)
+
+%%General Structure of a Confidence Interval
+
+
+
+%------------------------------------------------------------- %
+\noindent \textbf{Observed difference}
+
+\begin{itemize}
+\item let X denote the weights of male students    X= 75
+\item let Y denote the weights of female students  Y= 66
+\item The difference in the mean of weights X-Y= 9
+\end{itemize}
+%------------------------------------------------------------- %
+\noindent \textbf{Quantile}
+
+\begin{itemize}
+\item Large sample (both groups are greater than 30).
+\item Population variance is unknown.
+\item Use t distribution with  degrees of Freedom.
+\item Confidence level is 95\%. Therefore significance levels is 5%.
+\item Confidence intervals are always two tailed procedures.
+\item Column = k = $\frac{0.01}{2}= 0.005$
+\end{itemize}
+
+\begin{framed}
+\noindent \textbf{Murdoch Barnes table 7}
+
+\begin{itemize}
+\item Row: df =  
+\item Column = 0.005
+
+\end{itemize}
+
+Therefore the quantile is =  2.576 
+\end{framed}
+
+Stardard Error
+
+%------------------------------------------------------------- %
+
+
+
+
+
+Confidence Interval is therefore
+
+\[99\% CI = 9 \pm (2.576 \times 1.256) \]
+
+
+Part (ii)
+Based on this confidence interval, test the hypothesis that on average male students are 6kgs heavier than female students.
+
+State your hypotheses clearly. What is the significance level of this test?   (3 marks)
+
+H0:X-y= 6
+
+
+
+
+Since  we do not reject the null hypothesis at a significance level of 1\%.
+
+
+
+
+
+Part (ii)
+Based on this confidence interval, test the hypothesis that on average male students are 6kgs heavier than female students.
+State your hypotheses clearly. What is the significance level of this test?   (3 marks)
+
+\begin{description}
+
+\item[Null :]                 True difference between means is zero
+
+\item[Alternative:]         True difference between means is not zero
+\end{description}
+Or alternatively
+
+\begin{description}
+\item[Null :]              H0:X-Y= 0   True difference between means is zero
+
+\item[Alternative:]         True difference between means is not zero
+\end{description}
+
+
+
+\begin{itemize}
+\item Since the null value, 0 is inside the confidence interval  .
+
+\item This means that the true difference of means could be zero.
+
+\item We do not reject the null hypothesis at a significance level of 1\%.
+
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------------------------------------SLR%
+\noindent \textbf{Test Statistic}
+
+Remember the general structure of a test statistic
+
+\begin{framed}
+\[TS =  \frac{\mbox{Observed Value-Null Value}}{\mbox{Std. Error}} \]
+\end{framed}
+
+
+\begin{itemize}
+\item Standard Error\[S.E.(D) = \frac{S_D}{n}=2.1378= 0.7555\]
+
+\item Test statistis is a t random variable
+
+\itemTest Statistic\[x-0S.E.(D)=2 - 00.755= 2.649\]
+\end{itemize}
+
+\noindent \textbf{Critical values}
+
+\begin{itemize}
+\item The sample size (n=8) is small ($n \leq 30$). Use t distribution with n-1 degrees of Freedom.
+\item The test is one tailed.  k= 1  ( why?  ">" symbol in the alternative hypothesis).
+\item Murdoch Barnes table 7
+\item Column:  $\alpha/k = 0.05/1= 0.05$
+\item Row: df = 7
+\item Critical value =  1.895    
+\end{itemize}
+\noindent \textbf{Decision rule}
+
+\begin{framed}
+\noindent Is the absolute value of the test statistic value greater than the critical value?
+\begin{itemize}
+\item If Yes: we reject the null hypothesis
+
+\item If No: We fail to reject the null hypothesis. (not enough evidence)
+\end{itemize}
+\end{framed}
+
+Here TS = 2.64  is greater than CV = 1.895.
+
+\noindent \textbf{Decision rule}
+We reject the null hypothesis. Students do put on weight during college. 
+
+
+
+
+\section{Worked Example}
+Calculate a 99\% confidence interval for the difference between the proportion of all Irish having access to the
+Internet and the proportion of all Spaniards having access to the internet.  (4 marks)
+
+
+
+\noindent \textbf{Standard Error for confidence interval}
+
+\[\frac{p1(1 -p1)}{n1}+ \frac{p2(1 -p2)}{n2}\]
+\[=\frac{0.750.25}{1000}+ \frac{0.700.30}{2000}     =  0.017103\]
+
+\noindent \textbf{Quantile for a 99\% confidence interval}
+\begin{itemize}
+\item significance level  =1\%
+\itemnumber of tails = 2
+\itemdegrees of freedom = 
+\itemquantile = 2.576 
+\end{itemize}
+
+
+
+99\% Confidence Interval for difference of two proportions
+
+%================================================================= %
+
+
+Useful pieces of information
+
+
+Sample size  n=100
+
+
+\begin{description}
+\item[Part i]
+Calculate the equation of the least square regression line and interpret the value of the slope.
+
+\item[part ii]
+
+Using this regression model, estimate the mean weight of individuals who are 3 metres tall.
+\item[part iii]
+
+Is such an estimate reliable?  briefly explain why.
+
+No it is not reliable. Consider the range of values of the x predcitro variable
+\end{description}
+
+
+
+\begin{itemize}
+\item SE = $\sqrt{ [p_1 \times (1 - p_1) / n_1] + [p_2 \times (1 - p_2) / n_2] } $
+\item SE = $\sqrt{ [0.40 \times 0.60 / 400] + [0.30 \times 0.70 / 300] } $
+\item SE  = $\sqrt{[ (0.24 / 400) + (0.21 / 300) ]}$ = $\sqrt{(0.0006 + 0.0007)}$ = $\sqrt{0.0013} = 0.036$
+\end{itemize}
+
+\section{Worked Example : Two Sample Test} Deltatech software has 350 programmers divided into two groups with 200 in Group A and 150 in Group B. In order to compare the efficiencies of the two groups, the programmers are observed for  1 day.
+
+\begin{itemize}
+\item  The 200 programmers in Group A averaged 45.2 lines of code with a standard deviation of 8.4.
+
+\item The 150 programmers in Group B averaged 42.7 lines of code with a standard deviation of 5.2.
+
+\end{itemize}
+
+
+Let $x_a$ denote the average number of lines of code per day produced by programmers in Group A and
+let $x_b$ be the corresponding quantity for Group B.
+
+Provide an estimate of a — b and calculate an approximate 95\% confidence interval for a — b .
+
+%==============================================================%
+
+\subsubsection{Worked Examples} 
+ Using the data in Q1 (Deltatech), test the claim that Group A are more efficient than Group B by
+Interpreting the 95\% confidence interval.
+Computing the appropriate test statistic.
+Computing the appropriate p-value.
+
+
+
+%==============================================================%
+\subsubsection{Worked Examples} 
+
+The strength of concrete depends, to some extent, on the method used for drying. Two different methods showed the following results for independently tested specimens.  ( You may assume that there are equal variances).
+
+\[ WHERE IS DATA \]
+
+
+\begin{itemize}
+\item[(i)] Does Method 1 appear to produce concrete with a greater mean strength? State your conclusions clearly.
+\item[(ii)]Construct a 95\% confidence interval for the difference between the two means. Interpret this interval.
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\subsubsection{Worked Example}
+A survey of 1000 Irish indicates that 750 have access to the Internet. A survey of 2000 Spaniards indicates that 1400 have access to the Internet.
+
+\noindent By calculating the appropriate p-value, test the hypothesis that the proportion of all Irish having access to the Internet
+is equal to the proportion of all Spaniards having access to the internet at a significance level of 5\%. % (8 marks)
+
+
+%================================================================= %
+\begin{description}
+\item[Step 1] : Formally state the null and alternative hypotheses
+\item[Step 2] : Determine the test statistic
+\item[Step 3a] : Determine the p.value
+\item[Step 4a] : Decision Rule for p-values.
+\end{description}
+
+%================================================================= %
+
+\noindent \textbf{Step 1 : Formally state the null and alternative hypotheses}\\ 
+Proportion of people having internet access is the same in both Ireland and Spain
+Proportion of people having internet access differs in Ireland and Spain
+
+
+Alternatively we write the hypotheses as follows (the null value is more evident).
+%================================================================= %
+\noindent \textbf{Step 2 Compute the Test Statistic}\\
+
+\[p_{Irl}= \frac{750}{1000}= 0.75\] 
+\[p_{Esp}= \frac{1400}{2000}= 0.70\]
+
+Observed Difference = 0.75 - 0.70 = 0.05  
+
+Now lets compute the standard error (from Formulae)
+
+
+
+
+
+
+
+\end{document}

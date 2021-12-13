@@ -1,0 +1,735 @@
+
+\begin{itemize}
+\item 
+Statistical inference is the process of making inferences about populations from information provided by samples.
+\end{itemize}
+
+
+
+
+
+
+
+Statistical inference is the process of making inferences about populations from information provided by samples.
+
+\section{What is Statistical Inference?}
+%---------------------------------------------------%
+
+\begin{itemize}
+\item Statistical inference is about inferring from the data about parameters that describe an assumed
+model for the data.
+\item 
+Solution: In statistics, a model for the mechanism that has produced data is as-
+sumed. The model is characterized by some parameters that are unknown. Having
+data, statistics tries to infer from them some information about these parameters.
+\end{itemize}
+
+%--------------------------------------------------------------------------------------------------------------------------%
+
+\subsection{Types of inference procedures}
+
+\begin{itemize}
+\item The two main types of inference procedures are confidence intervals and hypothesis tests .\item There are two ways of conducting a hypothesis test.\item  One method is to compute the test statistic, and compare to the critical values.\item The second method is to compute the probability value (p-value), and compare it to the significance level.\item Nearly all computer programs use the p-value approach. In this course we will focus more on the p-value approach.
+\end{itemize}
+
+\subsection{The probability value }
+\begin{itemize}
+\item The probability value (sometimes called the p value) is the probability of obtaining a statistic as different from or more different from the parameter specified in the null hypothesis as the statistic obtained in the experiment. 
+\item The precise meaning of the p-value
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------%
+
+\section{Assumptions for testing claims about population means}
+{
+\begin{itemize}
+\item The sample is a simple random sample
+\item The value of the population variance $\sigma$ is known.
+\item Either one or both of these conditions is satisfied
+\begin{itemize}
+\item The Population is normally distributed.
+\item The sample size $n$ is greater than 30.
+\end{itemize}
+\end{itemize}
+}
+
+%---------------------------------------------------------------------------------------------%
+
+\section{Point Estimates}
+
+Statisticians use sample statistics to estimate population parameters. 
+
+Some commonly used point estimates are
+\begin{itemize}
+\item Sample means $\bar{x}$ are used to estimate population means $\mu$
+\item Sample proportions $\hat{p}$ are used to estimate population proportions $\pi$.
+\end{itemize}
+
+
+
+
+%%- \subsubsection{Point Estimates}
+
+In statistics, estimation refers to the process by which one makes inferences about a population, based on information obtained from a sample.
+There are two types of estimations:
+
+\begin{itemize}
+\item Point Estimation
+\item Interval Estimation
+\end{itemize}
+
+
+%%- \subsubsection{Point Estimates}
+
+An estimate of a population parameter may be expressed in two ways:
+
+Point estimate. A point estimate of a population parameter is a single value of a statistic. 
+
+
+% http://www.math.uah.edu/stat/point/
+
+
+Point estimation refers to the process of estimating a parameter from a probability 
+distribution, based on observed data from the distribution. 
+
+
+
+% http://www.cliffsnotes.com/math/statistics/principles-of-testing/point-estimates-and-confidence-intervals
+
+
+You have seen that the sample mean $\bar{x}$ is an unbiased estimate of the population mean $\mu$. 
+Another way to say this is that $\bar{x}$  is the best point estimate of the true value of $\mu$. 
+
+
+
+Some error is associated with this estimate, however—the true population mean may be larger 
+or smaller than the sample mean. Instead of a point estimate, you might want to identify a 
+range of possible values $p$ might take, controlling the probability that $\mu$ is not lower 
+than the lowest value in this 
+range and not higher than the highest value. Such a range is called a confidence interval.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\section{Confidence Intervals}
+
+$\nu$ is the degrees of freedom. For large samples ( samples of a
+size greater than thirty) $\nu = \infty$. For small sample (
+samples of a size thirty or less)  $\nu = n-1$
+
+
+\section{Hypothesis Testing and p-values}
+\begin{itemize}
+\item In hypothesis tests, the difference between the observed value and the parameter value specified by $H_0$ is computed and the probability of obtaining a difference this large or large is calculated.
+\item The probability of obtaining data as extreme, or more extreme, than the expected value under the null hypothesis is called the \textbf{\emph{p-value}}.
+\item There is often confusion about the precise meaning of the p-value probability computed in a significance test. It is not the probability of the null hypothesis itself.
+\item Thus, if the probability value is $0.0175$, this does not mean that the probability that the null hypothesis is either true or false is $0.0175$.
+\item It means that the probability of obtaining data as different or more different from the null hypothesis as those obtained in the experiment is $0.0175$.
+\end{itemize}
+
+\textbf{Significance (Die Throw Example)}
+\begin{itemize}
+\item Suppose that the outcome of the die throw experiment was a sum of 401. In previous lectures, a simulation study found that only in approximately $1.75\%$ of cases would a fair die yield this result.
+\item However, in the case of a crooked die (i.e. one that favours high numbers) this result would not be unusual.
+\item A reasonable interpretation of this experiment is that the die is crooked, but importantly the experiment doesn't prove it one way or the other.
+\item We will discuss the costs of making a wrong decision later (Type I and Type II errors).
+\end{itemize}
+
+
+
+
+
+
+
+%-----------------------------------%
+
+
+\section{Inference}
+\numberwithin{equation}{section}
+
+\subsection{Standard Errors}
+
+\begin{eqnarray*}
+H_{o}: p = p_{0} \\
+H_{a}: p \neq p_{0}
+\end{eqnarray*}
+
+\begin{equation}
+S.E.(\hat{p})=\sqrt{\frac{(p_{o}(1-p_{o})}{n}}
+\end{equation}
+
+
+%% \chapter{17. Inference : Worked Examples}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\begin{itemize}
+\item Significance  $\alpha$   /    confidence 1- $\alpha$
+\item 
+
+Number of tails   
+\begin{itemize}
+\item one tailed procedure or two tailed procedure
+\item Confidence intervals are always two tailed
+\end{itemize}
+
+
+\item Sample size   
+\begin{itemize}
+\item degrees of freedom depends on sample size
+\end{itemize} 
+\end{itemize}
+\end{framed}
+
+
+
+%---------------------------------------------------------------------------------------------%
+{
+\subsection{Two tailed test}
+
+$H_0:  = $
+$H_1:  \neq $
+
+$\alpha$ is divided equally between the two tail of the critical region.
+
+$\neq$ i.e. \emph{``not equal to"} can also mean \emph{``less than or greater than"}.
+}
+
+%----------------------------------------------------------------------------------------------------%
+\section{Assumptions for testing claims about population means, with unknown variance.}
+{
+\begin{itemize}
+\item The sample is a simple random sample
+\item The value of the population variance $\sigma$ is not known.
+\item Either one or both of these conditions is satisfied
+\begin{itemize}
+\item The Population is normally distributed.
+\item The sample size $n$ is greater than 30.
+\end{itemize}
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------------------%
+{
+\[ t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} \]
+
+degrees of freedom (df or $\nu$) = n-1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------------------%
+{
+What is the standard error $\mbox{S.E.}(\hat{p})$ 
+
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{{\hat{p} \times (1- \hat{p}) \over n}} \]
+
+When computing the standard error for a hypothesis test, we use this formula.
+
+\[ \mbox{S.E.}(\hat{p}) = \sqrt{{\hat{p_0} \times (1- \hat{p_o}) \over n}} \]
+
+Where $p_0$ is the population proportion, as proposed by the null hypothesis.
+}
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------------%
+\section{Confidence Intervals}
+
+{
+\subsection{Margin of Error}
+
+\[ E = {\mbox{ upper conf. limit} - \mbox{ lower conf. limit} \over 2} \]
+
+\subsection{Point Estimates}
+\begin{itemize}
+\item The sample proportion $\hat{p}$ is the best point estimate of the population proportion $p$.
+\item The sampk
+\end{itemize}
+
+\subsection{The pooled estimate}
+
+The pooled estimate of $p_1$ and $p_2$ is denoted by $\bar{p}$.
+
+\[ \bar{p} = { x_1 +  x_2  \over n_1 + n_2 } \]
+
+i.e. The overall proportion of successes in the aggregate sample, regardless of population.
+
+
+\subsection{Inferences for matched pairs}
+Assumptions
+\begin{itemize}
+\item[1] The sample data is comprised of matched pairs.
+\item[2] The samples are simple random samples.
+\end{itemize}
+
+
+%-------------------------------------------------------%
+{
+\subsection{Standard Error of a sample mean}
+
+The standard error of the sample mean is given as
+
+\[  \mbox{S.E.}(\bar{x}) = { \sigma \over \sqrt{n} } \]
+
+}
+
+
+%--------------------------------------------------------------------%
+
+
+
+
+
+
+\subsection{Confidence interval of a mean (small sample)}
+
+If the data have a normal probability distribution and the sample
+standard deviation $s$ is used to estimate the population
+standard deviation $\sigma$, the interval estimate is given by:
+\begin{equation}
+\bar{X} \pm t_{1-\alpha/2,n-1}\frac{s}{\sqrt{n}}
+\end{equation}
+where $t_{1-\alpha/2,n-1}$ is the value providing an area of $\alpha/2$ in the upper tail of a Students t distribution with n - 1 degrees of freedom.
+
+
+
+
+
+%--------------------------------------------------------%
+\subsection{two sample t-test}
+Problem: You have obtained the number of years of education from one random sample of 38 police 
+officers from City A and the number of years of education from a second random sample of 30 police 
+officers from City B.\ The average years of education for the sample from City A is 15 years with a 
+standard deviation of 2 years. The average years of education for the sample from City B is 14 years with a standard deviation of 2.5 years. \\
+Is there a statistically significant difference between the education levels of police officers in City A and City B?
+
+
+
+
+\begin{itemize}
+\item The schedule of formulae that will be at the back of your examination paper will be posted on the SULIS site shortly.
+\item It is advisable to familiarise yourself with the contents before the examination.
+\item Please let me know as soon as possible if there are any issues with it.
+\end{itemize}
+
+
+
+
+\textbf{Type I and Type II errors - Die Example}
+\begin{itemize}
+\item Recall our die throw experiment example. 
+\item Suppose we perform the experiment twice with two different dice.
+\item We dont not know for sure whether or not either of the dice is fair or crooked.
+\item Suppose we get a sum of 401 from one die, and 360 from the other.
+\end{itemize}
+
+\textbf{Examples}
+
+For the sake of brevity, in the following example the following values are always used or realised.
+
+\begin{itemize}
+\item Test statistic  = 2.7
+\item Significance level $\alpha$ = 0.05. Tests are always two tailed.
+\item Samples are either large or of size $n = 10$
+\item In the case of large samples CV = 1.96. For small samples, CV = .
+\item
+\end{itemize}
+
+\begin{itemize}
+\item All of the following example will have the same significance level and test statistic.
+\item Hence the overall outcomes are the same ( $\alpha$ = 0.05, k=2, TS = 2.7)
+\item We will use both the p-value method and the critcal value approach.
+\item 
+\end{itemize}
+
+
+\textbf{Hypothesis testing for Two Samples}
+
+\begin{itemize}
+\item Paired t test
+\item Difference of two mean (large samples)
+\item Difference of two mean (small samples)
+\item Difference of two propotions (large sample only)
+\end{itemize}
+
+
+\textbf{Computing the Standard Error and Test Statistic }
+\begin{itemize}
+\item The point estimate is therefore $\bar{x}_1 -\bar{x}_2$
+\item The standard error is computed from formulae.
+\item The test statistic is therefore 
+% \[ (\bar{x}_1 -\bar{x}_2) - (0) \over \mbox{S.E. }(\bar{x}_1 -\bar{x}_2  )} \]
+\end{itemize}
+
+\textbf{Difference of proportions}
+
+\begin{itemize}
+\item The point estimate is the difference 
+\item Observed difference  = $7\%$. Under the null hypothesis, the expected difference is $0\%$
+\item The standard error formulae
+\end{itemize}
+
+
+
+
+
+%================================================================================%
+Example 1
+A fair die is thrown. The number shown on the die is the random variable X. Tabulate the possible outcomes.
+Solution
+X takes the six possible outcomes 1, 2, 3, 4, 5, 6 which each have probability 1/6 (i.e. one sixth).
+
+r 1 2 3 4 5 6
+P(X = r)1/6 1/6 1/6 1/6 1/6 1/6
+Example 2
+Two unbiased spinners, one numbered 1, 3, 5, 7 and the other numbered 1, 2, 3 are spun. The random variable X is the sum of the two results.
+Find the probability distribution for X.
+
+
+
+Solution
+Listing all the possible outcomes is best done in a table.
+
+
+
+
+%================================================================================%
+
+
+
+\subsection{Question 3.2 }
+
+
+What is the probability of getting a number divisible by 3 in each of 3 throws of a dice?
+
+
+
+
+Solution
+
+
+
+Numbers divisible by 3 : 3 and 6            probability of throwing 3 or 6:   
+
+
+
+Probability of throwing 3 or 6 three times in a row  ( Each throw of a dice is an independent event.)
+
+
+
+P[3T] = P[T]P[T]P[T]=133=127
+
+%================================================================================%
+
+
+
+%----------------------------------------------------------%
+Question 3
+$\sqrt(\hat{p} \times (1-\hat{p} ))$
+
+Pen and Paper calculations are a bit easier when working in terms of percentages.
+
+$\sqrt(\hat{p} \times (100-\hat{p} ))$
+%----------------------------------------------------------%
+
+Question 4
+(Question 4 will be covered again in next weeks tutorial, and does not need to be completed)
+
+
+
+%----------------------------------------------------------%
+Question 7
+
+Point Estimate : The sample mean $\bar{X}$
+
+95\% confidence interval quantile 1.96 
+
+(Apart from pointing out that the sample is large, the justification for using this number is not required)
+
+%----------------------------------------------------------%
+Question 8
+
+Point Estimate : $\bar{X}{n}$
+
+$x$ is the number of successes
+$n$ is the sample size
+
+$\hat{p} = 68.8\%$
+
+
+$\sqrt(\hat{p} \times (100-\hat{p} ))$
+
+%----------------------------------------------------------%
+
+\section{Revision for Inference Procedures}
+
+\begin{itemize}
+\item Definitions
+\item Computing Confidence Intervals 
+\item Performing Hypothesis Testing
+\begin{itemize}
+\item by comparing test statistics to critical values
+\item by considering the p-value
+\item by using the confidence interval.
+\end{itemize}
+\end{itemize}
+
+
+
+
+
+{
+\subsection{Inference : Confidence Intervals }
+
+Basic Structure
+
+\[ \mbox{Observed value} \pm [\mbox{Quantile}\times \mbox{Standard Error}] \] 
+
+
+
+%---------------------------------------------------------------------------------%
+{
+\subsection{Example}
+Given the population of men has normal distributed weights with a mean of 172 lbs and a standard deviation of 29 lbs,
+
+
+
+\subsection{Example}
+Let $X$ be the score from the throw of a die.
+
+It can be shown that, no matter what distribution theunderlying values are from, the statistics will follow a normal distribution.
+
+
+\subsection{Standard Error}
+
+\begin{itemize}
+
+\item As the sampling size increases, the sampling distribution approaches the normal distribution
+
+
+\end{itemize}
+
+\subsection{Central Limit Theorem}
+
+\begin{itemize}
+
+\item Consider a sample of size $n$.
+
+\item The population variance $\sigma^2$ is unknown, but can be estimated by the sample variance $s^2$
+
+
+\end{itemize}
+
+
+}
+
+
+
+\section{New Section}
+
+\subsubsection{Formulae}
+\begin{itemize}
+\item The schedule of formulae that will be at the back of your examination paper will be posted on the SULIS site shortly.
+\item It is advisable to familiarise yourself with the contents before the examination.
+\item Please let me know as soon as possible if there are any issues with it.
+\end{itemize}
+
+%------------------------------------------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Confidence Intervals (Revision) }
+
+\begin{itemize}
+\item The $95\%$ confidence interval is a range of values which contain the true population parameter (i.e. mean, proportion etc) with a probability of $95\%$.
+\item We can expect that a $95\%$ confidence interval will not include the true parameter values $5\%$ of the time.
+\item A confidence level of $95\%$ is commonly used for computing confidence interval, but we could also have confidence levels of $90\%$,$99\%$ and $99.9\%$.
+\end{itemize}
+
+
+
+%-----------------------------------------------------------%
+
+
+
+\subsubsection{Confidence Level (Revision) }
+
+\begin{itemize}
+\item A confidence level for an interval is denoted to $1-\alpha$ (in percentages: $100(1-\alpha)\%$) for some value $\alpha$.
+\item A confidence level of $95\%$ corresponds to $\alpha = 0.05$.
+\item $100(1-\alpha)\%$ = $100(1-0.05)\%$  = $100(0.95)\%$ = $95\%$
+\item For a confidence level of $99\%$, $\alpha = 0.01$.
+\item Knowing the correct value for $\alpha$ is important when determining quantiles.
+\end{itemize}
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------%
+
+Although the sample mean is useful as an unbiased estimator of the population mean, there is no way of
+expressing the degree of accuracy of a point estimator. In fact, mathematically speaking, the probability that the
+sample mean is exactly correct as an estimator of the population mean is $P = 0$.
+
+
+%------------------------------------------------------------------------------%
+
+We indicated that use of the normal distribution in estimating a population mean is warranted
+for any large sample ($n > 30$), \textbf{and} for a small sample ($n \leq 30$) only if the population is normally distributed
+and $\sigma$ is known.
+
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+\item Now we consider the situation in which the sample is small and the population is normally distributed,
+but $\sigma$ is not known.
+\item The distribution is a family of distributions, with
+a somewhat different distribution associated with the degrees of freedom ($df$). For a confidence interval for the
+population mean based on a sample of size n, $df = n - 1$.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+{
+
+\subsubsection{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {\hat(p) \times (100 -\hat{p} )\over n}}
+\]
+
+
+
+\[
+\hat{p} = {144/200}  \times 100\%  = 0.72 \times 100\%.  = 72%
+\]
+
+$100\% - \hat{p} = 100\% - 72\% = 28\% $
+
+}
+
+
+%------------------------------------------------------------------------------%
+{
+\textbf{Computing the Standard Error}
+
+\[
+S.E. (\hat{p}) \;=\; \sqrt{ {72 \times 28 \over 200 }}
+\]
+
+
+}
+%------------------------------------------------------------------------------%
+
+
+
+% Confidence Interval for a Proportion
+% One Sample
+%------------------------------------------------------------------------------%
+{
+\textbf{Computing the point estimate}
+
+Sample percentage
+
+\[
+\hat{p} = \frac{x}{n} \times 100%
+\]
+
+\begin{itemize}
+\item $\hat{p}$ - sample proportion.
+\item $x$  - number of ``successes".
+\item $n$  - the sample size.
+\end{itemize}
+
+}
+
+
+
+
+
+
+
+
+\section{Inference}
+\numberwithin{equation}{section}
+
+\subsection{Standard Errors}
+
+\begin{eqnarray*}
+H_{o}: p = p_{0} \\
+H_{a}: p \neq p_{0}
+\end{eqnarray*}
+
+\begin{equation}
+S.E.(\hat{p})=\sqrt{\frac{(p_{o}(1-p_{o})}{n}}
+\end{equation}
+
+
+%% \chapter{17. Inference : Worked Examples}
+
+\begin{framed}
+%------------------------------------------------------------- %
+
+\textbf{Important:}
+
+Formulae at back of Exam Paper
+\begin{itemize}
+\item Murdoch Barnes Table 3 (The Z distribution)
+\item Murdoch Barnes Table 7 (The Student t distribution)
+
+\end{itemize}
+
+Important Considerations
+
+
+
+\begin{itemize}
+\item Significance  $\alpha$   /    confidence 1- $\alpha$
+\item 
+
+Number of tails   
+\begin{itemize}
+\item one tailed procedure or two tailed procedure
+\item Confidence intervals are always two tailed
+\end{itemize}
+
+
+\item Sample size   
+\begin{itemize}
+\item degrees of freedom depends on sample size
+\end{itemize} 
+\end{itemize}
+\end{framed}
+
+
+
+\end{document}

@@ -1,0 +1,16 @@
+%------------------------------------------------------------------------------%
+
+\textbf{Confidence Interval for a Mean (Small Sample)}
+\begin{itemize}
+\item The mean operating life for a random sample of $n = 10$ light bulbs is $\bar{x} = 4,000$ hours, with the sample
+standard deviation $s = 200$ hours. \item The operating life of bulbs in general is assumed to be approximately normally distributed.\item
+We estimate the mean operating life for the population of bulbs from which this sample was taken, using a 95 percent
+confidence interval as follows:
+
+\[4,000\pm(2.262)(63.3)  = (3857,4143)\]
+
+\item The point estimate is 4,000 hours. The sample standard deviation is 200 hours, and the sample size is 10. Hence \[S.E(\bar{x} ) = { 200 \over \sqrt{10}} = 63.3\]
+
+\item From last slide, the t quantile with $df=9$ is 2.262.
+\end{itemize}
+

@@ -1,0 +1,118 @@
+\subsection{F-test of equality of variances}
+The test statistic is
+
+\begin{equation} F = \frac{S_X^2}{S_Y^2}\end{equation}
+
+has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypothesis of equality of variances is true.
+
+
+\subsubsection{The F-test}
+$H_0$: Both variances are equal
+$H_a$ : The variances are different.
+Compute the test statistic.
+Divide the larger variance by the smaller variance.
+The degrees of freedom are as follows
+
+$\nu_1$ size of sample with larger variance
+$\nu_2$ size of sample with smaller variance
+
+There are 5 values tabulated
+We use the one for a significance level of 0.05
+Carefully read the tables.
+
+\section{Inference}
+
+We will use a simplistic system for interpreting significance values (i.e. p-values).
+
+If a p value is less than 0.02 we reject the nyll hypothesis.
+If the p value is greater than 0.05 we fail to reject the null hypothesis
+If the pvalue us between the two thresholds then we deem the procedure to be inconclusive. 
+
+The null hypothesis is that the true correlation coefficient is zero (which is to say, no linear relationship exists). 
+
+
+
+
+\section{Interpreting p-values}
+
+The p-value is the probability of having observed our data (or more extreme data) when the null hypothesis is true 
+
+The smaller the p-value, the less likely it is that the sample results come from a situation where the null hypothesis H0 is true. If the p-value is sufficiently small, we reject the null hypothesis, and support the alternative hypothesis Ha.
+
+\begin{framed}	
+	\textbf{One Sided Tests}
+	\begin{itemize}
+		\item 		p-value  >  0.05   :   no evidence against H0 in favour of Ha
+		
+		\item 	p-value    <  0.05   :   evidence against H0 in favour of Ha
+	\end{itemize}	
+	\textbf{Two Sided Tests}
+	\begin{itemize}
+		\item 	p-value    >  0.025   :   no evidence against H0 in favour of Ha
+		
+		\item 	p-value    <  0.025   :   evidence against H0 in favour of Ha
+	\end{itemize}		
+\end{framed}
+
+
+
+
+
+\subsection{Hypothesis Testing : Two Populations}
+
+Two samples drawn from two populations are independent samples if
+the selection of the sample from population 1 does not affect the
+selection of the sample from population 2. The following notation
+will be used for the sample and population measurements:
+
+\begin{itemize}
+	\item $p_1$ and $p_2$ = means of populations 1 and 2,
+	
+	\item $\sigma_1$ and $\sigma_2$ = standard deviations of
+	populations 1 and 2,
+	
+	\item $n_l$ and $n_2$ = sizes of the samples drawn from
+	populations 1 and 2 ($n_1 >30 $, $n_2 >30 $),
+	
+	\item $x_1$ and $x_2$, = means of the samples selected from
+	populations 1 and 2,
+	
+	\item $s_{1}$ and $s_{2}$ = standard deviations of the samples
+	selected from populations 1 and 2.
+	
+\end{itemize}
+
+	
+
+
+\section{Statement of the Null and Alternative Hypotheses}
+\[H_0 : \pi_1 = \pi_2\]
+\[H_1 : \pi_1 \neq \pi_2\]
+
+\[H_0 : \pi_1 - \pi_2 = 0\]
+\[H_1 : \pi_1 -  \pi_2 \neq 0\]
+
+Expected Value of differences under null hypothesis
+
+$\pi_1 - \pi_2 = 0$
+
+
+Significance level = 0.01
+
+\[SE(p_1 - p_2) = \sqrt{\bar{p}(1-\bar{p})\left( \frac{1}{n_1} + \frac{1}{n_2} \right)  }\]
+
+Calculate Pooled Proportion Estimate
+
+\[ \bar{p} = \frac{29 + 62}{1110 + 1553} \]
+
+Test Statistic
+
+\[ \frac{(p_1 - p_2) - (\pi_1 - \pi_2)}{SE(\pi_1 - \pi_2)} \]
+
+
+\begin{itemize}
+	\item Standard Error = 0.007123
+	\item Test Statistic = -1.965
+\end{itemize}
+
+

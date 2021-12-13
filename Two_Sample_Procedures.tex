@@ -1,0 +1,222 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx} % Font Family
+\usepackage{helvet} % Font Family
+\usepackage{color}
+\mode<presentation> {
+\usetheme{Default} % was Frankfurt
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usefonttheme{serif}
+%\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+\setbeamercovered{dynamic}
+\title[MA4704]{Technology Maths 4 \\ {\normalsize Lecture 8C}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{Spring 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+\renewcommand{\arraystretch}{1.5}
+%----------------------------------------------------------------------------------------------------------%
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------------------------%
+
+%--------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Two Sample Inference Procedures}
+\begin{itemize}
+\item Previously we looked at inference procedures (Confidence Intervals and Hypothesis Testing) for single samples.
+\item Yesterday we looked at \textit{\textbf{paired}} samples, with two sets of paired measurements. With paired measurements, we are specifically interested in the \textbf{\textit{case-wise}} differences.
+\item Although there are two sets of data, we consider the single data set of case-wise differences.
+\item Now we look at the case of two independent sample procedures.
+\item Independent samples are distinct from paired samples, in that data in one set are not paired with data in another set.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Two Sample Inference Procedures}
+
+\begin{itemize}
+\item Firstly, we will look at the difference in the means of two independent populations.
+\item Let us assume that the both populations are normally distributed $N(\mu_X,\sigma^2_X)$ and $N(\mu_Y,\sigma^2_Y)$
+\item The difference in means for two independent populations X and Y is denoted $\mu_X - \mu_Y$.
+\item Almost always, this value is unknown, and is instead estimated by the difference in sample means: $\bar{X} - \bar{Y}.$
+\item The sample sizes do not need to be equal necessarily. We denote the respective sample sizes $n_X$ and $n_Y$.
+\item For the moment, we will assume that both $n_X$ and $n_Y$ are large samples ($ \geq 30$).
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Sampling}
+\begin{itemize}
+\item The sampling distribution of the difference in means is normally distributed, when both samples sizes are greater than 30.
+\item The expected value of this distribution is $\mu_X - \mu_Y$.
+\item Importantly, the standard error of this distribution is
+\[ S.E(\bar{X} - \bar{Y}) = \sqrt{\frac{\sigma^2_X}{n_X} + \frac{\sigma^2_Y}{n_Y}} \]
+\item The standard deviations for populations X and Y are $\sigma_X$ and $\sigma_Y$ respectively.
+\item Usually these population standard deviations are estimated by the sample standard deviations $s_X$ and $s_Y$ respectively.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{$95\%$ Confidence Intervals}
+The 95\% confidence interval $\mu_X - \mu_Y$ is computed as
+
+\[ (\bar{X} - \bar{Y}) \pm 1.96 \sqrt{\frac{s^2_X}{n_X} + \frac{s^2_Y}{n_Y}}\]
+We will use this in an example shortly.
+\end{frame}
+%--------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Hypothesis Testing}
+\begin{itemize}
+\item Hypothesis testing works in much the same way as material we have covered already, in that we will use a four step process.
+\item The final two steps (critical value step and decision rule step) are precisely the same as previously.
+\item We will now discuss the first two steps.
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Hypothesis Testing: Null and Alternative Hypothesis}
+We are often interested in whether or not two populations have equal mean values. Accordingly, we would construct the hypotheses accordingly.
+\begin{itemize}
+\item[$H_0$] $\mu_X = \mu_Y$
+\item[$H_1$] $\mu_X \neq \mu_Y$
+\end{itemize}
+
+Equivalently we may view in the context of the difference in the populations means, where a difference of zero indicates equality of means.
+\begin{itemize}
+\item[$H_0$] $\mu_X - \mu_Y = 0$
+\item[$H_1$] $\mu_X - \mu_Y \neq 0$
+\end{itemize}
+This second approach is more intuitive in the context of constructing the test statistic.
+\end{frame}
+%--------------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Hypothesis Testing: Test Statistic}
+
+\begin{itemize}
+\item The standard error for difference in means has been introduced previously
+\[ S.E(\bar{X} - \bar{Y}) = \sqrt{\frac{\sigma^2_X}{n_X} + \frac{\sigma^2_Y}{n_Y}} \]
+\item \textbf{Null value}: The expected value of the difference under the null hypothesis $\mu_X - \mu_Y$ is always 0, when the equality of population means is in question.
+\item \textbf{Observed Value}: The observed difference between sample means is $\bar{X} - \bar{Y}$.
+\end{itemize}
+
+
+
+\end{frame}
+
+
+%-------------------------------------------------------------------------------------------%
+
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (a)}
+\begin{itemize}
+\item An experiment is conducted investigating the long-term effects of early childhood intervention programs (such as head start).
+\item In one experiment, the high-school drop out rate of the experimental group (which attended the early childhood program)
+ and the control group (which did not) were compared.
+\item In the experimental group, 73 of 85 students graduated from high school. \item In the control group, only 43 of 82 students graduated.
+Is this difference statistically significant? (Assume that the 0.05 level is chosen.) \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (b)}
+\begin{itemize}
+\item
+The first step in hypothesis testing is to specify the null hypothesis and an alternative hypothesis.
+\item When testing differences between proportions, the null hypothesis is that the two population proportions are equal.
+\item That is, the null hypothesis is:\\
+$H_0: \pi_1 = \pi_2$\\
+$H_1: \pi_1 \neq \pi_2$\\
+\end{itemize}
+(Remark: Two Tailed Test k = 2, and $\alpha = 0.05$)
+\end{frame}
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (c)}
+\begin{itemize}
+\item The next step is to compute the difference between the sample proportions.
+\item In this example, $\hat{p}_1 - \hat{p}_2$ = $73/85 - 43/82$ = $0.8588 - 0.5244$.
+\item $\hat{p}_1 - \hat{p}_2$ = $0.8588 - 0.5244$ = 0.3344.
+\item Difference is $33.44\%$
+\end{itemize}
+\end{frame}
+
+
+
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (d)}
+The formula for the estimated standard error is:
+
+\[ S.E (\hat{p}_1 - \hat{p}_2)  = \sqrt{\bar{p}(100- \bar{p} \left( {1 \over n_1} + {1 \over n_2}  \right)} \]
+
+
+where $\bar{p}$ is a aggregate proportion ( proportion of successes from overall sample, regardless of which group they are in).
+\end{frame}
+
+%-------------------------------------------------------------------------------------------%
+
+
+
+
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (d)}
+\textbf{Aggregate Proportion}:\\
+\[ \bar{p}  = {x_1  + x_2 \over n_1 + n_2} \times 100\% = {73+43 \over 85 + 82} \times 100\% = { 116 \over 167}\times 100\% = 69.5\% \]
+\textbf{Standard Error}:\\
+\[ S.E (\hat{p}_1 - \hat{p}_2)  =  \sqrt{69.5 \times 30.5 \left( {1 \over 85} + {1 \over 82}  \right)}  = 7.13\% \]
+\end{frame}
+
+
+
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (e)}
+\textbf{Test Statistic}:
+\begin{itemize} \item Observed difference :
+85.88\% - 52.44\%  = 33.44\% \item [ i.e (73/85) - (43 /82) ]
+\item Under the null hypothesis, the expected difference is zero.
+\item Test Statistic is therefore \[T.S. = {33.44\% \over 7.13\%} = 4.69\]
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Example 5: Difference in Proportions (e)}
+\begin{itemize}
+\item The Critical value is 1.96 ( Large sample , $\alpha = 0.05$, k=2).
+
+\item The test statistic TS = 4.69, is greater than the critical value CV = 1.96, so we reject the null hypothesis.
+\item The conclusion is that the probability of graduating from high school is greater for students who have participated in the early childhood intervention program than for students who have not.
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+\end{document}
+
+
+\end{document}

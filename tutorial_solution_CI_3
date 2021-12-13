@@ -1,0 +1,55 @@
+%---------------------------------------------------------%
+
+\section{Confidence Intervals: Difference in Two means}
+%-http://onlinestatbook.com/chapter8/difference_means.html
+In order to construct a confidence interval, we are going to make three assumptions:
+
+\begin{itemize}
+	\item The two populations have the same variance. This assumption is called the assumption of homogeneity of variance. 
+	\item The populations are normally distributed. 
+	\item Each value is sampled independently from each other value. 
+\end{itemize}
+
+%---------------------------------------------------------%
+
+For this calculation, we will assume that the variances in each of the two populations are equal. This assumption is called the assumption of homogeneity of variance. 
+
+The first step is to compute the estimate of the standard error of the difference between means (). 
+
+\[ S.E.(\bar{X}-\bar{Y}) = \sqrt{\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y}} \]
+
+\begin{itemize}
+	\item $s^2_x$ and $s^2_x$ is the variance of both samples.
+	\item $n_x$ and $n_y$ is the sample size of both samples.
+\end{itemize}
+The degrees of freedom is $n_x + n_y -2$.
+
+%---------------------------------------------------------%
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Group & sample size & mean & variance \\ \hline
+		X & 17 & 5.353 & 2.743 \\ \hline
+		Y & 17 & 3.882 & 2.985 \\ \hline
+	\end{tabular}
+\end{center}
+
+%---------------------------------------------------------%
+
+\begin{itemize}
+	\item Point estimate : $\bar{x} - \bar{y}$ = 1.4699
+	\item Standard Error: 0.5805
+	\item Quantile : 1.96
+\end{itemize}
+
+\[ 1.4699  \pm (1.96 \times 0.5805) = (0.33212,2.60768) \]
+
+
+This analysis provides evidence that the mean for Y is higher than the mean for X, 
+and that the difference between means in the population is likely to be between 0.29 and 2.65.
+
+
+
+\end{document}
+
